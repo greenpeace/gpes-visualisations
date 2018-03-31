@@ -1,0 +1,95 @@
+body {
+    background: #f6f6f6;
+}
+.only-print {
+    display: none;
+}
+
+div.topbar, div.footerbar {
+    background-color: #0c4413;
+}
+
+.footerbar, .footerbar a, footer a {
+    color: #fff;
+}
+
+.footerbar a:hover, footer a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem
+
+}
+
+header {
+    padding: 1rem;
+}
+
+footer {
+    padding: 0.5rem;
+}
+
+footer .privacy {
+    display: inline;
+}
+
+.topbar {
+    display: block;
+}
+
+p a:after {
+    content: none;
+    font-size: 80%;
+}
+
+header .logo {
+    display: inline;
+}
+
+.homeblock {
+    border: 2px solid #e1ead9;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 2rem;
+}
+
+.homeblock h2 {
+    font-size: 1.5rem;
+}
+
+.homeblock a {
+    color: #335215;
+}
+
+.homeheaderblock {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.homeheaderblock h1 {
+    margin-top: 1rem;
+}
+
+.homeblock2 {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 2rem;
+}
+
+.homeblock2 h2 {
+    font-size: 1.5rem;
+}
+
+.homeblock2 a {
+    color: #335215;
+}
+
+.javascript_link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+

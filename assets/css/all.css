@@ -1,0 +1,100 @@
+body {
+    font-family: "Work Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Rubik", sans-serif;
+}
+
+h1 {
+    font-size: 2.7rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.9rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.66rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+h4, h5, h6 {
+    font-size: 1.2rem;
+    margin-top: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
+figcaption {
+    font-size: 0.8rem;
+    color: #797979;
+}
+
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.4em;
+}
+
+blockquote:after {
+    color: #ccc;
+    content: close-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
+}
+
+.topbar .logo {
+    width: 150px;
+}
+
+.footerbar, .footerbar a {
+    color: #fff;
+}
+
+.spaced-block {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.references {
+    margin-bottom: 2rem;
+}
+
+.references h2 {
+    font-size: 1.5rem;
+}
+.references li {
+    font-size: 0.8rem;
+}
+
+
