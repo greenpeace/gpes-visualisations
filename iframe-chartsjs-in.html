@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700" rel="stylesheet">
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <div class="chart-container" style="position: relative; width:100%">
+        <canvas id="bar_chart_1" height="200"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById("bar_chart_1");
+        var bar_chart_1 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                datasets: [{
+                    label: 'Gastos en miles de euro',
+                    data: [8, 9, 10, 9, 12, 13],
+                    backgroundColor: [
+                        'rgba(255, 225, 159, 0.85)',
+                        'rgba(255, 225, 159, 0.85)',
+                        'rgba(255, 225, 159, 0.85)',
+                        'rgba(255, 225, 159, 0.85)',
+                        'rgba(255, 225, 159, 0.85)',
+                        'rgba(255, 225, 159, 0.85)',
+                    ]
+                }]
+            },
+
+            options: {
+
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: true,
+                    text: 'Evolución de dato en el tiempo',
+                    fontSize: 16,
+                    fontFamily: '"Work Sans", sans-serif',
+                    fontColor: '#212529'
+                },
+                layout: {
+                    padding: {
+                        bottom: 30
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            fontFamily: '"Work Sans", sans-serif',
+                            fontColor: '#212529'
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Miles de euros',
+                            fontFamily: '"Work Sans", sans-serif',
+                            fontColor: '#212529'
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontFamily: '"Work Sans", sans-serif',
+                            fontColor: '#212529'
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Meses',
+                            fontFamily: '"Work Sans", sans-serif',
+                            fontColor: '#212529'
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

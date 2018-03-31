@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js"></script>
+    <title>Bar charts</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Bar charts</h1>
+
+            <p class="lead">Bar charts are very used and the easiest to understand.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Time-based data</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="bar_chart_1" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("bar_chart_1");
+                        var bar_chart_1 = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                datasets: [{
+                                    label: 'Gastos en miles de euro',
+                                    data: [8, 9, 10, 9, 12, 13],
+                                    backgroundColor: [
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)'
+                                    ]
+                                }]
+                            },
+                            options: {
+
+                                legend: { display: false },
+                                title: {
+                                    display: true,
+                                    text: 'Evolución de dato en el tiempo',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                layout: {
+                                        padding: {
+                                            bottom: 20
+                                        }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Miles de euros',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        ticks: {
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Meses',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Bar charts can be used for other comparisons that are not temporary, but often another graph type is  more appropriate.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/4jz2kysh/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Compare time-based data</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="bar_chart_2" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("bar_chart_2");
+                        var bar_chart_2 = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                datasets: [{
+                                    label: 'ingresos',
+                                    data: [8, 9, 10, 9, 12, 13],
+                                    backgroundColor: [
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)'
+                                    ]
+                                },
+                                {
+                                    label: 'gastos',
+                                    data: [6, 19, 11, 8, 14, 11],
+                                    backgroundColor: [
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)'
+                                    ]
+                                }
+
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Comparar evolución de dos datos en el tiempo',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                layout: {
+                                        padding: {
+                                            bottom: 20
+                                        }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Miles de euros',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        ticks: {
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Meses',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Compares two metrics trough time, if the number of months / years is not too large. Line graphs can represent more information clearly.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/tbr1h3wp/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Positives and negatives</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                   <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="bar_chart_3" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("bar_chart_3");
+                        var bar_chart_3 = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                datasets: [{
+                                    label: 'Altas',
+                                    data: [8, 9, 10, 9, 12, 13],
+                                    backgroundColor: [
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(195, 224, 166, 0.85)'
+                                    ]
+                                },
+                                {
+                                    label: 'Bajas',
+                                    data: [-6, -19, -11, -8, -14, -11],
+                                    backgroundColor: [
+                                        'rgba(255, 195, 49, 0.85)',
+                                        'rgba(255, 195, 49, 0.85)',
+                                        'rgba(255, 195, 49, 0.85)',
+                                        'rgba(255, 195, 49, 0.85)',
+                                        'rgba(255, 195, 49, 0.85)',
+                                        'rgba(255, 195, 49, 0.85)'
+                                    ]
+                                }
+
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Positivos y negativos',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                layout: {
+                                        padding: {
+                                            bottom: 20
+                                        }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Socios/as',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        ticks: {
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Meses',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Bar charts can have positive and negative values in both axes. In the example below we compare two sets of data.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/tm47a35g/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Ranking</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="bar_chart_4" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("bar_chart_4");
+                        var bar_chart_4 = new Chart(ctx, {
+                            type: 'horizontalBar',
+                            data: {
+                                labels: ["Dinamarca", "Suiza", "Belgica", "Portugal", "Holanda"],
+                                datasets: [
+                                    {
+                                        label: 'Puntos',
+                                        data: [20,19,18,17,16],
+                                        backgroundColor: [
+                                        'rgba(195, 224, 166, 0.85)',
+                                        'rgba(122, 189, 148, 0.85)',
+                                        'rgba(253, 246, 178, 0.85)',
+                                        'rgba(255, 225, 159, 0.85)',
+                                        'rgba(255, 195, 49, 0.85)'
+                                        ]
+                                    }
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Ranking',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: false,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                layout: {
+                                        padding: {
+                                            bottom: 20
+                                        }
+                                },
+                                scales: {
+                                    xAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Puntos',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }],
+                                    yAxes: [{
+                                        ticks: {
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Países',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Horizontal bar charts are more appropriate for comparing data when there is no time factor or when the order of the dimension is important.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/5wu3sxmx/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Acumulated data trough time</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                   <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="bar_chart_5" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("bar_chart_5");
+                        var bar_chart_5 = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                datasets: [
+                                    {
+                                    label: 'oro',
+                                    data: [8, 7, 6, 5, 4, 3],
+                                    backgroundColor: 'rgba(255, 195, 49, 0.85)'
+                                    },
+                                    {
+                                    label: 'plata',
+                                    data: [8, 10, 12, 14, 16, 18],
+                                    backgroundColor: 'rgba(134, 139, 134, 0.85)'
+                                    },
+                                    {
+                                    label: 'platina',
+                                    data: [7, 9, 10, 9, 14, 15],
+                                    backgroundColor: 'rgba(195, 224, 166, 0.85)'
+                                    }
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Evolución de datos acumulados en el tiempo',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                layout: {
+                                        padding: {
+                                            bottom: 20
+                                        }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        stacked: true,
+                                        ticks: {
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Kg',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        stacked: true,
+                                        ticks: {
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Meses',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>This charts show how the sum of of different metrics evolves trough time.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/jom8fgr8/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+             <div class="row">
+                <div class="col-sm">
+                    <h2>Percentajes trough time</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="bar_chart_6" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("bar_chart_6");
+                        var bar_chart_6 = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                datasets: [
+                                    {
+                                    label: 'oro',
+                                    data: [25, 33, 10, 25, 40, 5],
+                                    backgroundColor: 'rgba(255, 195, 49, 0.85)'
+                                    },
+                                    {
+                                    label: 'plata',
+                                    data: [50, 33, 10, 25, 20, 15],
+                                    backgroundColor: 'rgba(134, 139, 134, 0.85)'
+                                    },
+                                    {
+                                    label: 'platina',
+                                    data: [25, 34, 80, 50, 40, 80],
+                                    backgroundColor: 'rgba(195, 224, 166, 0.85)'
+                                    }
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Evolución de porcentages en el tiempo',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                layout: {
+                                        padding: {
+                                            bottom: 20
+                                        }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        stacked: true,
+                                        ticks: {
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Porcentaje',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        stacked: true,
+                                        ticks: {
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Meses',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>When we want to show variation of one or more percentages over time.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/ou2c4hn8/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="https://es.greenpeace.org">Prev</a> <a class="btn btn-outline-dark" href="line-charts.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

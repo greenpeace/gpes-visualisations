@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+    <title>Networks</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Networks</h1>
+
+            <p class="lead">Represent networks in a chart.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Organigram</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+<style>
+    #chart_div .minudo {
+        font-family: '"Work Sans",sans-serif';
+        font-size: 15px;
+    }
+
+    #chart_div .puesto {
+        color: #D7D5A1;
+        font-style: italic;
+    }
+
+    #chart_div table tbody tr:nth-child(2n+1) {
+        background: none;
+        border: none;
+    }
+
+    #chart_div table tbody tr {
+        border: none;
+    }
+
+    #chart_div .google-visualization-orgchart-linebottom {
+        border-bottom: 1px solid #FF4D16;
+    }
+
+    #chart_div .google-visualization-orgchart-lineright {
+        border-right: 1px solid #FF4D16;
+    }
+
+    #chart_div .google-visualization-orgchart-lineleft {
+        border-left: 1px solid #FF4D16;
+    }
+</style>
+<script>
+  google.charts.load('current', {
+    packages: ["orgchart"],
+    language: 'es'
+  });
+
+</script>
+
+<div id="chart_div" style="background-color: #f6f6f5;"></div>
+
+<script>
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Name');
+    data.addColumn('string', 'Manager');
+    data.addColumn('string', 'ToolTip');
+
+    // For each orgchart box, provide the name, manager, and tooltip to show.
+    data.addRows([
+      [{
+        v: 'Mario',
+        f: 'Mario'
+      }, '', ''],
+      [{
+        v: 'Eva',
+        f: 'Eva'
+      }, 'Mario', ''],
+      [
+        'Alice', 'Mario', ''
+      ],
+      [
+        'Bob', 'Eva', ''
+      ],
+      [
+        'Pedro', 'Eva', ''
+      ],
+      [
+        'Carol', 'Eva', ''
+      ]
+    ]);
+
+    // Create the chart.
+    var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+    // Draw the chart, setting the allowHtml option to true for the tooltips.
+    chart.draw(data, {
+      allowHtml: true,
+      size: 'medium',
+      nodeClass: 'minudo',
+      selectedNodeClass: 'minudoactivo'
+    });
+  }
+
+</script>
+
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Quickly and automatically draw an organogram or tree diagram.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/oxyssum7/embedded/result,html,css/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Informal networks</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+
+<script type="text/javascript">
+
+                                    var nodes = null;
+                                    var edges = null;
+                                    var network = null;
+
+                                    function draw() {
+                                      var DIR = 'https://apps.greenpeace.es/data-vis/img/network/';
+                                      nodes = [
+                                        {id: 1,  shape: 'image', image: DIR + '1.png', label:"Flor1"},
+                                        {id: 2,  shape: 'image', image: DIR + '2.png', label:"Flor2"},
+                                        {id: 3,  shape: 'image', image: DIR + '3.png', label:"Flor3"},
+                                        {id: 4,  shape: 'image', image: DIR + '4.png', label:"El jefe"},
+                                        {id: 5,  shape: 'image', image: DIR + '5.png', label:"Fruto"},
+                                        {id: 6,  shape: 'image', image: DIR + '6.png', label:"Insecto"},
+                                        {id: 7,  shape: 'image', image: DIR + '7.png', label:"Perro"},
+                                        {id: 8,  shape: 'image', image: DIR + '8.png', label:"Niño"},
+                                        {id: 9,  shape: 'image', image: DIR + '9.png', label:"Busto"},
+                                        {id: 10, shape: 'image', image: DIR + '10.png', label:"Gato"},
+                                        {id: 11, shape: 'image', image: DIR + '11.png', label:"Insecto"},
+                                        {id: 12, shape: 'image', image: DIR + '12.png', label:"Pajaro"},
+                                        {id: 13, shape: 'image', image: DIR + '13.png', label:"Del mar"},
+                                        {id: 14, shape: 'circle', label:"El\nincógnito"},
+                                      ];
+
+                                      edges = [
+                                        {from: 1, to: 2},
+                                        {from: 2, to: 3},
+                                        {from: 2, to: 4},
+                                        {from: 4, to: 5},
+                                        {from: 4, to: 10},
+                                        {from: 4, to: 6},
+                                        {from: 6, to: 7},
+                                        {from: 7, to: 8},
+                                        {from: 8, to: 9},
+                                        {from: 8, to: 10},
+                                        {from: 10, to: 11},
+                                        {from: 11, to: 12},
+                                        {from: 12, to: 13},
+                                        {from: 13, to: 14}
+                                      ];
+
+                                      // create a network
+                                      var container = document.getElementById('mynetwork');
+                                      var data = {
+                                        nodes: nodes,
+                                        edges: edges
+                                      };
+                                      var options = {
+                                        nodes: {
+                                          borderWidth: 1,
+                                          size:30,
+                                          color: {
+                                            border: '#FFC331',
+                                            background: '#FFC331'
+                                          },
+                                          font:{
+                                              color:'#212529',
+                                              size: 14,
+                                              face: '"Work Sans",sans-serif'
+                                          },
+                                          shapeProperties: {
+                                            useBorderWithImage: true
+                                          }
+                                        },
+                                        edges: {
+                                          color: '#f00'
+                                        }
+                                      };
+                                      network = new vis.Network(container, data, options);
+                                    }
+
+                                  </script>
+
+                                <div id="mynetwork" style="background-color: #f6f6f5; height: 400px; border: none; margin-bottom: 1em;"></div>
+
+                                <script>
+                                    draw();
+                                </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Chart to visualise social networks and/or conections.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/p5onsb9p/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Example with many nodes</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="mynetwork2" style="background-color: #f6f6f5; height: 400px; border: none; margin-bottom: 1em;"></div>
+                    <script src="https://apps.greenpeace.es/data-vis/js/WorldCup2014.js"></script>
+                    <script type="text/javascript">
+                      var network;
+
+                      function redrawAll() {
+                        var container = document.getElementById('mynetwork2');
+                        var options = {
+                          nodes: {
+                            shape: 'dot',
+                            scaling: {
+                              min: 10,
+                              max: 30
+                            },
+                            font: {
+                              size: 11,
+                              face: '"Work Sans",sans-serif',
+                              color: '#212529'
+                            }
+                          },
+                          edges: {
+                            color:{inherit:true},
+                            width: 0.15,
+                            smooth: {
+                              type: 'continuous'
+                            }
+                          },
+                          physics: false
+                        };
+
+                        var data = {nodes:nodes, edges:edges};
+                        // Note: data is coming from ./data/WorldCup2014.js
+                        network = new vis.Network(container, data, options);
+                      }
+
+                      redrawAll()
+
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>You can make networks with thousands of networks.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/o1vtjcxL/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="details-charts.html">Prev</a> <a class="btn btn-outline-dark" href="tables.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

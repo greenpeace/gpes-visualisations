@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {
+            'packages': ['timeline', 'gantt'],
+            language: 'es'
+        });
+    </script>
+    <title>Timelines</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Timelines</h1>
+
+            <p class="lead">To visualise history, plans for the future and projects.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Simple timeline</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="timeline1" style="height: 190px;"></div>
+                    <script>
+                        google.charts.setOnLoadCallback(drawChart);
+
+                        function drawChart() {
+                            var container = document.getElementById('timeline1');
+                            var chart = new google.visualization.Timeline(container);
+                            var dataTable = new google.visualization.DataTable();
+
+                            dataTable.addColumn({
+                                type: 'string',
+                                id: 'Company'
+                            });
+                            dataTable.addColumn({
+                                type: 'date',
+                                id: 'Start'
+                            });
+                            dataTable.addColumn({
+                                type: 'date',
+                                id: 'End'
+                            });
+                            dataTable.addRows([
+                                ['Acme inc', new Date(1989, 3, 30), new Date(1997, 2, 4)],
+                                ['Halo Corporation', new Date(1997, 2, 4), new Date(2001, 2, 4)],
+                                ['Wayne Enterprises', new Date(2001, 0, 4), new Date(2019, 2, 4)]
+                            ]);
+
+                            var options = {
+                                timeline: {
+                                    showRowLabels: true,
+                                    rowLabelStyle: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontSize: 13,
+                                        color: '#212529'
+                                    },
+                                    barLabelStyle: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontSize: 13,
+                                        color: '#212529'
+                                    },
+
+                                }
+                            }
+
+                            chart.draw(dataTable, options);
+                        }
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>To show related events in time, so the user understands the story behind them.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/wd4u9r98/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Custom timeline</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="timeline2" style="height: 190px;"></div>
+                    <script>
+                        google.charts.setOnLoadCallback(drawChart2);
+
+                        function drawChart2() {
+                            var container2 = document.getElementById('timeline2');
+                            var chart = new google.visualization.Timeline(container2);
+                            var dataTable = new google.visualization.DataTable();
+
+                            dataTable.addColumn({
+                                type: 'string',
+                                id: 'Term'
+                            });
+                            dataTable.addColumn({
+                                type: 'string',
+                                id: 'Name'
+                            });
+
+                            dataTable.addColumn({
+                                type: 'string',
+                                role: 'tooltip',
+                                'p': {
+                                    'html': true
+                                }
+                            });
+
+                            dataTable.addColumn({
+                                type: 'date',
+                                id: 'Start'
+                            });
+                            dataTable.addColumn({
+                                type: 'date',
+                                id: 'End'
+                            });
+
+                            dataTable.addRows([
+                                ['1', 'Acme', '<div style="margin: 10px;">Acme</div>', new Date(1989, 3, 30), new Date(1997, 2, 4)],
+                                ['2', 'Halo Corporation', '<div style="margin: 10px;">Halo<br />Corporation</div>', new Date(1997, 2, 4), new Date(2001, 2, 4)],
+                                ['3', 'Wayne Enterprises', '<div style="margin: 10px;">Wayne<br />Enterprises</div>', new Date(2001, 2, 4), new Date(2019, 2, 4)]
+                            ]);
+
+                             var options = {
+                                colors: ['#FFE19F', '#FFC4A7', '#D7D5A1'],
+                                tooltip: {
+                                    isHtml: true
+                                },
+                                timeline: {
+                                    showRowLabels: false,
+                                    showBarLabels: true,
+                                    rowLabelStyle: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontSize: 13,
+                                        color: '#212529'
+                                    },
+                                    barLabelStyle: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontSize: 13,
+                                        color: '#212529'
+                                    },
+
+                                }
+                            };
+
+                            chart.draw(dataTable, options);
+                        }
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>You can configure the timeline's design.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/s8scn2kp/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Gantt diagram</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="timeline3" style="height: auto; margin-bottom: 1.5em;"></div>
+                    <script>
+                        google.charts.setOnLoadCallback(drawChart3);
+
+                        function daysToMilliseconds(days) {
+                            return days * 24 * 60 * 60 * 1000;
+                        }
+
+                        function drawChart3() {
+
+                            var data = new google.visualization.DataTable();
+                            data.addColumn('string', 'Task ID');
+                            data.addColumn('string', 'Task Name');
+                            data.addColumn('string', 'Responsables');
+                            data.addColumn('date', 'Start Date');
+                            data.addColumn('date', 'End Date');
+                            data.addColumn('number', 'Duration');
+                            data.addColumn('number', 'Percent Complete');
+                            data.addColumn('string', 'Dependencies');
+
+                            data.addRows([
+                                ['Research', 'Buscar fuentes', null,
+                                    new Date(2015, 0, 1), new Date(2015, 0, 5), null, 100, null
+                                ],
+                                ['Write', 'Escribir documento', 'A',
+                                    null, new Date(2015, 0, 9), daysToMilliseconds(3), 25, 'Research,Outline'
+                                ],
+                                ['Cite', 'Crear bibliografía', 'A',
+                                    null, new Date(2015, 0, 7), daysToMilliseconds(1), 20, 'Research'
+                                ],
+                                ['Complete', 'Entregar documento', 'B',
+                                    null, new Date(2015, 0, 10), daysToMilliseconds(1), 0, 'Cite,Write'
+                                ],
+                                ['Outline', 'Planificar documento', 'A',
+                                    null, new Date(2015, 0, 6), daysToMilliseconds(1), 100, 'Research'
+                                ]
+                            ]);
+
+                            var options = {
+
+                                gantt: {
+                                    criticalPathEnabled: false,
+                                    innerGridHorizLine: {
+                                        stroke: '#868B86',
+                                        strokeWidth: 1
+                                    },
+                                    labelStyle: {
+                                      fontName: '"Work Sans",sans-serif',
+                                      fontSize: 13,
+                                      color: '#212529'
+                                    }
+                                }
+                            };
+
+                            var chart = new google.visualization.Gantt(document.getElementById('timeline3'));
+
+                            chart.draw(data, options);
+                        }
+
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Ideal to describe related tasks in a project or concrete implementation proposals.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/r34nrkm2/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="buble-charts.html">Prev</a> <a class="btn btn-outline-dark" href="flux-charts.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

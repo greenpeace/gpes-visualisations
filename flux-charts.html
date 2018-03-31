@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {
+            'packages': ['sankey'],
+            language: 'es'
+        });
+    </script>
+    <title>Fluxes</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Fluxes</h1>
+
+            <p class="lead">Fluxes describe movements of something between elements. They can also be used to represent some types of relations.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>1 step flux, many to many</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+
+                                <div id="flujos1" style="width: 100%; height: 270px; margin-bottom: 1em;"></div>
+
+                                <script>
+                                    google.charts.setOnLoadCallback(drawChart);
+
+                                    function drawChart() {
+                                        var data = new google.visualization.DataTable();
+                                        data.addColumn('string', 'De');
+                                        data.addColumn('string', 'Para');
+                                        data.addColumn('number', 'Cantidad');
+                                        data.addRows([
+                                            ['John', "Moe's Tavern", 5],
+                                            ['Mary', "Moe's Tavern", 7],
+                                            ['Rocket', "Moe's Tavern", 6],
+                                            ['John', "Rick's Café", 2],
+                                            ['Mary', "Rick's Café", 9],
+                                            ['Rocket', "Rick's Café", 4],
+                                            ['Rocket', 'Café René', 4],
+                                            ['John', 'The Bronze', 4],
+                                        ]);
+
+                                        // Sets chart options.
+                                        var options = {
+                                            sankey: {
+                                                node: {
+                                                    label: {
+                                                        fontName: '"Work Sans",sans-serif',
+                                                        fontSize: 13,
+                                                        color: '#212529'
+                                                    }
+                                                }
+                                            }
+                                        };
+
+                                        // Instantiates and draws our chart, passing in some options.
+                                        var chart = new google.visualization.Sankey(document.getElementById('flujos1'));
+                                        chart.draw(data, options);
+                                    }
+                                </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>To show flows and their source, destination and ammount. It can be used, for example, to describe customer / supplier relationships, corruption networks or political parties funding.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/c306b9br/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>2 step flux, many to many</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="flujos2" style="width: 100%; height: 270px; margin-bottom: 1em;"></div>
+
+                    <script>
+                        google.charts.setOnLoadCallback(drawChart2);
+
+                        function drawChart2() {
+                            var data = new google.visualization.DataTable();
+                            data.addColumn('string', 'De');
+                            data.addColumn('string', 'Para');
+                            data.addColumn('number', 'Cantidad');
+                            data.addRows([
+                                ['John', "Moe's Tavern", 5],
+                                ['Mary', "Moe's Tavern", 7],
+                                ['Rocket', "Moe's Tavern", 6],
+                                ['John', "Rick's Café",  2],
+                                ['Mary', "Rick's Café",  9],
+                                ['Rocket', "Rick's Café", 4],
+                                ['Rocket', 'Café René',  4],
+                                ['John', 'The Bronze', 4],
+                                ['Stark Industries', "John",  11],
+                                ['Stark Industries', "Rocket",  14],
+                                ['Wayne Enterprises', "Mary", 16],
+                            ]);
+
+                            // Sets chart options.
+                            var colors = ['#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f', '#cab2d6', '#ffff99', '#1f78b4', '#33a02c', '#a6aee3' ];
+
+                            var options = {
+                                sankey: {
+                                    node: {
+                                        nodePadding: 30,
+                                        width: 20,
+                                        colors: colors,
+                                        label: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontSize: 13,
+                                            color: '#212529'
+                                        }
+                                    },
+                                    link: {
+                                      colorMode: 'gradient',
+                                      colors: colors
+                                    }
+
+                                }
+                            };
+
+                            // Instantiates and draws our chart, passing in some options.
+                            var chart = new google.visualization.Sankey(document.getElementById('flujos2'));
+                            chart.draw(data, options);
+                        }
+
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>This is a two step sankey chart, with two steps and custom colors.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/j9kbu6wp/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Funnel</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                   <script src="https://apps.greenpeace.es/data-vis/js/chart.funnel.min.js"></script>
+                    <div id="canvas-holder" style="width:100%; height: auto; margin-bottom: 2em;">
+                        <canvas id="chart-area" width="350" height="200"></canvas>
+                    </div>
+                    <script>
+                        var config = {
+                            type: 'funnel',
+                            data: {
+                                datasets: [{
+                                    data: [10, 30, 90, 270],
+                                    backgroundColor: [
+                                        "rgba(122, 189, 148, 1)",
+                                        "rgba(253, 246, 178, 1)",
+                                        "rgba(255, 195, 49, 1)",
+                                        "rgba(255, 196, 167, 1)"
+                                    ]
+                                }],
+                                labels: [
+                                    "Socios",
+                                    "Llamadas",
+                                    "Firmas",
+                                    "Visitas"
+
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                sort: 'desc',
+                                legend: {
+                                    position: 'top',
+                                    labels: {
+                                        fontSize: 13,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Funel',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                animation: {
+                                    animateScale: true,
+                                    animateRotate: true
+                                }
+                            }
+                        };
+
+                        window.onload = function() {
+                            var ctx = document.getElementById("chart-area").getContext("2d");
+                            window.myDoughnut = new Chart(ctx, config);
+                        };
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Often used in marketing and sales.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/5u4vahxd/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="timeline-charts.html">Prev</a> <a class="btn btn-outline-dark" href="treemap-heatmap-charts.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

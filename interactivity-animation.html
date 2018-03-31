@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js"></script>
+    <title>Interactivity and animation</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Interactivity and animation</h1>
+
+            <p class="lead">PLEASE NOTE: Examples of interactive graphics and animations will be added to this page soon.</p>
+
+            <p>We can consider spending (lots of) time adding interactivity or animation to an infographic when we are sure that it will <strong>add value</strong> and that it will be <strong>seen by thousands</strong> of persons. If your animation/interaction is cheesy or it makes it harder for the user to understand the message, it’s better not to use it at all.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Interactivity</h2>
+
+                    <p>Interactivity can improve data visualisation and message understanding. This doesn’t mean it suits all infographics and charts, as it can become a distraction. Often interactivity helps when comparing data, understand processes or displaying extra information. If your interactivity is decorative only, it’s probably better to take it off.</p>
+
+                    <p>Charts and maps are interactive by default, and generally it’s fine to leave it as it is. Most of this interactions are discreet and useful.</p>
+
+                    <p>We can add interactivity to our infographics, but we must plan it ahead and spend time developing and testing. We can do anything, but it doesn’t mean we can do everything.</p>
+
+                    <p>Finally our web pages can have links or buttons that control a video on the same page. We can also add Google Street Maps or compare two photos. <a href="multimedia.html">More information &rarr;</a></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-4">
+                    <!-- FIGURE -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+                    <style>
+                        #svg {
+                          display: block;
+                          margin: 20px auto;
+                          width: 125px;
+                          height: 125px;
+                          padding: 20px;
+                          fill: #66cc00;
+                          cursor: pointer;
+                        }
+                    </style>
+                    <svg id="svg"></svg>
+                    <script>
+                        window.onload = function() {
+
+                            var paper = Snap('svg');
+                            var tri = paper.path("M1.112 41.587C.402 40.213 0 38.653 0 37c0-3.465 1.76-6.518 4.44-8.312L28.73 3.532c3.834-3.97 10.163-4.08 14.136-.244 3.973 3.837 4.084 10.167.25 14.137L33.872 27h33.12C72.52 27 77 31.476 77 37c0 5.523-4.473 10-10.007 10H33.8l9.04 9.037c3.902 3.904 3.902 10.233-.005 14.14-3.905 3.904-10.236 3.905-14.14.002L3.236 44.716c-.93-.928-1.636-1.993-2.123-3.13z");
+                            tri.attr({
+                                id:"Arrow",
+                            });
+
+                            TransformFunction = function(){
+                                tri.animate({d:"M30.448 17.54l13.99-14.485c3.836-3.974 10.166-4.086 14.14-.248 3.973 3.836 4.09 10.16.246 14.14L44.592 31.686 57.38 44.473c3.906 3.907 3.908 10.24.002 14.145-3.905 3.905-10.237 3.905-14.144-.002l-12.54-12.542-13.5 13.98c-3.838 3.973-10.17 4.085-14.142.248-3.973-3.837-4.09-10.16-.246-14.14L16.552 31.93 3.384 18.762C-.522 14.856-.524 8.524 3.382 4.618 7.287.713 13.62.713 17.527 4.62l12.92 12.92z" },1500,mina.elastic);
+                            }
+
+                            RetransformFunction = function(){
+                                tri.animate({d:"M1.112 41.587C.402 40.213 0 38.653 0 37c0-3.465 1.76-6.518 4.44-8.312L28.73 3.532c3.834-3.97 10.163-4.08 14.136-.244 3.973 3.837 4.084 10.167.25 14.137L33.872 27h33.12C72.52 27 77 31.476 77 37c0 5.523-4.473 10-10.007 10H33.8l9.04 9.037c3.902 3.904 3.902 10.233-.005 14.14-3.905 3.904-10.236 3.905-14.14.002L3.236 44.716c-.93-.928-1.636-1.993-2.123-3.13z"},1500,mina.elastic);
+                            }
+                            // setTimeout(TransformFunction, 200);
+                            // setTimeout(RetransformFunction, 1700);
+
+                            paper.click(function() {
+                            setTimeout(TransformFunction, 200);
+                            setTimeout(RetransformFunction, 1700);
+
+                            });
+
+                        }
+                    </script>
+
+
+                    <!-- FIGURE -->
+                    <p><small>Click the icon above to start a simple animation.</small></p>
+                </div>
+                <div class="col-sm">
+                    <h2>Animation</h2>
+
+                    <h3>Charts</h3>
+
+                    <p>Most of the charts in this style guide already have animations to help understanding data or to draw the user’s attention to a specific detail.</p>
+
+                    <h3>Infographics</h3>
+
+                    <p>We can animate infographics in SVG format. To see a very simple example click the previous green arrow.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <p>Generally in simple animation we just need to define initial and end positions for each object, timing and event that triggers the animation.</p>
+
+                    <p>With Inkscape you can create two layers. In the first layer you put the objects in it’s initial position and in the second layer put a copy of the objects in it’s final position. There’s a few more recommendations, but should be discussed between developer and designer.</p>
+
+                    <h3>Videos</h3>
+
+                    <p>Complex animations should be presented inside a video or interactive video. For more information see the video in the <a href="multimedia.html">multimedia page</a> of this guide.</p>
+                </div>
+            </div>
+
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="sizes-formats-files.html">Prev</a> <a class="btn btn-outline-dark" href="sharing.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

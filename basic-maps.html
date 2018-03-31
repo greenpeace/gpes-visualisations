@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load("current", {
+            "packages":["map"],
+              "language" : "es",
+            // Note: you will need to get a mapsApiKey for your project.
+            // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+            "mapsApiKey": "AIzaSyBiy7JuMr1LFrecAu8SORp9Wt2vYM8A3D8"
+        });
+    </script>
+    <title>Basic maps</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Basic maps</h1>
+
+            <p class="lead">In this page you can <strong>learn</strong> the basic principles to build any map. You can combine this principles into complex maps.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Location lists</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                   <div id="map_div_1" style="width: 100%; height: auto; margin-bottom: 1em;"></div>
+
+                    <script>
+                          google.charts.setOnLoadCallback(drawChart);
+                          function drawChart() {
+                            var data = google.visualization.arrayToDataTable([
+                              ['Lat', 'Long', 'Name'],
+                              [40.4270479, -3.7067424, 'Dos de Mayo'],
+                              [40.4263895, -3.7222716, 'Rosaleda'],
+                              [40.4172129, -3.6836472, 'Retiro'],
+                              [40.3910418, -3.6981891, 'Matadero']
+                            ]);
+
+                            var map = new google.visualization.Map(document.getElementById('map_div_1'));
+                            map.draw(data, {
+                              showTooltip: true,
+                              showInfoWindow: true,
+                              useMapTypeControl: true,
+                              mapType: 'normal'
+                            });
+                          }
+
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Simple map with interest points.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/zeyzsrwy/embedded/result,html/">Copy this map</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>With custom icons</h2>
+                </div>
+            </div>
+
+          <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="map_div_2" style="height: auto; width: 100%; margin-bottom: 1em;"></div>
+
+                    <script>
+                        google.charts.setOnLoadCallback(drawMap);
+
+                        function drawMap () {
+                          var data = new google.visualization.DataTable();
+                          data.addColumn('string', 'Address');
+                          data.addColumn('string', 'Location');
+                          data.addColumn('string', 'Marker')
+
+                          data.addRows([
+                            ['Madrid, Spain', 'Madrid',   'blue' ],
+                            ['Cordoba, Spain',  'Cordoba', 'green'],
+                            ['Seville, Spain', 'Sevilla', 'pink' ]
+                          ]);
+
+                          // https://www.flaticon.com/packs/map-icons
+                          var url = 'https://apps.greenpeace.es/data-vis/img/maps/';
+
+                          var options = {
+                            zoomLevel: 6,
+                            showTooltip: true,
+                            showInfoWindow: true,
+                            useMapTypeControl: true,
+                            mapType: 'hybrid',
+                            icons: {
+                              blue: {
+                                normal:   url + 'little-flag.png',
+                                selected: url + 'little-flag-2.png'
+                              },
+                              green: {
+                                normal:   url + 'position-mark.png',
+                                selected: url + 'position-mark-2.png'
+                              },
+                              pink: {
+                                normal:   url + 'coffe-cup-silhouette.png',
+                                selected: url + 'coffe-cup-silhouette-2.png'
+                              }
+                            }
+                          };
+                          var map = new google.visualization.Map(document.getElementById('map_div_2'));
+
+                          map.draw(data, options);
+                        }
+                      </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Simple satellite view map with custom icons.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/2a39csre/embedded/result,html/">Copy this map</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Routes and interest points</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                                <div id="map" style="height: 400px; margin-bottom: 1em;"></div>
+                                <script>
+
+                                  // This example displays a marker at the center of Australia.
+                                  // When the user clicks the marker, an info window opens.
+
+                                  function initMap1() {
+                                    var madrid_1 = {lat: 40.4381307, lng: -3.8199659};
+                                    var map = new google.maps.Map(document.getElementById('map'), {
+                                      zoom: 9,
+                                      center: madrid_1,
+                                        scrollwheel: false
+
+                                    });
+
+                                    var contentString_1 = '<div class="mapBubble">'+
+                                        '<h3>Madrid</h3>'+
+                                        '<div class="mapBubbleBody">'+
+                                        '<p><b>Madrid</b>, Eam ea nobis civibus nominavi. Ad fierent efficiendi qui. Molestiae complectitur sea ne, menandri platonem volutpat ex pro, pro alterum facilisi tacimates eu. Nam cibo dicam menandri te, quas assum vel ad.</p>'+
+                                        '</div>'+
+                                        '</div>';
+
+                                    var infowindow_1 = new google.maps.InfoWindow({
+                                      content: contentString_1,
+                                      maxWidth: 280
+                                    });
+
+                                    var marker_1 = new google.maps.Marker({
+                                      position: madrid_1,
+                                      map: map,
+                                      title: 'Madrid (Lorem ipsum)'
+                                    });
+                                    marker_1.addListener('click', function() {
+                                      infowindow_1.open(map, marker_1);
+                                    });
+
+                                    // Line begin
+                                    var flightPlanCoordinates = [
+                                      {lat: 40.3904824, lng: -3.6872127},
+                                      {lat: 40.4153847, lng: -3.6872985},
+                                      {lat: 40.4885351, lng: -3.6325385},
+                                      {lat: 40.6049266, lng: -3.6425528},
+                                      {lat: 40.6112661, lng: -3.947968}
+                                    ];
+                                    var flightPath = new google.maps.Polyline({
+                                      path: flightPlanCoordinates,
+                                      geodesic: true,
+                                      strokeColor: '#FF4D16',
+                                      strokeOpacity: 1.0,
+                                      strokeWeight: 2
+                                    });
+                                    flightPath.setMap(map);
+                                    // Line end
+
+                                  }
+                                </script>
+
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Add lines/routes and info balloons to your map.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/yd9vvvLz/embedded/result,html/">Copy this map</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Geo areas</h2>
+                </div>
+            </div>
+
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                                <div id="circle_map" style="height: 400px; margin-bottom: 1em;"></div>
+
+                                <script>
+                                  // This example creates circles on the map, representing populations in North
+                                  // America.
+
+                                  // First, create an object containing LatLng and population for each city.
+                                  var citymap = {
+                                    madrid: {
+                                      center: {lat: 40.4381307, lng: -3.8199659},
+                                      population: 2714856
+                                    },
+                                    zaragoza: {
+                                      center: {lat: 41.6804783, lng: -1.1392415},
+                                      population: 2714856/4
+                                    },
+                                    barcelona: {
+                                      center: {lat: 41.3876299, lng: 2.1749491},
+                                      population: 2714856/2
+                                    },
+                                    sebastian: {
+                                      center: {lat: 43.3172173, lng: -1.9758577},
+                                      population: 2714856/3
+                                    }
+                                  };
+
+                                  function initCircleMap() {
+                                    // Create the map.
+                                    var circle_map = new google.maps.Map(document.getElementById('circle_map'), {
+                                      zoom: 5,
+                                      center: {lat: 40.4381307, lng: -3.8199659},
+                                      mapTypeId: 'terrain',
+                                      scrollwheel: false
+
+                                    });
+
+                                    // Construct the circle for each value in citymap.
+                                    // Note: We scale the area of the circle based on the population.
+                                    for (var city in citymap) {
+                                      // Add the circle for this city to the map.
+                                      var cityCircle = new google.maps.Circle({
+                                        strokeColor: '#FF0000',
+                                        strokeOpacity: 0.4,
+                                        strokeWeight: 1,
+                                        fillColor: '#FF0000',
+                                        fillOpacity: 0.25,
+                                        map: circle_map,
+                                        center: citymap[city].center,
+                                        radius: Math.sqrt(citymap[city].population) * 50
+                                      });
+                                    }
+
+                                    var rectangle = new google.maps.Rectangle({
+                                      strokeColor: '#FFE19F',
+                                      strokeOpacity: 0.8,
+                                      strokeWeight: 1,
+                                      fillColor: '#FFE19F',
+                                      fillOpacity: 0.55,
+                                      map: circle_map,
+                                      bounds: {
+                                        north: 39.9339823,
+                                        south: 38.5826107,
+                                        east: -8.6667783,
+                                        west: -9.6276972
+                                      }
+                                  });
+
+                                    // INIT POLYGON
+                                    var triangleCoords = [
+                                      {lat: 37.230114, lng: -6.994954},
+                                      {lat: 37.3087999, lng: -5.9512528},
+                                      {lat: 39.0147065, lng: -1.757222},
+                                      {lat: 38.9079235, lng: -7.047139}
+                                    ];
+
+                                    var bermudaTriangle = new google.maps.Polygon({
+                                      paths: triangleCoords,
+                                      strokeColor: '#7ABD94',
+                                      strokeOpacity: 0.8,
+                                      strokeWeight: 1,
+                                      fillColor: '#7ABD94',
+                                      fillOpacity: 0.55
+                                    });
+                                    bermudaTriangle.setMap(circle_map);
+                                    // END POLYGON
+
+
+                                  }
+                                  </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Create areas with circles, rectangles and polygons.</p>
+                    <p><small>Please note that this is just a quick example.</small></p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/4yz5wd88/embedded/result,html/">Copy this map</a>
+                    </p>
+
+                    <p><small>Consulta también el <a target="_blank" href="http://archivo-es.greenpeace.org/espana/es/Trabajamos-en/Transgenicos/mapa-de-espana/">mapa de cultivos transgénicos en España</a>, un mapa interactivo antiguo (no responsive), que usa algunas de estas tecnoogías.</small></p>
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="geo-maps.html">Prev</a> <a class="btn btn-outline-dark" href="advanced-maps.html">Next</a></p>
+            <p>&nbsp;</p>
+
+            <!-- INITIALIZE MAPS -->
+            <script>
+                function loadmaps(){
+                    initMap1();
+                    initCircleMap();
+                    // initMapKML();
+                    // initHeatMap();
+                }
+            </script>
+
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiy7JuMr1LFrecAu8SORp9Wt2vYM8A3D8&libraries=visualization&callback=loadmaps">
+            </script>
+
+
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

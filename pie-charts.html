@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js"></script>
+    <title>Pie charts</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Pie charts</h1>
+
+            <p class="lead">Pie charts are very popular, but also abused and misused. Use them carefully.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Compare a part with to whole</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                   <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="pie_chart_1" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("pie_chart_1").getContext("2d");
+                        var pie_chart_1 = new Chart(ctx,
+                              {
+                                type: 'pie',
+                                data: {
+                                    datasets: [
+                                        {
+                                            data: [
+                                                20,
+                                                50,
+                                                30
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(122, 189, 148, 0.85)',
+                                                'rgba(255, 225, 159, 0.85)',
+                                                'rgba(255, 196, 167, 0.85)'
+                                            ],
+                                            label: 'Dataset 1'
+                                        }
+                                    ],
+                                    labels: [
+                                        'Alpha',
+                                        'Beta',
+                                        'Delta'
+
+                                    ]
+                                },
+                                options: {
+                                    circumference: 2 *  Math.PI,
+                                    rotation: -0.5 * Math.PI,
+                                    title: {
+                                        display: true,
+                                        text: 'Comparación entre una parte y el todo',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        padding: 25
+                                    },
+                                    responsive: true,
+                                    legend: {
+                                        display: true,
+                                        fullWidth: false,
+                                        position: 'right',
+                                        labels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    layout: {
+                                        padding: {
+                                            bottom: 30
+                                        }
+                                    }
+                                }
+                            }
+
+                             );
+                        </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Pie charts are ideal for showing proportionality in simple and not too irregular datasets.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/ypm46qw6/embedded/result,html/">Copy this graph</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/8d0hry00/embedded/result,html/">Custom tooltip</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Compare a part with to whole (2 sets)</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="pie_chart_2" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("pie_chart_2").getContext("2d");
+                        var pie_chart_2 = new Chart(ctx,
+                              {
+                                type: 'doughnut',
+                                data: {
+                                    datasets: [
+                                        {
+                                            data: [
+                                                20,
+                                                50,
+                                                30
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(122, 189, 148, 0.95)',
+                                                'rgba(255, 225, 159, 0.95)',
+                                                'rgba(255, 196, 167, 0.95)'
+                                            ],
+                                            label: 'Dataset 1'
+                                        },
+                                        {
+                                            data: [
+                                                25,
+                                                45,
+                                                30
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(122, 189, 148, 0.55)',
+                                                'rgba(255, 225, 159, 0.55)',
+                                                'rgba(255, 196, 167, 0.55)'
+                                            ],
+                                            label: 'Dataset 2'
+                                        }
+                                    ],
+                                    labels: [
+                                        'Alpha',
+                                        'Beta',
+                                        'Delta'
+
+                                    ]
+                                },
+                                options: {
+                                    circumference: 2 *  Math.PI,
+                                    rotation: -0.5 * Math.PI,
+                                    title: {
+                                        display: true,
+                                        text: 'Comparación entre una parte y el todo (2 sets)',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        padding: 25
+                                    },
+                                    responsive: true,
+                                    legend: {
+                                        display: true,
+                                        fullWidth: false,
+                                        position: 'right',
+                                        labels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    layout: {
+                                        padding: {
+                                            bottom: 30
+                                        }
+                                    }
+                                }
+                            }
+
+                             );
+                        </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>This chart can be used to compare two similar datasets or to compare current data with older data.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/2222xqfe/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Compare between values</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="pie_chart_3" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("pie_chart_3").getContext("2d");
+                        var pie_chart_3 = new Chart(ctx,
+                              {
+                                type: 'polarArea',
+                                data: {
+                                    datasets: [
+                                        {
+                                            data: [
+                                                20,
+                                                50,
+                                                30
+                                            ],
+                                            backgroundColor: [
+                                                'rgba(122, 189, 148, 0.75)',
+                                                'rgba(255, 225, 159, 0.75)',
+                                                'rgba(255, 196, 167, 0.75)'
+                                            ],
+                                            label: 'Dataset 1'
+                                        }
+                                    ],
+                                    labels: [
+                                        'Alpha',
+                                        'Beta',
+                                        'Delta'
+
+                                    ]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Comparación entre valores',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        padding: 25
+                                    },
+                                    responsive: true,
+                                    scale: {
+                                      ticks: {
+                                          fontFamily: '"Work Sans",sans-serif',
+                                          fontColor: '#212529'
+                                      }
+                                    },
+                                    legend: {
+                                        display: true,
+                                        fullWidth: false,
+                                        position: 'right',
+                                        labels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    layout: {
+                                        padding: {
+                                            bottom: 30
+                                        }
+                                    }
+                                }
+                            }
+
+                             );
+                        </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>It is used to demonstrate value differences between 2 to 6 different datasets. This type of graph tends to give the impression that the differences in values are larger than they really are.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/kLLxa0ko/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Compare between profiles</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="pie_chart_4" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("pie_chart_4").getContext("2d");
+                        var pie_chart_4 = new Chart(ctx,
+                              {
+                                type: 'radar',
+                                data: {
+                                    datasets: [
+                                        {
+                                            label: 'Dwarf',
+                                            data: [
+                                                2,
+                                                5,
+                                                3,
+                                                1,
+                                                4
+                                            ],
+                                            backgroundColor: 'rgba(134, 139, 134, 0.2)',
+                                            borderColor: 'rgba(134, 139, 134, 1)'
+
+                                        },
+                                        {
+                                            label: 'Golum',
+                                            data: [
+                                                1,
+                                                5,
+                                                5,
+                                                2,
+                                                4
+                                            ],
+                                            backgroundColor: 'rgba(142, 229, 187, 0.2)',
+                                            borderColor: 'rgba(142, 229, 187, 1)'
+                                        },
+                                        {
+                                            label: 'Hobit',
+                                            data: [
+                                                5,
+                                                3,
+                                                2,
+                                                4,
+                                                3
+                                            ],
+                                            backgroundColor: 'rgba(255, 77, 22, 0.2)',
+                                            borderColor: 'rgba(255, 77, 22, 1)'
+                                        }
+                                    ],
+                                    labels: [
+                                        'Alpha',
+                                        'Beta',
+                                        'Delta',
+                                        'Gamma',
+                                        'Eta'
+
+
+                                    ]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Comparación neutra entre perfiles',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        padding: 25
+                                    },
+                                    scale: {
+                                      ticks: {
+                                        beginAtZero: true,
+                                          fontName: '"Work Sans",sans-serif',
+                                          fontColor: '#212529'
+                                      },
+                                        pointLabels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    responsive: true,
+                                    legend: {
+                                        display: true,
+                                        fullWidth: false,
+                                        position: 'right',
+                                        labels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    layout: {
+                                        padding: {
+                                            bottom: 30
+                                        }
+                                    }
+                                }
+                            }
+
+                             );
+                        </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Radar graphics are widely used to compare 2 or 3 products or profiles in up to 8 different variables. In computer games they are used to compare avatars.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/doqbu8gn/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="line-charts.html">Prev</a> <a class="btn btn-outline-dark" href="buble-charts.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

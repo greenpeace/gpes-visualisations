@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {
+            'packages': ['treemap'],
+            language: 'es'
+        });
+    </script>
+    <title>Treemap &amp; heatmap</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Treemap &amp; heatmap</h1>
+
+            <p class="lead">Treemaps and heatmaps are less usual than the previous graphs, mostly because their are not as easy to understand. Still, they are very useful to describe proportions in complex but hierarchized categories.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Hierarchy and proportionality</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+
+                    <div id="chart_div" style="width: 100%; height: 400px;"></div>
+                    <p><small>Haz clic para ver con más detalle y right-click para ver general</small></p>
+
+                    <script>
+                     google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                            ['Location', 'Parent', 'Volumen del mercado (tamaño)', 'Aumento/bajada del mercado (color)'],
+                            ['Mundial', null, 0, 0],
+                            ['America', 'Mundial', 0, 0],
+                            ['Europa', 'Mundial', 0, 0],
+                            ['Asia', 'Mundial', 0, 0],
+                            ['Australia', 'Mundial', 0, 0],
+                            ['Africa', 'Mundial', 0, 0],
+                            ['Brazil', 'America', 11, 10],
+                            ['USA', 'America', 52, 31],
+                            ['Mexico', 'America', 24, 12],
+                            ['Canada', 'America', 16, -23],
+                            ['France', 'Europa', 42, -11],
+                            ['Germany', 'Europa', 31, -2],
+                            ['Sweden', 'Europa', 22, -13],
+                            ['Italy', 'Europa', 17, 4],
+                            ['UK', 'Europa', 21, -5],
+                            ['China', 'Asia', 36, 4],
+                            ['Japan', 'Asia', 20, -12],
+                            ['India', 'Asia', 40, 63],
+                            ['Laos', 'Asia', 4, 34],
+                            ['Mongolia', 'Asia', 1, -5],
+                            ['Israel', 'Asia', 12, 24],
+                            ['Iran', 'Asia', 18, 13],
+                            ['Pakistan', 'Asia', 11, -52],
+                            ['Egypt', 'Africa', 21, 0],
+                            ['S. Africa', 'Africa', 30, 43],
+                            ['Sudan', 'Africa', 12, 2],
+                            ['Congo', 'Africa', 10, 12],
+                            ['Zaire', 'Africa', 8, 10]
+                        ]);
+
+                        tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+
+                        var options = {
+
+                            minColor: '#8EE5BB',
+                            midColor: 'rgba(255, 255, 255, 0.3)',
+                            maxColor: '#FF4D16',
+
+                            title: 'Jerarquía y proporcionalidad',
+                            titleTextStyle: {
+                                color: '#212529',
+                                fontName: '"Work Sans",sans-serif',
+                                fontSize: 16,
+                                bold: true,
+                                italic: false
+                            },
+
+                            textStyle: {
+                                color: '#212529',
+                                fontName: '"Work Sans",sans-serif',
+                                fontSize: 13,
+                                bold: false,
+                                italic: false
+                            },
+
+                            headerColor: '#ddd',
+                            headerHeight: 30,
+
+                            fontFamily: '"Work Sans",sans-serif',
+                            fontSize: 13,
+                            fontColor: '#212529',
+
+                            showScale: true,
+                            highlightOnMouseOver: false,
+                            showTooltips: true,
+                            generateTooltip: showFullTooltip
+                        };
+
+                        tree.draw(data, options);
+
+                        function showFullTooltip(row, size, value) {
+                            return '<div style="background:#fff; padding:10px; border: 1px solid">' +
+                                '<span><b>' + data.getValue(row, 0) + ':</b> '
+                                /* + data.getValue(row, 1)*/
+                                + data.getValue(row, 2) + ', ' +
+                                data.getValue(row, 3) + '</span><br>' +
+                                '<cite>(Linea: ' + row + ')</cite><br>' +
+                                data.getColumnLabel(2) + ' (total celda y hijas): ' + size + '<br>' +
+                                data.getColumnLabel(3) + ': ' + data.getValue(row, 3) +
+                                ' </div>';
+                        }
+
+                    }
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>For more complex data than can't be visualized with a pie chart. The color can be used as a second scale.</p>
+                    <p><small>Please note that we are working to replace this tool by a D3 chart.</small></p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/jm4gwbqn/embedded/result,html/">Copy this graph</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/3wtLdr1r/embedded/result,html/">Different tooltip</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Value distribution in a 2 dimension matrix </h2>
+                </div>
+            </div>
+
+
+               <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+                      <div id="heatmap" style="margin-bottom: 2em;"><!-- Plotly chart will be drawn inside this DIV --></div>
+                      <script>
+
+                        var xValues = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+                        var yValues = ['W', 'X', 'Y', 'Z', 'O','P','Q','R'];
+
+                        var zValues = [
+                          [0, 1, 25, 50, 0, 0, 1, 25, 50, 0],
+                          [0, 0, 75, 75, 0, 0, 0, 75, 75, 0],
+                          [75, 10, 90, 20, 75, 75, 10, 90, 20, 75],
+                          [0, 0, 0, 40, 0, 75, 10, 90, 20, 75],
+                          [0, 0, 75, 75, 0, 0, 0, 75, 75, 0],
+                          [0, 1, 25, 50, 0, 0, 1, 25, 50, 0],
+                          [75, 10, 90, 20, 75, 75, 10, 90, 20, 0],
+                          [0, 0, 75, 75, 0, 0, 0, 75, 75, 0]
+
+                        ];
+
+                        var colorscaleValue = [
+                          [0, '#C3E0A6'],
+                          [1, '#FFC4A7']
+                        ];
+
+                        var data = [{
+                          x: xValues,
+                          y: yValues,
+                          z: zValues,
+                          type: 'heatmap',
+                          colorscale: colorscaleValue,
+                          showscale: true
+                        }];
+
+                        var layout = {
+                          title: 'Mapa de calor',
+                            font: {
+                                family: '"Work Sans",sans-serif',
+                                size: 11,
+                                color: '#212529'
+                            },
+                            titlefont: {
+                                size: 16,
+                                color: '#212529'
+                                },
+                          annotations: [],
+                          xaxis: {
+                            ticks: '',
+                            side: 'bottom',
+                            title: 'Variable A'
+                          },
+                          yaxis: {
+                            ticks: '',
+                            ticksuffix: ' ',
+                            title: 'Variable B',
+                            autosize: false
+                          },
+                            margin: {
+                                r: 10,
+                                t: 35,
+                                b: 40,
+                                l: 40
+                            },
+                            paper_bgcolor: '#f6f6f5',
+                            plot_bgcolor: '#f6f6f5'
+                        };
+
+                        for ( var i = 0; i < yValues.length; i++ ) {
+                          for ( var j = 0; j < xValues.length; j++ ) {
+                            var currentValue = zValues[i][j];
+                            if (currentValue != 0.0) {
+                              var textColor = 'white';
+                            }else{
+                              var textColor = 'black';
+                            }
+                            var result = {
+                              xref: 'x1',
+                              yref: 'y1',
+                              x: xValues[j],
+                              y: yValues[i],
+                              text: zValues[i][j],
+                              font: {
+                                family: '"Work Sans",sans-serif',
+                                size: 12,
+                                color: 'rgb(50, 171, 96)'
+                              },
+                              showarrow: false,
+                              font: {
+                                color: textColor
+                              }
+                            };
+                            // Comment the next line to remove the annotations
+                            layout.annotations.push(result);
+                          }
+                        }
+
+                        Plotly.newPlot('heatmap', data, layout, { displayModeBar: false});
+                      </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Heat maps are useful to show changes in multiple variables and show patterns. They are also useful for detecting correlations between the variables.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/t8utop2k/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="flux-charts.html">Prev</a> <a class="btn btn-outline-dark" href="details-charts.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

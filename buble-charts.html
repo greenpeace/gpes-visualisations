@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js"></script>
+    <title>Bubble charts and scatter diagrams</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Bubble charts and scatter diagrams</h1>
+
+            <p class="lead">Use positioning and bubble size to analyse data.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Elements in two dimensions</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="bubble_chart_2" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                       var bubble_chart_2 = new Chart(document.getElementById("bubble_chart_2"), {
+                            type: 'scatter',
+                            data: {
+                                datasets: [
+                                    {
+                                        label: 'Pescador',
+                                        borderColor: 'rgba(122, 189, 148, 1)',
+                                        backgroundColor: 'rgba(122, 189, 148, 0.85)',
+                                        borderWidth: 1,
+                                        data: [{
+                                            x: -9,
+                                            y: 5
+                                        },{
+                                            x: -10,
+                                            y: 5
+                                        },{
+                                            x: -6,
+                                            y: 4
+                                        }, {
+                                            x: -11,
+                                            y: 6
+                                        }, {
+                                            x: -8,
+                                            y: 10
+                                        }]
+                                    },
+                                    {
+                                        label: 'Agricultor',
+                                        borderColor: 'rgba(255, 77, 22, 1)',
+                                        backgroundColor: 'rgba(255, 77, 22, 0.85)',
+                                        borderWidth: 1,
+                                        data: [{
+                                            x: 10,
+                                            y: -5
+                                        }, {
+                                            x: 11,
+                                            y: -6
+                                        }, {
+                                            x: 10,
+                                            y: -4
+                                        }, {
+                                            x: 1,
+                                            y: -2
+                                        }, {
+                                            x: 8,
+                                            y: -10
+                                        }]
+                                    },
+                                    {
+                                        label: 'Alvanil',
+                                        borderColor: 'rgba(91, 74, 89, 0.85)',
+                                        backgroundColor: 'rgba(91, 74, 89, 0.85)',
+                                        borderWidth: 1,
+                                        data: [{
+                                            x: -8,
+                                            y: -6
+                                        }, {
+                                            x: -11,
+                                            y: -6
+                                        }, {
+                                            x: -10,
+                                            y: -6
+                                        }, {
+                                            x: -13,
+                                            y: -14
+                                        }, {
+                                            x: -8,
+                                            y: -10
+                                        }]
+                                    }
+                                ]
+                            },
+                            options: {
+                                tooltips: {
+                                    enabled: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Grupos de elementos en 2 dimensiones',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                layout: {
+                                    padding: {
+                                        bottom: 30
+                                    }
+                                },
+                                scales: {
+                                    xAxes: [{
+                                        ticks: {
+                                            min: -15,
+                                            max: 15,
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: "Variable A",
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        type: 'linear',
+                                        position: 'bottom'
+                                    }],
+
+                                    yAxes: [{
+                                        ticks: {
+                                            min: -15,
+                                            max: 15,
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: "Variable B",
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        type: 'linear'
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>They are used to visualize groups in two variables and verify if there is a correlation (or relationship) between values of two variables.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/v38pbjxw/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Elements in three dimensions</h2>
+                </div>
+            </div>
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="bubble_chart_1" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                       var bubble_chart_1 = new Chart(document.getElementById("bubble_chart_1"), {
+                            type: 'bubble',
+                            data: {
+                              datasets: [
+                                {
+                                  label: ["China"],
+                                  backgroundColor: "rgba(255, 121, 84, 0.4)",
+                                  borderColor: "rgba(255, 121, 84, 1)",
+                                  borderWidth: 1,
+                                  hoverRadius: 1,
+                                  data: [{
+                                    x: 300,
+                                    y: 5.245,
+                                    r: window.innerWidth / 40
+                                  }]
+                                }, {
+                                  label: ["Dinamarca"],
+                                  backgroundColor: "rgba(142, 229, 187, 0.4)",
+                                  borderColor: "rgba(142, 229, 187, 1)",
+                                  borderWidth: 1,
+                                  hoverRadius: 1,
+                                  data: [{
+                                    x: 200,
+                                    y: 7.526,
+                                    r: window.innerWidth / 140
+                                  }]
+                                }, {
+                                  label: ["Alemania"],
+                                  backgroundColor: "rgba(134, 139, 134, 0.4)",
+                                  borderColor: "rgba(134, 139, 134, 1)",
+                                  borderWidth: 1,
+                                  hoverRadius: 1,
+                                  data: [{
+                                    x: 100,
+                                    y: 6.994,
+                                    r: window.innerWidth / 80
+                                  }]
+                                }, {
+                                  label: ["Japón"],
+                                  backgroundColor: "rgba(255, 195, 49, 0.4)",
+                                  borderColor: "rgba(255, 195, 49, 1)",
+                                  borderWidth: 1,
+                                  hoverRadius: 1,
+                                  data: [{
+                                    x: 150,
+                                    y: 5.921,
+                                    r: window.innerWidth / 80
+                                  }]
+                                }
+                              ]
+                            },
+                            options: {
+                                tooltips: {
+                                    enabled: false
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Visualización de elementos en 3 dimensiones',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                layout: {
+                                    padding: {
+                                        bottom: 20
+                                    }
+                                },
+                              scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        min: 0,
+                                        max: 12,
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    },
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: "Felicidad",
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    }
+                                }],
+                                xAxes: [{
+                                    ticks: {
+                                        min: 50,
+                                        max: 350,
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                        },
+                                    scaleLabel: {
+                                        display: true,
+                                        labelString: "PIB",
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    }
+                                }]
+                              }
+                            }
+                        });
+
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                        <p>Bubble charts are used to compare elements in 3 dimensions. Please note that in these graphs it's important that the data relates with the bubble's area, not the diameter <sup><a href="http://keisan.casio.com/exec/system/1355985793" target="_blank">1</a></sup>.</p>                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/rteok05k/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="pie-charts.html">Prev</a> <a class="btn btn-outline-dark" href="timeline-charts.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

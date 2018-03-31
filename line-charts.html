@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js"></script>
+    <title>Line charts</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Line charts</h1>
+
+            <p class="lead">Capable of representing more data than bar charts, without becoming confusing.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Comparing data trough time</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="line_chart_1x" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("line_chart_1x");
+                        var line_chart_1 = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: ["2012", "2013", "2014", "2015", "2016", "2017"],
+                                datasets: [
+                                    {
+                                        label: 'Renault',
+                                        data: [12, 19, 3, 5, 2, 3],
+                                        borderColor: 'rgba(142, 229, 187, 1)',
+                                        backgroundColor: 'rgba(0,0,0,0)'
+                                    },
+                                    {
+                                        label: 'Toyota',
+                                        data: [11, 19, 4, 9, 5, 10],
+                                        borderColor: 'rgba(255, 160, 0, 1)',
+                                        backgroundColor: 'rgba(0,0,0,0)'
+                                    },
+                                    {
+                                        label: 'Mercedez',
+                                        data: [10, 20, 8, 9, 9, 8],
+                                        borderColor: 'rgba(91, 74, 89, 1)',
+                                        backgroundColor: 'rgba(0,0,0,0)'
+                                    }
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Comparación de datos en el tiempo',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                layout: {
+                                    padding: {
+                                        bottom: 20
+                                    }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero:true,
+                                            max: 25,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Miles de coches',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        ticks: {
+                                            beginAtZero:true,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Tiempo',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Line graphs are used to show quantity values in a continuous time interval. It is used to demonstrate trends or to analyze changes over time.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/arfuko2t/embedded/result,html/">Copy this graph</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/kegzw7g2/embedded/result,html/">Custom tooltip and scale</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Instability or dynamism</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="line_chart_2" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("line_chart_2");
+                        var line_chart_1 = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9","10", "11", "12", "13", "14", "15", "16", "17", "18", "19","20"],
+                                datasets: [
+                                    {
+                                        label: 'Humedad',
+                                        data: [20, 5, 19, 6, 21, 7, 21, 3, 13,4, 20, 5, 19, 6, 21, 7, 21, 3, 13,4],
+                                        borderColor: 'rgba(255, 77, 22, 1)',
+                                        backgroundColor: 'rgba(0,0,0,0)'
+                                    }
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Inestabilidad / dinamismo',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                elements: {
+                                    line: {
+                                        tension: 0, // disables bezier curves
+                                    }
+                                },
+                                layout: {
+                                    padding: {
+                                        bottom: 20
+                                    }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero:true,
+                                            max: 25,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Porcentaje',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        ticks: {
+                                            beginAtZero:true,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Días',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>When data values change abruptly and often, you can use a line graph to demonstrate that instability.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/qs5s6ape/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Average trough time</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" style="position: relative; height:auto; width:100%">
+                        <canvas id="line_chart_3" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                        var ctx = document.getElementById("line_chart_3");
+                        var line_chart_1 = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: ["2012", "2013", "2014", "2015", "2016", "2017"],
+                                datasets: [
+                                    {
+                                        label: 'Renault',
+                                        data: [100, 120, 110, 100, 105, 75, 75],
+                                        borderColor: 'rgba(142, 229, 187, 1)',
+                                        backgroundColor: 'rgba(0,0,0,0)'
+                                    },
+                                    {
+                                        label: 'Toyota',
+                                        data: [50, 30, 40, 90, 50, 35],
+                                        borderColor: 'rgba(255, 160, 0, 1)',
+                                        backgroundColor: 'rgba(0,0,0,0)'
+                                    },
+                                    {
+                                        label: 'Media',
+                                        data: [75, 75, 75, 95, 77.5, 55],
+                                        borderColor: 'rgba(91, 74, 89, 1)',
+                                        backgroundColor: 'rgba(0,0,0,0)',
+                                        borderDash: [5, 5]
+                                    }
+                                ]
+                            },
+                            options: {
+                                title: {
+                                    display: true,
+                                    text: 'Evolución de la media',
+                                    fontSize: 16,
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontColor: '#212529'
+                                },
+                                legend: {
+                                    display: true,
+                                    labels: {
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontColor: '#212529',
+                                        fontSize: 13
+                                    }
+                                },
+                                layout: {
+                                    padding: {
+                                        bottom: 20
+                                    }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero:true,
+                                            max: 125,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Beneficio / coste',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        ticks: {
+                                            beginAtZero:true,
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        },
+                                        scaleLabel: {
+                                            display: true,
+                                            labelString: 'Tiempo',
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#212529'
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>You can add non-continuous lines to show the changes in the average between multiple values.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/t765na9k/embedded/result,html/">Copy this graph</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/kegzw7g2/embedded/result,html/">Tooltip and scale</a>
+                    </p>
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="bar-chart.html">Prev</a> <a class="btn btn-outline-dark" href="pie-charts.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

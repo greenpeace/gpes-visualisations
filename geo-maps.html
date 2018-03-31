@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyBiy7JuMr1LFrecAu8SORp9Wt2vYM8A3D8',
+         'language': 'es'
+      });
+    </script>
+    <title>Geography</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Geography</h1>
+
+            <p class="lead">Country and city maps.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Countries of the world</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="geo_1" style="width: 100%; height: auto; margin-bottom: 1em;"></div>
+                    <script>
+                      google.charts.setOnLoadCallback(drawRegionsMap);
+
+                      function drawRegionsMap() {
+                        var data = google.visualization.arrayToDataTable([
+                          ['Country', 'Popularity'],
+                          ['Germany', 200],
+                          ['United States', 300],
+                          ['Brazil', 400],
+                          ['Canada', 500],
+                          ['France', 600],
+                          ['RU', 700]
+                        ]);
+
+                        var options = {
+                            colorAxis: {colors: ['#7ABD94', '#FFE19F', '#FF7954']},
+                            datalessRegionColor: '#e3e3e3',
+                            backgroundColor: '#beeaed'
+                        };
+
+                        var chart = new google.visualization.GeoChart(document.getElementById('geo_1'));
+
+                        chart.draw(data, options);
+                      }
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Map to present data about countries.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/8bz4urp1/embedded/result,html/">Copy this map</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Countries of Europe</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                                <div id="geo_2" style="width: 100%; height: auto; margin-bottom: 1em;"></div>
+
+                                <script>
+                                      google.charts.setOnLoadCallback(drawRegionsMap2);
+
+                                      function drawRegionsMap2() {
+                                        var data = google.visualization.arrayToDataTable([
+                                          ['Country',   'Cantidad'],
+                                          ['Portugal', 10],
+                                          ['Spain', 20],
+                                          ['France', 30],
+                                          ['Germany', 40],
+                                          ['Netherlands', 50],
+                                          ['Belgium', 60],
+                                          ['Luxembourg', 70],
+                                          ['United Kingdom', 80],
+                                          ['Ireland', 90],
+                                          ['Switzerland', 100],
+                                          ['Italy', 110],
+                                          ['Greece', 120],
+                                          ['Slovenia', 130],
+                                          ['Rumania', 140],
+                                          ['Austria', 150],
+                                          ['Hungary', 160],
+                                          ['Croatia', 160],
+                                          ['Bosnia and Herzegovina', 170],
+                                          ['Andorra', 180],
+                                          ['Serbia', 190],
+                                          ['Macedonia', 200],
+                                          ['Albania', 210],
+                                          ['Bulgaria', 220],
+                                          ['Macedonia', 230],
+                                          ['Montenegro', 240],
+                                          ['Kosovo', 250],
+                                          ['Czech Republic', 260],
+                                          ['Slovak Republic', 270],
+                                          ['Poland', 280],
+                                          ['Denmark', 290],
+                                          ['Lithuania', 300],
+                                          ['Sweden', 310],
+                                          ['Norway', 320],
+                                          ['Finland', 340],
+                                          ['Latvia', 350],
+                                          ['Estonia', 360],
+                                          ['Iceland', 370]
+                                        ]);
+
+                                        var options = {
+                                          region: '150', // Europa
+                                          colorAxis: {colors: ['#7ABD94', '#FFE19F', '#FF7954']},
+                                          backgroundColor: '#beeaed',
+                                          datalessRegionColor: '#e3e3e3',
+                                          defaultColor: '#f5f5f5',
+                                        };
+
+                                        var chart = new google.visualization.GeoChart(document.getElementById('geo_2'));
+                                        chart.draw(data, options);
+                                      };
+                                </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>European map to present data about countries.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/m91Lskme/embedded/result,html/">Copy this map</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Cities of Spain</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                   <div id="geo_3" style="width: 99%; height: auto; border: 1px solid #ccc; margin-bottom: 1em;"></div>
+                    <script>
+                    google.charts.setOnLoadCallback(drawMarkersMap3);
+
+                      function drawMarkersMap3() {
+                      var data = google.visualization.arrayToDataTable([
+                        ['City',   'A', 'B'],
+                        ['Madrid',      50,    20],
+                        ['Barcelona',     30,    10],
+                        ['Vigo',    10,     30],
+                        ['Sevilla',     10,    80],
+                        ['Valladolid',     5,    30],
+                      ]);
+
+                      var options = {
+                        sizeAxis: { minValue: 0, maxValue: 100 },
+                        region: 'ES',
+                        displayMode: 'markers',
+                        colorAxis: {colors: ['#7ABD94', '#FFE19F', '#FF7954']},
+                        datalessRegionColor: '#e3e3e3',
+                        backgroundColor: '#beeaed'
+                      };
+
+                      var chart = new google.visualization.GeoChart(document.getElementById('geo_3'));
+                      chart.draw(data, options);
+                    };
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>City map with two scales. One scale works with the bubble size and the second scale with the bubble color.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/q8g6rr87/embedded/result,html/">Copy this map</a>
+                    </p>
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="tables.html">Prev</a> <a class="btn btn-outline-dark" href="basic-maps.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js"></script>
+    <title>Multimedia</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <style>
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Multimedia</h1>
+
+            <p class="lead">Add interactive video, interactive images and Google Street map views to a page.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Indexed and interactive video</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div class="video-container" style="margin-bottom: 1em;">
+                      <div id="player"></div>
+                    </div>
+                    <script>
+                      var tag = document.createElement('script');
+                      tag.src = "https://www.youtube.com/iframe_api";
+                      var firstScriptTag = document.getElementsByTagName('script')[0];
+                      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                      var player;
+                      function onYouTubeIframeAPIReady() {
+                        player = new YT.Player('player', {
+                          // height: '390',
+                          // width: '640',
+                          // videoId: 'M7lc1UVf-VE',
+                            videoId: 'nLy3OQYsXWA',
+                            playerVars: {
+                                modestbranding: 1,
+                                autoplay: 0,
+                                controls: 1,
+                                enablejsapi: 1,
+                                rel: 0
+                            },
+                          events: {
+                            'onReady': onPlayerReady,
+                            'onStateChange': onPlayerStateChange
+                          }
+                        });
+                      }
+
+                      function onPlayerReady(event) {
+                        // event.target.playVideo();
+                          console.log("Player is ready");
+                      }
+
+                      var done = false;
+                      function onPlayerStateChange(event) {
+                          // console.log(event.data); 1 play, 2 pause, 3 move??
+                          // https://developers.google.com/youtube/iframe_api_reference (onStateChange)
+                        /*if (event.data == YT.PlayerState.PLAYING && !done) {
+                          setTimeout(stopVideo, 6000);
+                          done = true;
+                        }*/
+                      }
+
+                      function stopVideo() {
+                        player.stopVideo();
+                      }
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Sometimes a video is the best way to tell a data-based story.</p>
+                    <p>We can link to certain moments in the video, create interactions and customize the way Youtube shows videos in our website. Look at the sections about <span class="javascript_link" onclick="player.seekTo(90, true );player.playVideo();">global expansion</span>, <span class="javascript_link" onclick="player.seekTo(300, true );player.playVideo();">geo-spatial analysis</span> and <span class="javascript_link" onclick="player.seekTo(545, true );player.playVideo();">tools</span>.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/m7z2gfyu/embedded/result,html/">Copy this video</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Show a place</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="street-view" style="height: 400px; margin-bottom: 2em;"></div>
+                    <script>
+                      var panorama;
+                      function initialize() {
+                        panorama = new google.maps.StreetViewPanorama(
+                            document.getElementById('street-view'),
+                            {
+                              position: {lat: 37.0265088, lng: -1.8803713},
+                              pov: {heading: 0, pitch: 10},
+                              zoom: 1,
+                              scrollwheel: false
+                            });
+                      }
+                    </script>
+                    <script async defer
+                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiy7JuMr1LFrecAu8SORp9Wt2vYM8A3D8&callback=initialize">
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>When it’s necessary we can insert a Google Street View window in our website. All you need is the initial coordinates and direction.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/t7xwter0/embedded/result,html/">Copy this Street View</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Difference between two images</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+<style>
+                    .ba-slider {
+                      position: relative;
+                      overflow: hidden;
+                    margin-bottom: 2em;
+                    }
+                    .ba-slider img {
+                      width: 100%;
+                      display: block;
+                    }
+                    .resize {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      height: 100%;
+                      width: 50%;
+                      overflow: hidden;
+                    }
+                    .handle {
+                      /* Thin line seperator */
+                      position: absolute;
+                      left: 50%;
+                      top: 0;
+                      bottom: 0;
+                      width: 4px;
+                      margin-left: -2px;
+                      background: rgba(0, 0, 0, 0.5);
+                      cursor: ew-resize;
+                    }
+                    .handle:after {
+                      /* Big orange knob  */
+                      position: absolute;
+                      top: 50%;
+                      width: 64px;
+                      height: 64px;
+                      margin: -32px 0 0 -32px;
+                      content: '\21d4';
+                      color: white;
+                      font-weight: bold;
+                      font-size: 36px;
+                      text-align: center;
+                      line-height: 64px;
+                      background: #164706;
+                      /* @orange */
+                      border: 1px solid #164706;
+                      /* darken(@orange, 5%) */
+                      border-radius: 50%;
+                      transition: all 0.3s ease;
+                      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 60px 50px -30px #164706;
+                      /* lighten(@orange, 20%)*/
+                    }
+                    .draggable:after {
+                      width: 48px;
+                      height: 48px;
+                      margin: -24px 0 0 -24px;
+                      line-height: 48px;
+                      font-size: 30px;
+                    }
+
+                    </style>
+
+                    <div class="ba-slider">
+                      <img src="https://apps.greenpeace.es/data-vis/img/ab/after.jpg" alt="">
+                      <div class="resize">
+                        <img src="https://apps.greenpeace.es/data-vis/img/ab/before.jpg" alt="">
+                      </div>
+                      <span class="handle"></span>
+                    </div>
+
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                    <script>
+                        // Call & init
+                        $(document).ready(function(){
+                          $('.ba-slider').each(function(){
+                            var cur = $(this);
+                            // Adjust the slider
+                            var width = cur.width()+'px';
+                            cur.find('.resize img').css('width', width);
+                            // Bind dragging events
+                            drags(cur.find('.handle'), cur.find('.resize'), cur);
+                          });
+                        });
+
+                        // Update sliders on resize.
+                        // Because we all do this: i.imgur.com/YkbaV.gif
+                        $(window).resize(function(){
+                          $('.ba-slider').each(function(){
+                            var cur = $(this);
+                            var width = cur.width()+'px';
+                            cur.find('.resize img').css('width', width);
+                          });
+                        });
+
+                        function drags(dragElement, resizeElement, container) {
+
+                          // Initialize the dragging event on mousedown.
+                          dragElement.on('mousedown touchstart', function(e) {
+
+                            dragElement.addClass('draggable');
+                            resizeElement.addClass('resizable');
+
+                            // Check if it's a mouse or touch event and pass along the correct value
+                            var startX = (e.pageX) ? e.pageX : e.originalEvent.touches[0].pageX;
+
+                            // Get the initial position
+                            var dragWidth = dragElement.outerWidth(),
+                                posX = dragElement.offset().left + dragWidth - startX,
+                                containerOffset = container.offset().left,
+                                containerWidth = container.outerWidth();
+
+                            // Set limits
+                            minLeft = containerOffset + 10;
+                            maxLeft = containerOffset + containerWidth - dragWidth - 10;
+
+                            // Calculate the dragging distance on mousemove.
+                            dragElement.parents().on("mousemove touchmove", function(e) {
+
+                              // Check if it's a mouse or touch event and pass along the correct value
+                              var moveX = (e.pageX) ? e.pageX : e.originalEvent.touches[0].pageX;
+
+                              leftValue = moveX + posX - dragWidth;
+
+                              // Prevent going off limits
+                              if ( leftValue < minLeft) {
+                                leftValue = minLeft;
+                              } else if (leftValue > maxLeft) {
+                                leftValue = maxLeft;
+                              }
+
+                              // Translate the handle's left value to masked divs width.
+                              widthValue = (leftValue + dragWidth/2 - containerOffset)*100/containerWidth+'%';
+
+                              // Set the new values for the slider and the handle.
+                              // Bind mouseup events to stop dragging.
+                              $('.draggable').css('left', widthValue).on('mouseup touchend touchcancel', function () {
+                                $(this).removeClass('draggable');
+                                resizeElement.removeClass('resizable');
+                              });
+                              $('.resizable').css('width', widthValue);
+                            }).on('mouseup touchend touchcancel', function(){
+                              dragElement.removeClass('draggable');
+                              resizeElement.removeClass('resizable');
+                            });
+                            e.preventDefault();
+                          }).on('mouseup touchend touchcancel', function(e){
+                            dragElement.removeClass('draggable');
+                            resizeElement.removeClass('resizable');
+                          });
+                        }
+                    </script>
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>To show the difference between two images we can use a script.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/pth1q2vu/embedded/result,html/">Copy this multimedia</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="advanced-maps.html">Prev</a> <a class="btn btn-outline-dark" href="infograph.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

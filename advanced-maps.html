@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <!-- INIT LEAFLET -->
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>    <title>Advanced maps</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Advanced maps</h1>
+
+            <p class="lead">Use standard formats and external software to build complex maps.</p>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>KML layers</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="kml_map" style="height: 400px; margin-bottom: 1em;"></div>
+                    <script>
+                      function initMapKML() {
+                        var map = new google.maps.Map(document.getElementById('kml_map'), {
+                            scrollwheel: false
+                        });
+
+                        var ctaLayer = new google.maps.KmlLayer({
+                          url: 'https://apps.greenpeace.es/kml/d2.kml',
+                          map: map
+                        });
+                      }
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>Use <a href="https://www.google.com/earth/download/ge/" target="_blank">Google Earth</a> to create maps with dots, routes, areas and photos. Export this maps in KML files that can be added to the site.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/5ko3w4en/embedded/result,html/">Copy this map</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://www.youtube.com/watch?v=ZmAwkzKQ9SM">Video tutorial</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://apps.greenpeace.es/kml/d2.kml">Download KML</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Heatmaps and Geo Json</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="heat_map" style="height: 400px; margin-bottom: 2em;"></div>
+                    <script>
+                      var map;
+                      function initHeatMap() {
+                        map = new google.maps.Map(document.getElementById('heat_map'), {
+                          zoom: 2,
+                          center: {lat: -3.865427, lng: 0.196123},
+                          mapTypeId: 'terrain',
+                          scrollwheel: false,
+                        });
+
+                        // Create a <script> tag and set the USGS URL as the source.
+                        var script = document.createElement('script');
+
+                        // This example uses a local copy of the GeoJSON stored at
+                        // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+                        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+                        document.getElementsByTagName('head')[0].appendChild(script);
+
+                      }
+
+                      function eqfeed_callback(results) {
+                        var heatmapData = [];
+                        for (var i = 0; i < results.features.length; i++) {
+                          var coords = results.features[i].geometry.coordinates;
+                          var latLng = new google.maps.LatLng(coords[1], coords[0]);
+                          heatmapData.push(latLng);
+                        }
+                        var heatmap = new google.maps.visualization.HeatmapLayer({
+                          data: heatmapData,
+                          dissipating: false,
+                          map: map
+                        });
+                      }
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>It’s possible to add heatmaps to your map using the <a href="http://geojson.org/" target="_blank">Geo Json</a> format.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="http://geojson.io/">Geo Json editor</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://www.qgis.org/en/site/about/features.html">Advanced Geo Json editor</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Leaflet, Open Street Map and Geo Json</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+                    <div id="map6" style="width: 100%; height: 400px; margin-bottom: 2em;"></div>
+                    <script src="https://apps.greenpeace.es/data-vis/js/geojson2.js" type="text/javascript"></script>
+
+                    <script>
+                        var osmap = L.map('map6', {scrollWheelZoom: false}).setView([3.865427, 0.196123], 1.5);
+
+                        L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
+                            maxZoom: 18,
+                            attribution: '&copy; OpenStreetMap contributors, Wikimedia',
+                            id: 'mapbox.light'
+                        }).addTo(osmap);
+                        L.geoJSON(geojsonFeature).addTo(osmap);
+                    </script>
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>It’s also possible to use the GeoJson format with Leaflet and Open Street Map. As Open Street Map does not require an API key, other sites won't need one to use a map in this format.</p>
+
+                    <p>Gist is a great tool to colaborate with other persons using the GeoJson format.</p>
+
+                    <p>As an <strong>example</strong>, the <a href="https://es.greenpeace.org/es/trabajamos-en/desarme/armas-marca-espana/" target="_blank">weapons export map</a> was built by Datadista and uses Leaflet, GeoJson and Open Street map. Recently the map was <a href="https://greenpeace.github.io/gpes-weapons-export-spain/" target="_blank">translated to English</a> by a freelance translator that worked directly on the code.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/4ftjod54/embedded/result,html/">Copy this map</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="http://geojson.io/">Geo Json editor</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://gist.github.com/">Colaborate in Gist</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://gist.github.com/osvik/07e9a054b533b94a367ea0dc572e1c78">Example in Gist</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://greenpeace.github.io/gpes-weapons-export-spain/">Weapons exports example</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="basic-maps.html">Prev</a> <a class="btn btn-outline-dark" href="multimedia.html">Next</a></p>
+            <p>&nbsp;</p>
+
+            <script>
+                function loadmaps(){
+                    initMapKML();
+                    initHeatMap();
+                }
+            </script>
+
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiy7JuMr1LFrecAu8SORp9Wt2vYM8A3D8&libraries=visualization&callback=loadmaps">
+            </script>
+
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
