@@ -149,12 +149,122 @@
                 </div>
                 <div class="col-sm">
                     <p>For more complex data than can't be visualized with a pie chart. The color can be used as a second scale.</p>
-                    <p><small>Please note that we are working to replace this tool by a D3 chart.</small></p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/jm4gwbqn/embedded/result,html/">Copy this graph</a>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/3wtLdr1r/embedded/result,html/">Different tooltip</a>
                     </p>
                 </div>
+            </div>
+            
+            <div class="row">
+                
+                <div class="col-sm col-md-8">
+                    <!-- BEGIN TREEMAP -->
+                    
+                    <p><strong>Presupuesto para políticas de gasto de Industria y Energía 2018</strong></p>
+                    <div>
+                        <script src="https://d3plus.org/js/d3plus-hierarchy.v0.6.full.min.js"></script>
+                        <style>
+                            #viz {
+                                height: 500px;
+                            }
+                        </style>
+                        <div id="viz"></div>
+                        <script>
+                            var data = [{
+                                    color: "#868B86"
+                                    , id: "Varios Industria"
+                                    , value: 152620000
+                                    , valueL: "152.620.000"
+                }
+                                , {
+                                    color: "#5B4A59"
+                                    , id: "Reconversión e industrialización"
+                                    , value: 871450000
+                                    , valueL: "871.450.000"
+                }
+                                , {
+                                    color: "#FFC331"
+                                    , id: "Explotación minera"
+                                    , value: 295690000
+                                    , valueL: "295.690.000"
+                }
+                                , {
+                                    color: "#D7D5A1 "
+                                    , id: "Seguridad nuclear"
+                                    , value: 46880000
+                                    , valueL: "46.880.000"
+                }
+                                , {
+                                    color: "#D7D5A1"
+                                    , id: "Desarrollo alternativo cuencas mineras carbón"
+                                    , value: 32200000
+                                    , valueL: "32.200.000"
+                }
+                                , {
+                                    color: "#66CC00"
+                                    , id: "Movilidad sostenible"
+                                    , value: 66600000
+                                    , valueL: "66.600.000"
+                }
+                                , {
+                                    color: "#66CC01"
+                                    , id: "Impulso Eficiencia y renovables"
+                                    , value: 300000000
+                                    , valueL: "300.000.000"
+                }
+                                , {
+                                    color: "#FFC4A7"
+                                    , id: "Costes del sistema eléctrico"
+                                    , value: 3750100000
+                                    , valueL: "3.750.100.000"
+                }
+                                , {
+                                    color: "#48B9E5"
+                                    , id: "Otros Normativa y Servicios Generales"
+                                    , value: 252580000
+                                    , valueL: "252.580.000"
+                }
+            ];
+                            new d3plus.Treemap().data(data).groupBy(["id"]).select("#viz").shapeConfig({
+                                fill: function (d) {
+                                    return d.color;
+                                }
+                                , labelConfig: {
+                                    fontFamily: '"Work Sans",sans-serif'
+                                    , fontMax: 20
+                                }
+                            }).tooltipConfig({
+                                body: function (d) {
+                                    var table = "<table class='tooltip-table'>";
+                                    // table += "<tr><td class='title'>Year:</td><td class='data'>" + d.year + "</td></tr>";
+                                    table += "<tr><td class='title'>&euro;</td><td class='data'>" + d.valueL + "</td></tr>";
+                                    table += "</table>";
+                                    return table;
+                                }
+                                , footer: function (d) {
+                                    return ""; // "<sub class='tooltip-footer'>Año 2018</sub>";
+                                }
+                                , title: function (d) {
+                                    var txt = d.id;
+                                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();;
+                                }
+                            }).sum("value").render();
+                        </script>
+                    </div>
+                    <p><small><strong>Source:</strong> PGE 2018 y elaboraci&oacute;n propia. &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons&nbsp;&nbsp;</a>&bull;&nbsp;<a href="https://docs.google.com/spreadsheets/d/1D-P9qlLNIH3J7QLkcfRt4xaibR6HIh52WDOCtuHE6Q4/edit#gid=303235758" target="_blank" rel="noopener"><strong>Download spreadsheet</strong></a></small><span id="docs-internal-guid-3e41b4d8-bedf-5dc8-fb13-2a97a6326eb9"></span></p>
+                    
+                    <!-- END TREEMAP-->
+                </div>
+                
+                <div class="col-sm">
+                    <p>This is an alternative D3 tool that looks better and allows custom colors. It doesn't has sub-levels but it has categories.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/5ds6azfv/">Copy this graph</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/vtfLjfus/">With categories</a>
+                    </p>
+                </div>
+                
             </div>
 
             <div class="row">
