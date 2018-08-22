@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {
+            'packages': ['treemap'],
+            language: 'es'
+        });
+    </script>
+    <title>Gapminder</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Gapminder</h1>
+
+            <p class="lead"><strong style="font-weight: 700">Experimental stuff</strong>, it might not work as expected.</p>
+
+
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Interactive bubble chart</h2>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+                    <div id="gapminderBubble">
+                        <!-- Plotly chart will be drawn inside this DIV -->
+                    </div>
+                    <script>
+                        Plotly.d3.csv('assets/data/gapminderDataFiveYear.csv', function(err, data) {
+                            // Create a lookup table to sort and regroup the columns of data,
+                            // first by year, then by continent:
+                            var lookup = {};
+
+                            function getData(year, continent) {
+                                var byYear, trace;
+                                if (!(byYear = lookup[year])) {;
+                                    byYear = lookup[year] = {};
+                                }
+                                // If a container for this year + continent doesn't exist yet,
+                                // then create one:
+                                if (!(trace = byYear[continent])) {
+                                    trace = byYear[continent] = {
+                                        x: [],
+                                        y: [],
+                                        id: [],
+                                        text: [],
+                                        marker: {
+                                            size: []
+                                        }
+                                    };
+                                }
+                                return trace;
+                            }
+
+                            // Go through each row, get the right trace, and append the data:
+                            for (var i = 0; i < data.length; i++) {
+                                var datum = data[i];
+                                var trace = getData(datum.year, datum.continent);
+                                trace.text.push(datum.country);
+                                trace.id.push(datum.country);
+                                trace.x.push(datum.lifeExp);
+                                trace.y.push(datum.gdpPercap);
+                                trace.marker.size.push(datum.pop);
+                            }
+
+                            // Get the group names:
+                            var years = Object.keys(lookup);
+                            // In this case, every year includes every continent, so we
+                            // can just infer the continents from the *first* year:
+                            var firstYear = lookup[years[0]];
+                            var continents = Object.keys(firstYear);
+
+                            // Create the main traces, one for each continent:
+                            var traces = [];
+                            for (i = 0; i < continents.length; i++) {
+                                var data = firstYear[continents[i]];
+                                // One small note. We're creating a single trace here, to which
+                                // the frames will pass data for the different years. It's
+                                // subtle, but to avoid data reference problems, we'll slice
+                                // the arrays to ensure we never write any new data into our
+                                // lookup table:
+                                traces.push({
+                                    name: continents[i],
+                                    x: data.x.slice(),
+                                    y: data.y.slice(),
+                                    id: data.id.slice(),
+                                    text: data.text.slice(),
+                                    mode: 'markers',
+                                    marker: {
+                                        size: data.marker.size.slice(),
+                                        sizemode: 'area',
+                                        sizeref: 200000
+                                    }
+                                });
+                            }
+
+                            // Create a frame for each year. Frames are effectively just
+                            // traces, except they don't need to contain the *full* trace
+                            // definition (for example, appearance). The frames just need
+                            // the parts the traces that change (here, the data).
+                            var frames = [];
+                            for (i = 0; i < years.length; i++) {
+                                frames.push({
+                                    name: years[i],
+                                    data: continents.map(function(continent) {
+                                        return getData(years[i], continent);
+                                    })
+                                })
+                            }
+
+                            // Now create slider steps, one for each frame. The slider
+                            // executes a plotly.js API command (here, Plotly.animate).
+                            // In this example, we'll animate to one of the named frames
+                            // created in the above loop.
+                            var sliderSteps = [];
+                            for (i = 0; i < years.length; i++) {
+                                sliderSteps.push({
+                                    method: 'animate',
+                                    label: years[i],
+                                    args: [
+                                        [years[i]], {
+                                            mode: 'immediate',
+                                            transition: {
+                                                duration: 300
+                                            },
+                                            frame: {
+                                                duration: 300,
+                                                redraw: false
+                                            },
+                                        }
+                                    ]
+                                });
+                            }
+
+                            var layout = {
+                                font: {
+                                    family: '"Work Sans",sans-serif',
+                                    size: 11,
+                                    color: '#212529'
+                                },
+                                titlefont: {
+                                    size: 16,
+                                    color: '#212529'
+                                },
+                                paper_bgcolor: '#f6f6f5',
+                                plot_bgcolor: '#f6f6f5',
+                                margin: {
+                                    r: 10,
+                                    t: 35,
+                                    b: 40,
+                                    l: 40
+                                },
+                                xaxis: {
+                                    title: 'Life Expectancy',
+                                    range: [30, 85]
+                                },
+                                yaxis: {
+                                    title: 'GDP per Capita',
+                                    type: 'log'
+                                },
+                                hovermode: 'closest',
+                                // We'll use updatemenus (whose functionality includes menus as
+                                // well as buttons) to create a play button and a pause button.
+                                // The play button works by passing `null`, which indicates that
+                                // Plotly should animate all frames. The pause button works by
+                                // passing `[null]`, which indicates we'd like to interrupt any
+                                // currently running animations with a new list of frames. Here
+                                // The new list of frames is empty, so it halts the animation.
+                                updatemenus: [{
+                                    x: 0,
+                                    y: 0,
+                                    yanchor: 'top',
+                                    xanchor: 'left',
+                                    showactive: false,
+                                    direction: 'left',
+                                    type: 'buttons',
+                                    pad: {
+                                        t: 87,
+                                        r: 10
+                                    },
+                                    buttons: [{
+                                        method: 'animate',
+                                        args: [null, {
+                                            mode: 'immediate',
+                                            fromcurrent: true,
+                                            transition: {
+                                                duration: 300
+                                            },
+                                            frame: {
+                                                duration: 500,
+                                                redraw: false
+                                            }
+                                        }],
+                                        label: 'Play'
+                                    }, {
+                                        method: 'animate',
+                                        args: [
+                                            [null], {
+                                                mode: 'immediate',
+                                                transition: {
+                                                    duration: 0
+                                                },
+                                                frame: {
+                                                    duration: 0,
+                                                    redraw: false
+                                                }
+                                            }
+                                        ],
+                                        label: 'Pausa'
+                                    }]
+                                }],
+                                // Finally, add the slider and use `pad` to position it
+                                // nicely next to the buttons.
+                                sliders: [{
+                                    pad: {
+                                        l: 130,
+                                        t: 55
+                                    },
+                                    currentvalue: {
+                                        visible: true,
+                                        prefix: 'Year:',
+                                        xanchor: 'right',
+                                        font: {
+                                            size: 20,
+                                            color: '#666'
+                                        }
+                                    },
+                                    steps: sliderSteps
+                                }]
+                            };
+
+                            // Create the plot:
+                            Plotly.plot('gapminderBubble', {
+                                displayModeBar: 'hover', // False is not working
+                                data: traces,
+                                layout: layout,
+                                frames: frames,
+                            });
+                        });
+                    </script>
+
+
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p><a href="https://www.gapminder.org/tools/#$chart-type=bubbles" target="_blank">Gapminder-like bubble chart</a>. It needs more testing, can't remove toolbar, Data as a <a href="assets/data/gapminderDataFiveYear.csv" target="_blank">csv</a>. <strong>Use with care!</strong></p>
+                    <!-- <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/t8utop2k/embedded/result,html/">Copy this graph</a>
+                    </p> -->
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-outline-dark" href="treemap-heatmap-charts.html">Prev</a> <a class="btn btn-outline-dark" href="details-charts.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
