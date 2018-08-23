@@ -346,6 +346,143 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Stacked area chart</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- FIGURE -->
+
+                    <div>
+                      <canvas id="stackedCanvas"></canvas>
+                    </div>
+                    <script>
+                      var config = {
+                        type: 'line',
+                        data: {
+                          labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
+                          datasets: [{
+                            label: 'Grupo 1',
+                            borderColor: 'rgba(255, 195, 49, 0.85)',
+                            backgroundColor: 'rgba(255, 195, 49, 0.85)',
+                            data: [
+                              10,
+                              20,
+                              30,
+                              50,
+                              12,
+                              14,
+                              12
+                            ],
+                          }, {
+                            label: 'Grupo 2',
+                            borderColor: 'rgba(255, 225, 159, 0.85)',
+                            backgroundColor: 'rgba(255, 225, 159, 0.85)',
+                            data: [
+                              15,
+                              20,
+                              30,
+                              55,
+                              12,
+                              14,
+                              12
+                            ],
+                          }, {
+                            label: 'Grupo 3',
+                            borderColor: 'rgba(253, 246, 178, 0.85)',
+                            backgroundColor: 'rgba(253, 246, 178, 0.85)',
+                            data: [
+                              10,
+                              20,
+                              0,
+                              50,
+                              12,
+                              14,
+                              12
+                            ],
+                          }, {
+                            label: 'Grupo 4',
+                            borderColor: 'rgba(122, 189, 148, 0.85)',
+                            backgroundColor: 'rgba(122, 189, 148, 0.85)',
+                            data: [
+                              0,
+                              20,
+                              30,
+                              50,
+                              12,
+                              14,
+                              12
+                            ],
+                          }]
+                        },
+                        options: {
+                          responsive: true,
+                          title: {
+                            display: true,
+                            text: 'Acumulado',
+                            fontSize: 16,
+                            fontFamily: '"Work Sans",sans-serif',
+                            fontColor: '#212529'
+                          },
+                          tooltips: {
+                            mode: 'index',
+                          },
+                          hover: {
+                            mode: 'index'
+                          },
+                          scales: {
+                            xAxes: [{
+                            ticks: {
+                                fontFamily: '"Work Sans",sans-serif',
+                                fontColor: '#212529'
+                              },
+                              scaleLabel: {
+                                display: true,
+                                labelString: 'Month',
+                                fontFamily: '"Work Sans",sans-serif',
+                                fontColor: '#212529'
+                              }
+                            }],
+                            yAxes: [{
+                                ticks: {
+                                beginAtZero: true,
+                                fontFamily: '"Work Sans",sans-serif',
+                                fontColor: '#212529'
+                              },
+                              stacked: true,
+                              scaleLabel: {
+                                display: true,
+                                labelString: 'Valor',
+                                fontFamily: '"Work Sans",sans-serif',
+                                fontColor: '#212529'
+                              }
+                            }]
+                          }
+                        }
+                      };
+
+                      window.onload = function() {
+                        var ctx = document.getElementById('stackedCanvas').getContext('2d');
+                        window.myLine = new Chart(ctx, config);
+                      };
+
+                    </script>
+
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm">
+                    <p>To present info on acumulated data. Just like the acumulated bar chart, but it works better with more months/years.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/swuxj7na/embedded/result,html/">Copy this graph</a>
+                    </p>
+                </div>
+            </div>
+
             <p>&nbsp;</p>
             <p class="text-center"><a class="btn btn-outline-dark" href="bar-chart.html">Prev</a> <a class="btn btn-outline-dark" href="pie-charts.html">Next</a></p>
             <p>&nbsp;</p>
