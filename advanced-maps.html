@@ -33,7 +33,7 @@
 -->
             <h1>Advanced maps</h1>
 
-            <p class="lead">Use standard formats and external software to build complex maps.</p>
+            <p class="lead">Use standard formats and external software to build complex maps. Use custom designs.</p>
 
             <div class="row">
                 <div class="col-sm">
@@ -167,6 +167,36 @@
                         <a class="btn btn-outline-dark" target="_blank" href="https://gist.github.com/osvik/07e9a054b533b94a367ea0dc572e1c78">Example in Gist</a>
                         <a class="btn btn-outline-dark" target="_blank" href="https://greenpeace.github.io/gpes-weapons-export-spain/">Weapons exports example</a>
                     </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <h2>Custom design</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm col-md-8">
+                    <!-- CUSTOM TITLES MAP -->
+
+                    <div id="customTiles" style="width: 100%; height: 400px; margin-bottom: 2em;"></div>
+                    <script>
+                        var customTiles = L.map('customTiles', {
+                            scrollWheelZoom: false
+                        }).setView([40.1, 0.1], 5);
+
+                        L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 17,
+                            attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+                        }).addTo(customTiles);
+                    </script>
+
+                    <!-- /CUSTOM TITLES MAP -->
+                </div>
+                <div class="col-sm">
+                    <p>Open Street Map also allows custom tiles.  You can select one of many available designs, if you want to highlight a region’s typography for example.</p>
+                    <p><a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/51y6n3h8/embedded/result,html/">Copy this map</a></p>
                 </div>
             </div>
 
