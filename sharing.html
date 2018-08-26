@@ -68,15 +68,24 @@
 
             <div class="row">
                 <div class="col-sm">
-                    <h2>2. Iframes or packed javascript</h2>
+                    <h2>2. Videos</h2>
 
-                    <p>With this option we are sharing with other sites fully interactive and responsive pieces, just like they appear in our website.</p>
+                    <p>Technically videos, specially Youtube videos, work well in all websites and most social networks. While some sites block some types of external content, they generally allow posting simple videos in Youtube.</p>
 
-                    <p>Generally there's two techniques to share interactive pieces: iframes and packed javascript.</p>
+                    <p>Html5 videos (not hosted in Youtube) are also well supported. Video-based interactives, using Youtube or not, are not that well supported: they have the same limitations as the charts.</p>
 
-                    <h3>Option A - Iframes to embedded in the site</h3>
+                </div>
+            </div>
 
-                    <p>With this tecnnique we insert the graphic in the page by using an iframe. Websites can add the piece to their site just like a Youtube video.</p>
+            <div class="row">
+                <div class="col-sm">
+                    <h2>3. Iframes or packed javascript</h2>
+
+                    <p>With this two techniques we are sharing, with other sites, <strong>fully interactive and responsive pieces</strong>, just like they appear in our website.</p>
+
+                    <h3>Technique A - Iframes to embedded in the site</h3>
+
+                    <p>With this technique we insert the graphic in the page by using an iframe. Websites can add the piece to their site just like a Youtube video.</p>
 
                     <p>Iframes are easier for the sites with less technical skills but some graphics will cause problems when used with this technique. Besides some content farms will limit the use of external contents, including iframed content.</p>
 
@@ -96,9 +105,9 @@
 
                     <p>Also this graph will work in  <a href="https://www.blogger.com" target="_blank">Blogger</a> but will not work in <a href="https://medium.com/" target="_blank">Medium</a>, as it has serious limitations on external content.</p>
 
-                    <h3>Option B - Packed HTML + Javascript</h3>
+                    <h3>Technique B - Packed HTML + Javascript</h3>
 
-                    <p>The Spanish office is testing easy to use HTML + Javascript instead of iframes. If it works and if it has enough support, website editors can easily insert our charts and info graphs by adding two lines of code:</p>
+                    <p>The Spanish office is testing easy to use HTML + Javascript instead of iframes. If it works and if it has enough support, website editors can easily insert our charts and infographics in their websites and the piece will adjust automatically to the site's layout. To add an infographic you just need to add a code like:</p>
 
                     <code style="display: block;">
                     &lt;div id="infoContainer" style="width: 100%;"&gt;&lt;/div&gt;<br />
@@ -108,14 +117,16 @@
                     <p>Javascript has some of the compatibility problems and it’s less trustworthy than iframes. It also needs to be carefully coded to prevent it from interfering with the site’s functionality: we can't fully test the code because we don't know where it's going to be used.</p>
 
                     <p>But Javascript can also work better than iframes for some pieces. At the moment we are testing it with <a href="infograph.html">infographics</a> and:</p>
-                    <p><strong>It works in</strong> Greenwire, Blogger, Wordpress...</p>
-                    <p><strong>It doesn't work in</strong> Wordpress.com, Medium...</p>
-
+                    <ul>
+                        <li><strong>It works in</strong> Greenwire, Blogger, Wordpress...</li>
+                        <li><strong>It doesn't work in</strong> Wordpress.com, Medium...</li>
+                    </ul>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-sm">
-                    <h2>3. Share the (editable) code</h2>
+                    <h2>4. Share the (editable) code</h2>
 
                     <p>With this technique we share the code and data to reproduce the piece in another site. We do it using tools and techniques that make it <strong>easy for a beginner web developer to copy and adjust the code to their site</strong>. With this technique each site can easily adjust the fonts, colors and other design elements so that the graph integrates with their pages.</p>
 
@@ -131,7 +142,7 @@
                                     <img src="https://apps.greenpeace.es/data-vis/img/compartir/compartir-codepen.png" class="img-fluid" />
                                 </a>
                             </p>
-                            <p><a href="https://codepen.io/" target="_blank" rel="noreferrer">Codepen</a> is the best option to create a corporate profile and <strong>publicly present</strong> the final version of all materials that we have made. We can even create a blog with all graphics we have published. At the moment we are not using this option.</p>
+                            <p><a href="https://codepen.io/" target="_blank" rel="noreferrer">Codepen</a> is a great tool to create a corporate profile and <strong>publicly present</strong> the final version of all materials that we have made. We can even create a blog with all graphics we have published. At the moment we are not using it, we are using Jsfiddle instead.</p>
                         </div>
                         <div class="col-sm">
                             <h3>Tool B - Jsfiddle</h3>
@@ -156,7 +167,7 @@
                     
                     <p>Latter, three translators edited html to translate an interactive about alternative energy projects. They also worked in a common private Github repository.</p>
 
-                    <p>In the future we’ll use Github to:</p>
+                    <p><strong>In the future we’ll use Github to:</strong></p>
 
                     <ol>
                         <li>Share raw data and colaborate in open investigations.</li>
@@ -167,13 +178,14 @@
                 </div>
             </div>
 
-            <h2>4. Share data in a standard format</h2>
+            <h2>5. Share data in a standard format</h2>
 
             <div class="row">
                 <div class="col-sm">
                     <p>With this technique we share the data in a standard plug-n-play format, and it’s up to the site to decide the tool used to show it to their users. It’s what we do with videos: we send them .mp4 files and it’s up to each site to decide on how they want to present it.</p>
 
                     <p>The main problem is that there aren’t any plug-n-play standard data formats. With maps there’s <strong>GeoJson</strong> and <strong>KML</strong> but not for other data types.</p>
+
                 </div>
                 <div class="col-sm col-md-6">
                     <picture>
@@ -183,12 +195,10 @@
                 </div>
             </div>
 
-            <h2>5. Share also raw data (open data)</h2>
+            <h2>6. Share also raw data (open data)</h2>
 
             <div class="row">
                 <div class="col-sm col-md-6">
-
-
 
                     <p>For certain specific audiences it’s very important to share the raw data (if confirmed and if the data license allows it) used to prepare the data used in the graphic. With access to the raw data other people can study it with another perspective and make alternative visualisations. It’s also a way to be transparent and open to scrutiny. Generally it will add credibility to our findings.</p>
 
@@ -207,7 +217,7 @@
 
             <div class="row">
                 <div class="col-sm">
-                    <h2>6. Use of commercial products</h2>
+                    <h2>Use of commercial products</h2>
 
                     <p>Charts produced with commercial products like Tableau have their advantages and disadvantages, with differences from brand to brand. There’s dozens of services and it’s hard to make comments that apply to all of them but generally:</p>
 
@@ -224,16 +234,6 @@
 
             <div class="row">
                 <div class="col-sm">
-                    <h2>7. Videos</h2>
-
-                    <p>Technically videos, specially Youtube videos, work well in all websites and most social networks.</p>
-
-                    <p>Not all visualizations can be communicated properly with a video. Videos with data must be produced carefully to be consumed by users with desktop and mobile computers. The message should also be easy to understand with and without sound.</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm">
                     <a name="shareinfobox"></a>
                     <h2>Share infobox</h2>
 
@@ -242,7 +242,7 @@
                     <p>Examples:</p>
                     <ul>
                         <li><a href="javascript:void(0);" data-toggle="modal" data-target="#infographsModal" title="Open share box"><img src="assets/ico/share-alt-square-solid.svg" style="height: 18px; vertical-align: middle;" /> <strong>Use this infograph</strong></a></li>
-                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#chartsModal" title="Open share box"><img src="assets/ico/share-alt-square-solid.svg" style="height: 18px; vertical-align: middle;" /> <strong>Use this chart</strong></a></li>
+                        <li><a href="javascript:void(0);" data-toggle="modal" data-target="#chartsModal" title="Open share box"><img src="assets/ico/share-alt-square-solid.svg" style="height: 18px; vertical-align: middle;" /> <strong>Use this chart/map</strong></a></li>
                     </ul>
 
 
