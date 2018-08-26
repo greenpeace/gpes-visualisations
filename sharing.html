@@ -212,9 +212,11 @@
                     <a name="shareinfobox"></a>
                     <h2>Share info box</h2>
 
-                    <p>Our materials will be shared even more, if we explain to our users how to do it. Here in the Spanish Office, we'll start testing a share box. <a href="javascript:void(0);" data-toggle="modal" data-target="#mapaModal" title="Open share box"><img src="assets/ico/share-alt-square-solid.svg" style="height: 18px; vertical-align: middle;" /> <strong>Open share info box</strong></a>.</p>
+                    <p>If we explain to our users how to do it, our materials will be shared even more. The Spanish Office will start testing a share box fom a link in the chart's footer:</p>
 
-                    <p>Please note that for now we don’t have standard box content. Because how users can use a specific piece depends on the type of piece being shared and the formats available.</p>
+                    <p><a href="javascript:void(0);" data-toggle="modal" data-target="#chartsModal" title="Open share box"><img src="assets/ico/share-alt-square-solid.svg" style="height: 18px; vertical-align: middle;" /> <strong>Use this chart</strong></a></p>
+
+                    <p><a href="javascript:void(0);" data-toggle="modal" data-target="#infographsModal" title="Open share box"><img src="assets/ico/share-alt-square-solid.svg" style="height: 18px; vertical-align: middle;" /> <strong>Use this infograph</strong></a>.</p>
 
                 </div>
             </div>
@@ -232,7 +234,7 @@
             <p>&nbsp;</p>
 
 
-<!-- MODAL -->
+<!-- MODAL CHART -->
 <style>
 code {
     font-size: 0.8em;
@@ -241,11 +243,11 @@ code {
     color: #bbb;
 }
 </style>
-<div class="modal fade" id="mapaModal" tabindex="-1" role="dialog" aria-labelledby="mapaModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="chartsModal" tabindex="-1" role="dialog" aria-labelledby="chartsModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="mapaModalLongTitle">How to use</h3>
+                <h3 class="modal-title" id="chartsModalLongTitle">How to use</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -258,9 +260,9 @@ code {
 
                 <hr />
 
-                <h4>Insert this piece in your website</h4>
+                <h4>Insert the responsive chart in your website</h4>
 
-                <p>If your website supports <i>iframes</i>, you can insert this piece in your website with this code:</p>
+                <p>If your website supports <i>iframes</i>, you can insert this chart with the code:</p>
 
                 <code style="display: block;">&lt;style&gt;.embed-container { position: relative; padding-bottom: 68%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;&lt;div class='embed-container'&gt;&lt;iframe src='https://TEST_CODE' frameborder='0' allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;</code>
 
@@ -284,7 +286,64 @@ code {
         </div>
     </div>
 </div>
-<!-- /MODAL -->
+<!-- /MODAL CHART -->
+
+<!-- MODAL INFOGRAPH -->
+<style>
+code {
+    font-size: 0.8em;
+    margin-bottom: 1em;
+    background-color: #fff;
+    color: #bbb;
+}
+</style>
+<div class="modal fade" id="infographsModal" tabindex="-1" role="dialog" aria-labelledby="chartsModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="chartsModalLongTitle">How to use</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <h4>Download social media image</h4>
+
+                <p>You can <a href="#" target="_blank">download this image</a> and share it in social media. Please link to this page.</p>
+
+                <hr />
+
+                <h4>Insert the responsive infograph in your website</h4>
+
+                <p>If your website supports custom Javascript, you can insert this responsive infograph by adding this code:</p>
+
+                <code style="display: block;">
+                    &lt;div id="infoContainer" style="width: 100%;"&gt;&lt;/div&gt;
+                    &lt;script src="https://path/to/infograph.min.js" type="application/javascript" async&gt;&lt;/script&gt;
+                </code>
+
+                <p>Please note that not all websites support custom Javascript and that sometimes there's technical restrictions that we can't overcome. We can’t provide technical support.</p>
+
+                <hr />
+
+                <h4>Translate and/or adapt</h4>
+
+                <p>Translate or adapt this infograph from the editable vector files to use them in your website.</p>
+                <ul>
+                    <li><a href="https://storage.googleapis.com/gpes-static/pozos/pozos-545.svg" target="_blank">545 px fluid</a></li>
+                    <li><a href="https://storage.googleapis.com/gpes-static/pozos/pozos-510.svg" target="_blank">510 px</a></li>
+                    <li><a href="https://storage.googleapis.com/gpes-static/pozos/pozos-610.svg" target="_blank">610 px</a></li>
+                    <li><a href="https://storage.googleapis.com/gpes-static/pozos/pozos-690.svg" target="_blank">690 px</a></li>
+                    <li><a href="https://storage.googleapis.com/gpes-static/pozos/pozos-730.svg" target="_blank">730 px</a></li>
+                </ul>
+                <p>Please test first to check that you can edit them and that they work in your website! We can’t provide technical support.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /MODAL INFOGRAPH -->
 
             <!--
 ------------------------------------------------------------------------------------------------------------------------
