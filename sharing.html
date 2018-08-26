@@ -65,7 +65,13 @@
 
             <div class="row">
                 <div class="col-sm">
-                    <h2>2. Iframe to embedded in the site</h2>
+                    <h2>2. Iframes or packed javascript</h2>
+
+                    <p>With this option we are sharing with other sites fully interactive and responsive pieces, just like they appear in our website.</p>
+
+                    <p>Generally there's two techniques to share interactive pieces: iframes and packed javascript.</p>
+
+                    <h3>Option A - Iframes to embedded in the site</h3>
 
                     <p>With this tecnnique we insert the graphic in the page by using an iframe. Websites can add the piece to their site just like a Youtube video.</p>
 
@@ -80,28 +86,41 @@
                     <p>Code to share the graphic above:</p>
 
                     <div style="margin-bottom: 2em;">
-                    <code>&lt;style&gt;.embed-container { position: relative; padding-bottom: 68%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;&lt;div class='embed-container'&gt;&lt;iframe src='https://apps.greenpeace.es/data-vis/iframe-chartsjs-in.html' frameborder='0' allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;</code>
+                    <code style="display: block;">&lt;style&gt;.embed-container { position: relative; padding-bottom: 68%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;&lt;div class='embed-container'&gt;&lt;iframe src='https://apps.greenpeace.es/data-vis/iframe-chartsjs-in.html' frameborder='0' allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;</code>
                     </div>
 
                     <p>Although this code should work in all websites, it wont because of technical choices made by the content farms owners. For example Wordpress.com does not allow the use of iframes in biogs hosted in Wordpress. However this code will work in a Wordpress site that’s not hosted in a content farm like <a href="https://wordpress.com/" target="_blank">Wordpress.com</a>.</p>
 
                     <p>Also this graph will work in  <a href="https://www.blogger.com" target="_blank">Blogger</a> but will not work in <a href="https://medium.com/" target="_blank">Medium</a>, as it has serious limitations on external content.</p>
 
+                    <h3>Option B - Packed HTML + Javascript</h3>
+
+                    <p>The Spanish office is testing easy to use HTML + Javascript instead of iframes. If it works and if it has enough support, website editors can easily insert our charts and info graphs by adding two lines of code:</p>
+
+                    <code style="display: block;">
+                    &lt;div id="infoContainer" style="width: 100%;"&gt;&lt;/div&gt;<br />
+                    &lt;script src="https://path/to/infograph.min.js" type="application/javascript" async&gt;&lt;/script&gt;
+                    </code>
+
+                    <p>Javascript has some of the compatibility problems and it’s less trustworthy than iframes. It also needs to be carefully coded to prevent it from interfering with the site’s functionality: we can't fully test the code because we don't know where it's going to be used.</p>
+
+                    <p>But Javascript can also work better than iframes for some pieces. At the moment we are testing it with <a href="infograph.html">infographics</a> and it works well.</p>
+
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm">
-                    <h2>3. Share the code</h2>
+                    <h2>3. Share the (editable) code</h2>
 
-                    <p>With this technique we share the code and data to reproduce the piece in another site. We do it using tools and techniques that make it easy for a beginner web developer to copy and adjust the code to their site. With this technique each site can easily adjust the fonts, colors and other design elements so that the graph integrates with their pages.</p>
+                    <p>With this technique we share the code and data to reproduce the piece in another site. We do it using tools and techniques that make it <strong>easy for a beginner web developer to copy and adjust the code to their site</strong>. With this technique each site can easily adjust the fonts, colors and other design elements so that the graph integrates with their pages.</p>
 
-                    <p>IMPORTANT: This is also the best way to share pieces to translate and adjust by other <strong>Greenpeace offices</strong>. Offices will be able to translate, localise, adjust or remix as they want.</p>
+                    <p>IMPORTANT: This is also the best way to share pieces to <strong>translate and adjust</strong> by other <strong>Greenpeace offices</strong>. Offices will be able to translate, localise, adjust or remix as they want.</p>
 
                     <p>There’s many <strong>tools</strong> that help sharing the code and make it easier to translate, localise, adjust and remix. We have chosen:</p>
 
                     <div class="row">
                         <div class="col-sm">
-                            <h3>Option A - Codepen</h3>
+                            <h3>Tool A - Codepen</h3>
                             <p>
                                 <a href="https://codepen.io/osvaldo/details/KZqPEK" target="_blank">
                                     <img src="https://apps.greenpeace.es/data-vis/img/compartir/compartir-codepen.png" class="img-fluid" />
@@ -110,7 +129,7 @@
                             <p><a href="https://codepen.io/" target="_blank" rel="noreferrer">Codepen</a> is the best option to create a corporate profile and <strong>publicly present</strong> the final version of all materials that we have made. We can even create a blog with all graphics we have published. At the moment we are not using this option.</p>
                         </div>
                         <div class="col-sm">
-                            <h3>Option B - Jsfiddle</h3>
+                            <h3>Tool B - Jsfiddle</h3>
                             <p>
                                 <a href="https://jsfiddle.net/osvik/j9kbu6wp/embedded/result,html/" target="_blank">
                                     <img src="https://apps.greenpeace.es/data-vis/img/compartir/compartir-jsfiddle.png" class="img-fluid" />
@@ -122,11 +141,11 @@
                         </div>
                     </div>
 
-                    <h3>Option C - Github</h3>
+                    <h3>Tool C - Github</h3>
 
                     <p>Github is the most popular site to share code, collaborate and version control. Github is also used by many data journalists, analysts and data scientists. Some examples of data journalism related accounts: <a href="https://github.com/guardian" target="_blank">Guardian</a>, <a href="https://github.com/wpinvestigative" target="_blank">Washington Post</a>, <a href="https://github.com/fivethirtyeight/" target="_blank">Five Thirty Eight</a>, <a target="_blank" href="https://github.com/TheUpshot">NY Times</a> and <a target="_blank" href="https://github.com/civio">Civio (Spanish)</a>. See also the <a href="https://github.com/collections/open-journalism" target="_blank">Github's collection on open journalism</a>...</p>
 
-                    <p>In Greenpeace we use Github globally with a <a href="https://github.com/greenpeace">shared account</a> with more than 150 repositories from a few NROs. 9 of those repositories are maintained by the Spanish Office. There's also a <a href="https://github.com/orgs/greenpeace/teams/gpes">Github team for the Spanish Office</a>.</p>
+                    <p>In Greenpeace we use Github globally with a <a href="https://github.com/greenpeace">shared account</a> with more than 150 repositories from a few NROs. 15 of those repositories are maintained by the Spanish Office. There's also a <a href="https://github.com/orgs/greenpeace/teams/gpes">Github team for the Spanish Office</a>.</p>
 
                     <p>The first data repository owned by the Spanish office in Github is the translation to English of the Spanish Weapons export map. The translations made by a professional translator that worked directly in the <a href="https://github.com/greenpeace/gpes-weapons-export-spain" target="_blank">private repository</a> and seeing his updates in a <a target="_blank" href="https://greenpeace.github.io/gpes-weapons-export-spain/">web page</a>.</p>
                     
@@ -194,6 +213,7 @@
                         <li>Even if they don’t want to change or translate the graphic, some sites might not want to have in their pages <strong>content that’s not on their own accounts</strong>. Maybe there’s an internal policy against that or they fear that the graphic is changed or deleted.</li>
                     </ul>
                     <p>Yes, some sites this use commercial products, but their needs, skills and organisational structure are different from our own. Their products are slightly <strong>easier to start with but harder to progress</strong>.</p>
+                    <p>And for us it would mean keep paying for services that we don't use anymore, just to maintain the charts online.</p>
                 </div>
             </div>
 
@@ -201,9 +221,9 @@
                 <div class="col-sm">
                     <h2>7. Videos</h2>
 
-                    <p>Not all datavisualizations can be communicated properly with a video. Technically videos, specially Youtube videos work well in all websites and most social networks.</p>
+                    <p>Technically videos, specially Youtube videos, work well in all websites and most social networks.</p>
 
-                    <p>Videos with data must be produced carefully to be consumed by users with desktop and mobile computers. The message should also be easy to understand with and without sound. </p>
+                    <p>Not all visualizations can be communicated properly with a video. Videos with data must be produced carefully to be consumed by users with desktop and mobile computers. The message should also be easy to understand with and without sound.</p>
                 </div>
             </div>
 
@@ -272,7 +292,7 @@ code {
 
                 <h4>Translate and/or adapt</h4>
 
-                <p>Translate or adapt this piece from the <a href="https://jsfiddle.net/osvik/51y6n3h8/embedded/result,html/" target="_blank">source code</a> and you can use it in your website. Please <strong>test it first</strong> to check that it works in your website! We can’t provide technical support.</p>
+                <p>Translate or adapt this piece from the <a href="https://jsfiddle.net/osvik/51y6n3h8/embedded/result,html/" target="_blank">source code</a> and you can use it in your website. Please test it first to check that it works in your website! We can’t provide technical support.</p>
 
                 <hr />
 
@@ -280,7 +300,7 @@ code {
 
                 <p>If you want to produce your own materials, you can <a href="https://docs.google.com/spreadsheets/d/1D-P9qlLNIH3J7QLkcfRt4xaibR6HIh52WDOCtuHE6Q4/edit#gid=1651297052" target="_blank">download the raw open data</a> that we used to produce this piece.</p>
 
-                <p>Source: <a href="javascript:void(0);">ACME</a>, License: <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank">Creative Commons</a></p>
+                <p>Data source: <a href="javascript:void(0);">ACME</a>, license: <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank">Creative Commons</a></p>
 
             </div>
         </div>
