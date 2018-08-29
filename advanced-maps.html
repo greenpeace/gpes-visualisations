@@ -167,13 +167,15 @@
 
         var containerEl = document.getElementById("geoJsonMap");
         var elwidth = containerEl.offsetWidth;
-        var mapheight = elwidth >= 550 ? 330 : 300;
-        var zoomvalue = elwidth >= 550 ? 1 : 1;
+        var mapheight = elwidth >= 550 ? 380 : 300;
+        var zoomvalue = elwidth >= 550 ? 1.5 : 1.3;
 
         document.getElementById("geoJsonMap").style.height = mapheight + "px";
 
         var osmap = L.map('geoJsonMap', {
-            scrollWheelZoom: false
+            scrollWheelZoom: false,
+            minZoom: 1,
+            maxZoom: 5
         }).setView([25.865427, 0], zoomvalue);
 
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
