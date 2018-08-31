@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
     <noscript id="deferred-styles">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700" />
@@ -29,8 +29,8 @@
         else window.addEventListener('DOMContentLoaded', loadDeferredStyles);
     </script>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js" defer></script>
+    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js" defer></script>
     <title>Bar charts</title>
     <meta name="robots" content="noindex, nofollow" />
 </head>
@@ -66,68 +66,71 @@
                         <canvas id="bar_chart_1" width="350" height="250"></canvas>
                     </div>
                     <script>
-                        var ctx = document.getElementById("bar_chart_1");
-                        var bar_chart_1 = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
-                                datasets: [{
-                                    label: 'Gastos en miles de euro',
-                                    data: [8, 9, 10, 9, 12, 13],
-                                    backgroundColor: [
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)'
-                                    ]
-                                }]
-                            },
-                            options: {
-
-                                legend: { display: false },
-                                title: {
-                                    display: true,
-                                    text: 'Evolución de dato en el tiempo',
-                                    fontSize: 16,
-                                    fontFamily: '"Work Sans",sans-serif',
-                                    fontColor: '#212529'
-                                },
-                                layout: {
-                                        padding: {
-                                            bottom: 20
-                                        }
-                                },
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Miles de euros',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
-                                    }],
-                                    xAxes: [{
-                                        ticks: {
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Meses',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            var ctx = document.getElementById("bar_chart_1");
+                            var bar_chart_1 = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                    datasets: [{
+                                        label: 'Gastos en miles de euro',
+                                        data: [8, 9, 10, 9, 12, 13],
+                                        backgroundColor: [
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)'
+                                        ]
                                     }]
+                                },
+                                options: {
+
+                                    legend: { display: false },
+                                    title: {
+                                        display: true,
+                                        text: 'Evolución de dato en el tiempo',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    },
+                                    layout: {
+                                            padding: {
+                                                bottom: 20
+                                            }
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true,
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Miles de euros',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            ticks: {
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Meses',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }]
+                                    }
                                 }
-                            }
+                            });                            
                         });
+
 
                     </script>
                     <!-- FIGURE -->
@@ -154,89 +157,92 @@
                         <canvas id="bar_chart_2" width="350" height="250"></canvas>
                     </div>
                     <script>
-                        var ctx = document.getElementById("bar_chart_2");
-                        var bar_chart_2 = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
-                                datasets: [{
-                                    label: 'ingresos',
-                                    data: [8, 9, 10, 9, 12, 13],
-                                    backgroundColor: [
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)'
-                                    ]
-                                },
-                                {
-                                    label: 'gastos',
-                                    data: [6, 19, 11, 8, 14, 11],
-                                    backgroundColor: [
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)'
-                                    ]
-                                }
-
-                                ]
-                            },
-                            options: {
-                                title: {
-                                    display: true,
-                                    text: 'Comparar evolución de dos datos en el tiempo',
-                                    fontSize: 16,
-                                    fontFamily: '"Work Sans",sans-serif',
-                                    fontColor: '#212529'
-                                },
-                                legend: {
-                                    display: true,
-                                    labels: {
-                                        fontName: '"Work Sans",sans-serif',
-                                        fontColor: '#212529',
-                                        fontSize: 13
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            var ctx = document.getElementById("bar_chart_2");
+                            var bar_chart_2 = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                    datasets: [{
+                                        label: 'ingresos',
+                                        data: [8, 9, 10, 9, 12, 13],
+                                        backgroundColor: [
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)'
+                                        ]
+                                    },
+                                    {
+                                        label: 'gastos',
+                                        data: [6, 19, 11, 8, 14, 11],
+                                        backgroundColor: [
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)'
+                                        ]
                                     }
-                                },
-                                layout: {
-                                        padding: {
-                                            bottom: 20
-                                        }
-                                },
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Miles de euros',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
-                                    }],
-                                    xAxes: [{
-                                        ticks: {
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Meses',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
-                                    }]
-                                }
-                            }
-                        });
 
+                                    ]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Comparar evolución de dos datos en el tiempo',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    },
+                                    legend: {
+                                        display: true,
+                                        labels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    layout: {
+                                            padding: {
+                                                bottom: 20
+                                            }
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true,
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Miles de euros',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            ticks: {
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Meses',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }]
+                                    }
+                                }
+                            });
+
+                        });
+                            
                     </script>
 
                     <!-- FIGURE -->
@@ -266,89 +272,92 @@
                         <canvas id="bar_chart_3" width="350" height="250"></canvas>
                     </div>
                     <script>
-                        var ctx = document.getElementById("bar_chart_3");
-                        var bar_chart_3 = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
-                                datasets: [{
-                                    label: 'Altas',
-                                    data: [8, 9, 10, 9, 12, 13],
-                                    backgroundColor: [
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(195, 224, 166, 0.85)'
-                                    ]
-                                },
-                                {
-                                    label: 'Bajas',
-                                    data: [-6, -19, -11, -8, -14, -11],
-                                    backgroundColor: [
-                                        'rgba(255, 195, 49, 0.85)',
-                                        'rgba(255, 195, 49, 0.85)',
-                                        'rgba(255, 195, 49, 0.85)',
-                                        'rgba(255, 195, 49, 0.85)',
-                                        'rgba(255, 195, 49, 0.85)',
-                                        'rgba(255, 195, 49, 0.85)'
-                                    ]
-                                }
-
-                                ]
-                            },
-                            options: {
-                                title: {
-                                    display: true,
-                                    text: 'Positivos y negativos',
-                                    fontSize: 16,
-                                    fontFamily: '"Work Sans",sans-serif',
-                                    fontColor: '#212529'
-                                },
-                                legend: {
-                                    display: true,
-                                    labels: {
-                                        fontName: '"Work Sans",sans-serif',
-                                        fontColor: '#212529',
-                                        fontSize: 13
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            var ctx = document.getElementById("bar_chart_3");
+                            var bar_chart_3 = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                    datasets: [{
+                                        label: 'Altas',
+                                        data: [8, 9, 10, 9, 12, 13],
+                                        backgroundColor: [
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(195, 224, 166, 0.85)'
+                                        ]
+                                    },
+                                    {
+                                        label: 'Bajas',
+                                        data: [-6, -19, -11, -8, -14, -11],
+                                        backgroundColor: [
+                                            'rgba(255, 195, 49, 0.85)',
+                                            'rgba(255, 195, 49, 0.85)',
+                                            'rgba(255, 195, 49, 0.85)',
+                                            'rgba(255, 195, 49, 0.85)',
+                                            'rgba(255, 195, 49, 0.85)',
+                                            'rgba(255, 195, 49, 0.85)'
+                                        ]
                                     }
-                                },
-                                layout: {
-                                        padding: {
-                                            bottom: 20
-                                        }
-                                },
-                                scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Socios/as',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
-                                    }],
-                                    xAxes: [{
-                                        ticks: {
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Meses',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
-                                    }]
-                                }
-                            }
-                        });
 
+                                    ]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Positivos y negativos',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    },
+                                    legend: {
+                                        display: true,
+                                        labels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    layout: {
+                                            padding: {
+                                                bottom: 20
+                                            }
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                beginAtZero: true,
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Socios/as',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            ticks: {
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Meses',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }]
+                                    }
+                                }
+                            });
+
+                        });
+                            
                     </script>
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
@@ -374,76 +383,78 @@
                         <canvas id="bar_chart_4" width="350" height="250"></canvas>
                     </div>
                     <script>
-                        var ctx = document.getElementById("bar_chart_4");
-                        var bar_chart_4 = new Chart(ctx, {
-                            type: 'horizontalBar',
-                            data: {
-                                labels: ["Dinamarca", "Suiza", "Belgica", "Portugal", "Holanda"],
-                                datasets: [
-                                    {
-                                        label: 'Puntos',
-                                        data: [20,19,18,17,16],
-                                        backgroundColor: [
-                                        'rgba(195, 224, 166, 0.85)',
-                                        'rgba(122, 189, 148, 0.85)',
-                                        'rgba(253, 246, 178, 0.85)',
-                                        'rgba(255, 225, 159, 0.85)',
-                                        'rgba(255, 195, 49, 0.85)'
-                                        ]
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            var ctx = document.getElementById("bar_chart_4");
+                            var bar_chart_4 = new Chart(ctx, {
+                                type: 'horizontalBar',
+                                data: {
+                                    labels: ["Dinamarca", "Suiza", "Belgica", "Portugal", "Holanda"],
+                                    datasets: [
+                                        {
+                                            label: 'Puntos',
+                                            data: [20,19,18,17,16],
+                                            backgroundColor: [
+                                            'rgba(195, 224, 166, 0.85)',
+                                            'rgba(122, 189, 148, 0.85)',
+                                            'rgba(253, 246, 178, 0.85)',
+                                            'rgba(255, 225, 159, 0.85)',
+                                            'rgba(255, 195, 49, 0.85)'
+                                            ]
+                                        }
+                                    ]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Ranking',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    },
+                                    legend: {
+                                        display: false,
+                                        labels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    layout: {
+                                            padding: {
+                                                bottom: 20
+                                            }
+                                    },
+                                    scales: {
+                                        xAxes: [{
+                                            ticks: {
+                                                beginAtZero: true,
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Puntos',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }],
+                                        yAxes: [{
+                                            ticks: {
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Países',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }]
                                     }
-                                ]
-                            },
-                            options: {
-                                title: {
-                                    display: true,
-                                    text: 'Ranking',
-                                    fontSize: 16,
-                                    fontFamily: '"Work Sans",sans-serif',
-                                    fontColor: '#212529'
-                                },
-                                legend: {
-                                    display: false,
-                                    labels: {
-                                        fontName: '"Work Sans",sans-serif',
-                                        fontColor: '#212529',
-                                        fontSize: 13
-                                    }
-                                },
-                                layout: {
-                                        padding: {
-                                            bottom: 20
-                                        }
-                                },
-                                scales: {
-                                    xAxes: [{
-                                        ticks: {
-                                            beginAtZero: true,
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Puntos',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
-                                    }],
-                                    yAxes: [{
-                                        ticks: {
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Países',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
-                                    }]
                                 }
-                            }
+                            });
                         });
-
+                        
                     </script>
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
@@ -470,81 +481,82 @@
                         <canvas id="bar_chart_5" width="350" height="250"></canvas>
                     </div>
                     <script>
-                        var ctx = document.getElementById("bar_chart_5");
-                        var bar_chart_5 = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
-                                datasets: [
-                                    {
-                                    label: 'oro',
-                                    data: [8, 7, 6, 5, 4, 3],
-                                    backgroundColor: 'rgba(255, 195, 49, 0.85)'
-                                    },
-                                    {
-                                    label: 'plata',
-                                    data: [8, 10, 12, 14, 16, 18],
-                                    backgroundColor: 'rgba(134, 139, 134, 0.85)'
-                                    },
-                                    {
-                                    label: 'platina',
-                                    data: [7, 9, 10, 9, 14, 15],
-                                    backgroundColor: 'rgba(195, 224, 166, 0.85)'
-                                    }
-                                ]
-                            },
-                            options: {
-                                title: {
-                                    display: true,
-                                    text: 'Evolución de datos acumulados en el tiempo',
-                                    fontSize: 16,
-                                    fontFamily: '"Work Sans",sans-serif',
-                                    fontColor: '#212529'
-                                },
-                                legend: {
-                                    display: true,
-                                    labels: {
-                                        fontName: '"Work Sans",sans-serif',
-                                        fontColor: '#212529',
-                                        fontSize: 13
-                                    }
-                                },
-                                layout: {
-                                        padding: {
-                                            bottom: 20
-                                        }
-                                },
-                                scales: {
-                                    yAxes: [{
-                                        stacked: true,
-                                        ticks: {
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            var ctx = document.getElementById("bar_chart_5");
+                            var bar_chart_5 = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                    datasets: [
+                                        {
+                                        label: 'oro',
+                                        data: [8, 7, 6, 5, 4, 3],
+                                        backgroundColor: 'rgba(255, 195, 49, 0.85)'
                                         },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Kg',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
-                                    }],
-                                    xAxes: [{
-                                        stacked: true,
-                                        ticks: {
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
+                                        {
+                                        label: 'plata',
+                                        data: [8, 10, 12, 14, 16, 18],
+                                        backgroundColor: 'rgba(134, 139, 134, 0.85)'
                                         },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Meses',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
+                                        {
+                                        label: 'platina',
+                                        data: [7, 9, 10, 9, 14, 15],
+                                        backgroundColor: 'rgba(195, 224, 166, 0.85)'
                                         }
-                                    }]
+                                    ]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Evolución de datos acumulados en el tiempo',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    },
+                                    legend: {
+                                        display: true,
+                                        labels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    layout: {
+                                            padding: {
+                                                bottom: 20
+                                            }
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            stacked: true,
+                                            ticks: {
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Kg',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            stacked: true,
+                                            ticks: {
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Meses',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }]
+                                    }
                                 }
-                            }
+                            }); 
                         });
-
                     </script>
 
                     <!-- FIGURE -->
@@ -571,80 +583,83 @@
                         <canvas id="bar_chart_6" width="350" height="250"></canvas>
                     </div>
                     <script>
-                        var ctx = document.getElementById("bar_chart_6");
-                        var bar_chart_6 = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
-                                datasets: [
-                                    {
-                                    label: 'oro',
-                                    data: [25, 33, 10, 25, 40, 5],
-                                    backgroundColor: 'rgba(255, 195, 49, 0.85)'
-                                    },
-                                    {
-                                    label: 'plata',
-                                    data: [50, 33, 10, 25, 20, 15],
-                                    backgroundColor: 'rgba(134, 139, 134, 0.85)'
-                                    },
-                                    {
-                                    label: 'platina',
-                                    data: [25, 34, 80, 50, 40, 80],
-                                    backgroundColor: 'rgba(195, 224, 166, 0.85)'
-                                    }
-                                ]
-                            },
-                            options: {
-                                title: {
-                                    display: true,
-                                    text: 'Evolución de porcentages en el tiempo',
-                                    fontSize: 16,
-                                    fontFamily: '"Work Sans",sans-serif',
-                                    fontColor: '#212529'
-                                },
-                                legend: {
-                                    display: true,
-                                    labels: {
-                                        fontName: '"Work Sans",sans-serif',
-                                        fontColor: '#212529',
-                                        fontSize: 13
-                                    }
-                                },
-                                layout: {
-                                        padding: {
-                                            bottom: 20
-                                        }
-                                },
-                                scales: {
-                                    yAxes: [{
-                                        stacked: true,
-                                        ticks: {
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            var ctx = document.getElementById("bar_chart_6");
+                            var bar_chart_6 = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: ["enero", "febrero", "marzo", "abril", "mayo", "junio"],
+                                    datasets: [
+                                        {
+                                        label: 'oro',
+                                        data: [25, 33, 10, 25, 40, 5],
+                                        backgroundColor: 'rgba(255, 195, 49, 0.85)'
                                         },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Porcentaje',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
-                                        }
-                                    }],
-                                    xAxes: [{
-                                        stacked: true,
-                                        ticks: {
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
+                                        {
+                                        label: 'plata',
+                                        data: [50, 33, 10, 25, 20, 15],
+                                        backgroundColor: 'rgba(134, 139, 134, 0.85)'
                                         },
-                                        scaleLabel: {
-                                            display: true,
-                                            labelString: 'Meses',
-                                            fontFamily: '"Work Sans",sans-serif',
-                                            fontColor: '#212529'
+                                        {
+                                        label: 'platina',
+                                        data: [25, 34, 80, 50, 40, 80],
+                                        backgroundColor: 'rgba(195, 224, 166, 0.85)'
                                         }
-                                    }]
+                                    ]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Evolución de porcentages en el tiempo',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    },
+                                    legend: {
+                                        display: true,
+                                        labels: {
+                                            fontName: '"Work Sans",sans-serif',
+                                            fontColor: '#212529',
+                                            fontSize: 13
+                                        }
+                                    },
+                                    layout: {
+                                            padding: {
+                                                bottom: 20
+                                            }
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            stacked: true,
+                                            ticks: {
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Porcentaje',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            stacked: true,
+                                            ticks: {
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                                display: true,
+                                                labelString: 'Meses',
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529'
+                                            }
+                                        }]
+                                    }
                                 }
-                            }
+                            });
                         });
+                            
 
                     </script>
                     <!-- FIGURE -->
