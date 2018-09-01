@@ -6,28 +6,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <noscript id="deferred-styles">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700" />
-        <link rel="stylesheet" href="assets/css/all.css" />
-        <link rel="stylesheet" href="assets/css/print.css" media="print" />
-        <link rel="stylesheet" href="assets/css/screen.css" media="screen" />
-    </noscript>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700">
+    <link rel="stylesheet" href="assets/css/all.css">
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
+    <link rel="stylesheet" href="assets/css/screen.css" media="screen"> -->
+
+    <style>
+        *,::after,::before{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar}@-ms-viewport{width:device-width}article,header{display:block}body{margin:0;font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff}h1,h2,h3{margin-top:0;margin-bottom:.5rem}p{margin-top:0;margin-bottom:1rem}img{vertical-align:middle;border-style:none}h1,h2,h3{margin-bottom:.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit}h1{font-size:2.5rem}h2{font-size:2rem}h3{font-size:1.75rem}.lead{font-size:1.25rem;font-weight:300}.container{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:576px){.container{max-width:540px}}@media (min-width:768px){.container{max-width:720px}}@media (min-width:992px){.container{max-width:960px}}@media (min-width:1200px){.container{max-width:1140px}}.row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}.col-sm{position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px}@media (min-width:576px){.col-sm{-ms-flex-preferred-size:0;flex-basis:0;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;max-width:100%}}.text-center{text-align:center!important}body{font-family:"Work Sans",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:antialiased;font-weight:400;font-size:18px}h1,h2,h3{font-family:Rubik,sans-serif}h1{font-size:2.7rem;margin-top:1.5rem;margin-bottom:.9rem}h2{font-size:2rem;margin-top:1.5rem;margin-bottom:.66rem}h3{font-size:1.5rem;margin-top:.75rem;margin-bottom:.5rem}.topbar .logo{width:150px}body{background:#f6f6f6;line-height:24px;font-kerning:auto;font-stretch:normal}.only-print{display:none}div.topbar{background-color:#0c4413}header{padding:1rem}.topbar{display:block}header .logo{display:inline}
+    </style>
+
     <script>
-        var loadDeferredStyles = function() {
-            var addStylesNode = document.getElementById("deferred-styles");
-            var replacement = document.createElement("div");
-            replacement.innerHTML = addStylesNode.textContent;
-            document.body.appendChild(replacement);
-            addStylesNode.parentElement.removeChild(addStylesNode);
-        };
-        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-            webkitRequestAnimationFrame || msRequestAnimationFrame;
-        if (raf) raf(function() {
-            window.setTimeout(loadDeferredStyles, 0);
-        });
-        else window.addEventListener('DOMContentLoaded', loadDeferredStyles);
+        !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){function e(){t.media=a}var a=t.media||"all";t.addEventListener?t.addEventListener("load",e):t.attachEvent&&t.attachEvent("onload",e),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(e,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
     </script>
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="assets/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link rel="preload" href="assets/css/print.css" media="print" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="assets/css/screen.css" media="screen" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script>
@@ -65,107 +61,109 @@
             </div>
 
             <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
 
                     <div id="chart_div" style="width: 100%; height: 400px;"></div>
                     <p><small>Haz clic para ver con más detalle y right-click para ver general</small></p>
 
                     <script>
-                     google.charts.setOnLoadCallback(drawChart);
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            google.charts.setOnLoadCallback(drawChart);
 
-                    function drawChart() {
-                        var data = google.visualization.arrayToDataTable([
-                            ['Location', 'Parent', 'Volumen del mercado (tamaño)', 'Aumento/bajada del mercado (color)'],
-                            ['Mundial', null, 0, 0],
-                            ['America', 'Mundial', 0, 0],
-                            ['Europa', 'Mundial', 0, 0],
-                            ['Asia', 'Mundial', 0, 0],
-                            ['Australia', 'Mundial', 0, 0],
-                            ['Africa', 'Mundial', 0, 0],
-                            ['Brazil', 'America', 11, 10],
-                            ['USA', 'America', 52, 31],
-                            ['Mexico', 'America', 24, 12],
-                            ['Canada', 'America', 16, -23],
-                            ['France', 'Europa', 42, -11],
-                            ['Germany', 'Europa', 31, -2],
-                            ['Sweden', 'Europa', 22, -13],
-                            ['Italy', 'Europa', 17, 4],
-                            ['UK', 'Europa', 21, -5],
-                            ['China', 'Asia', 36, 4],
-                            ['Japan', 'Asia', 20, -12],
-                            ['India', 'Asia', 40, 63],
-                            ['Laos', 'Asia', 4, 34],
-                            ['Mongolia', 'Asia', 1, -5],
-                            ['Israel', 'Asia', 12, 24],
-                            ['Iran', 'Asia', 18, 13],
-                            ['Pakistan', 'Asia', 11, -52],
-                            ['Egypt', 'Africa', 21, 0],
-                            ['S. Africa', 'Africa', 30, 43],
-                            ['Sudan', 'Africa', 12, 2],
-                            ['Congo', 'Africa', 10, 12],
-                            ['Zaire', 'Africa', 8, 10]
-                        ]);
+                            function drawChart() {
+                                var data = google.visualization.arrayToDataTable([
+                                    ['Location', 'Parent', 'Volumen del mercado (tamaño)', 'Aumento/bajada del mercado (color)'],
+                                    ['Mundial', null, 0, 0],
+                                    ['America', 'Mundial', 0, 0],
+                                    ['Europa', 'Mundial', 0, 0],
+                                    ['Asia', 'Mundial', 0, 0],
+                                    ['Australia', 'Mundial', 0, 0],
+                                    ['Africa', 'Mundial', 0, 0],
+                                    ['Brazil', 'America', 11, 10],
+                                    ['USA', 'America', 52, 31],
+                                    ['Mexico', 'America', 24, 12],
+                                    ['Canada', 'America', 16, -23],
+                                    ['France', 'Europa', 42, -11],
+                                    ['Germany', 'Europa', 31, -2],
+                                    ['Sweden', 'Europa', 22, -13],
+                                    ['Italy', 'Europa', 17, 4],
+                                    ['UK', 'Europa', 21, -5],
+                                    ['China', 'Asia', 36, 4],
+                                    ['Japan', 'Asia', 20, -12],
+                                    ['India', 'Asia', 40, 63],
+                                    ['Laos', 'Asia', 4, 34],
+                                    ['Mongolia', 'Asia', 1, -5],
+                                    ['Israel', 'Asia', 12, 24],
+                                    ['Iran', 'Asia', 18, 13],
+                                    ['Pakistan', 'Asia', 11, -52],
+                                    ['Egypt', 'Africa', 21, 0],
+                                    ['S. Africa', 'Africa', 30, 43],
+                                    ['Sudan', 'Africa', 12, 2],
+                                    ['Congo', 'Africa', 10, 12],
+                                    ['Zaire', 'Africa', 8, 10]
+                                ]);
 
-                        tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+                                tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
 
-                        var options = {
+                                var options = {
 
-                            minColor: '#8EE5BB',
-                            midColor: 'rgba(255, 255, 255, 0.3)',
-                            maxColor: '#FF4D16',
+                                    minColor: '#8EE5BB',
+                                    midColor: 'rgba(255, 255, 255, 0.3)',
+                                    maxColor: '#FF4D16',
 
-                            title: 'Jerarquía y proporcionalidad',
-                            titleTextStyle: {
-                                color: '#212529',
-                                fontName: '"Work Sans",sans-serif',
-                                fontSize: 16,
-                                bold: true,
-                                italic: false
-                            },
+                                    title: 'Jerarquía y proporcionalidad',
+                                    titleTextStyle: {
+                                        color: '#212529',
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontSize: 16,
+                                        bold: true,
+                                        italic: false
+                                    },
 
-                            textStyle: {
-                                color: '#212529',
-                                fontName: '"Work Sans",sans-serif',
-                                fontSize: 13,
-                                bold: false,
-                                italic: false
-                            },
+                                    textStyle: {
+                                        color: '#212529',
+                                        fontName: '"Work Sans",sans-serif',
+                                        fontSize: 13,
+                                        bold: false,
+                                        italic: false
+                                    },
 
-                            headerColor: '#ddd',
-                            headerHeight: 30,
+                                    headerColor: '#ddd',
+                                    headerHeight: 30,
 
-                            fontFamily: '"Work Sans",sans-serif',
-                            fontSize: 13,
-                            fontColor: '#212529',
+                                    fontFamily: '"Work Sans",sans-serif',
+                                    fontSize: 13,
+                                    fontColor: '#212529',
 
-                            showScale: true,
-                            highlightOnMouseOver: false,
-                            showTooltips: true,
-                            generateTooltip: showFullTooltip
-                        };
+                                    showScale: true,
+                                    highlightOnMouseOver: false,
+                                    showTooltips: true,
+                                    generateTooltip: showFullTooltip
+                                };
 
-                        tree.draw(data, options);
+                                tree.draw(data, options);
 
-                        function showFullTooltip(row, size, value) {
-                            return '<div style="background:#fff; padding:10px; border: 1px solid">' +
-                                '<span><b>' + data.getValue(row, 0) + ':</b> '
-                                /* + data.getValue(row, 1)*/
-                                + data.getValue(row, 2) + ', ' +
-                                data.getValue(row, 3) + '</span><br>' +
-                                '<cite>(Linea: ' + row + ')</cite><br>' +
-                                data.getColumnLabel(2) + ' (total celda y hijas): ' + size + '<br>' +
-                                data.getColumnLabel(3) + ': ' + data.getValue(row, 3) +
-                                ' </div>';
-                        }
+                                function showFullTooltip(row, size, value) {
+                                    return '<div style="background:#fff; padding:10px; border: 1px solid">' +
+                                        '<span><b>' + data.getValue(row, 0) + ':</b> '
+                                        /* + data.getValue(row, 1)*/
+                                        + data.getValue(row, 2) + ', ' +
+                                        data.getValue(row, 3) + '</span><br>' +
+                                        '<cite>(Linea: ' + row + ')</cite><br>' +
+                                        data.getColumnLabel(2) + ' (total celda y hijas): ' + size + '<br>' +
+                                        data.getColumnLabel(3) + ': ' + data.getValue(row, 3) +
+                                        ' </div>';
+                                }
 
-                    }
+                            }
+                        });
                     </script>
 
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>For more complex data than can't be visualized with a pie chart. The color can be used as a second scale.</p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/jm4gwbqn/embedded/result,html/">Copy this graph</a>
@@ -176,12 +174,12 @@
             
             <div class="row">
                 
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- BEGIN TREEMAP -->
                     
                     <p><strong>Presupuesto para políticas de gasto de Industria y Energía 2018</strong></p>
                     <div>
-                        <script src="https://d3plus.org/js/d3plus-hierarchy.v0.6.full.min.js"></script>
+                        <script src="https://d3plus.org/js/d3plus-hierarchy.v0.6.full.min.js" defer></script>
                         <style>
                             #viz {
                                 height: 500px;
@@ -189,85 +187,88 @@
                         </style>
                         <div id="viz"></div>
                         <script>
-                            var data = [{
-                                    color: "#868B86"
-                                    , id: "Varios Industria"
-                                    , value: 152620000
-                                    , valueL: "152.620.000"
-                }
-                                , {
-                                    color: "#5B4A59"
-                                    , id: "Reconversión e industrialización"
-                                    , value: 871450000
-                                    , valueL: "871.450.000"
-                }
-                                , {
-                                    color: "#FFC331"
-                                    , id: "Explotación minera"
-                                    , value: 295690000
-                                    , valueL: "295.690.000"
-                }
-                                , {
-                                    color: "#D7D5A1 "
-                                    , id: "Seguridad nuclear"
-                                    , value: 46880000
-                                    , valueL: "46.880.000"
-                }
-                                , {
-                                    color: "#D7D5A1"
-                                    , id: "Desarrollo alternativo cuencas mineras carbón"
-                                    , value: 32200000
-                                    , valueL: "32.200.000"
-                }
-                                , {
-                                    color: "#66CC00"
-                                    , id: "Movilidad sostenible"
-                                    , value: 66600000
-                                    , valueL: "66.600.000"
-                }
-                                , {
-                                    color: "#66CC01"
-                                    , id: "Impulso Eficiencia y renovables"
-                                    , value: 300000000
-                                    , valueL: "300.000.000"
-                }
-                                , {
-                                    color: "#FFC4A7"
-                                    , id: "Costes del sistema eléctrico"
-                                    , value: 3750100000
-                                    , valueL: "3.750.100.000"
-                }
-                                , {
-                                    color: "#48B9E5"
-                                    , id: "Otros Normativa y Servicios Generales"
-                                    , value: 252580000
-                                    , valueL: "252.580.000"
-                }
-            ];
-                            new d3plus.Treemap().data(data).groupBy(["id"]).select("#viz").shapeConfig({
-                                fill: function (d) {
-                                    return d.color;
-                                }
-                                , labelConfig: {
-                                    fontFamily: '"Work Sans",sans-serif'
-                                    , fontMax: 20
-                                }
-                            }).tooltipConfig({
-                                body: function (d) {
-                                    var table = "<table class='tooltip-table'>";
-                                    // table += "<tr><td class='title'>Year:</td><td class='data'>" + d.year + "</td></tr>";
-                                    table += "<tr><td class='title'>&euro;</td><td class='data'>" + d.valueL + "</td></tr>";
-                                    table += "</table>";
-                                    return table;
-                                }
-                                , footer: function (d) {
-                                    return ""; // "<sub class='tooltip-footer'>Año 2018</sub>";
-                                }
-                                , title: function (d) {
-                                    var txt = d.id;
-                                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();;
-                                }
-                            }).sum("value").render();
+                            document.addEventListener("DOMContentLoaded", function (event) {
+                                var data = [{
+                                        color: "#868B86"
+                                        , id: "Varios Industria"
+                                        , value: 152620000
+                                        , valueL: "152.620.000"
+                    }
+                                    , {
+                                        color: "#5B4A59"
+                                        , id: "Reconversión e industrialización"
+                                        , value: 871450000
+                                        , valueL: "871.450.000"
+                    }
+                                    , {
+                                        color: "#FFC331"
+                                        , id: "Explotación minera"
+                                        , value: 295690000
+                                        , valueL: "295.690.000"
+                    }
+                                    , {
+                                        color: "#D7D5A1 "
+                                        , id: "Seguridad nuclear"
+                                        , value: 46880000
+                                        , valueL: "46.880.000"
+                    }
+                                    , {
+                                        color: "#D7D5A1"
+                                        , id: "Desarrollo alternativo cuencas mineras carbón"
+                                        , value: 32200000
+                                        , valueL: "32.200.000"
+                    }
+                                    , {
+                                        color: "#66CC00"
+                                        , id: "Movilidad sostenible"
+                                        , value: 66600000
+                                        , valueL: "66.600.000"
+                    }
+                                    , {
+                                        color: "#66CC01"
+                                        , id: "Impulso Eficiencia y renovables"
+                                        , value: 300000000
+                                        , valueL: "300.000.000"
+                    }
+                                    , {
+                                        color: "#FFC4A7"
+                                        , id: "Costes del sistema eléctrico"
+                                        , value: 3750100000
+                                        , valueL: "3.750.100.000"
+                    }
+                                    , {
+                                        color: "#48B9E5"
+                                        , id: "Otros Normativa y Servicios Generales"
+                                        , value: 252580000
+                                        , valueL: "252.580.000"
+                    }
+                ];
+                                new d3plus.Treemap().data(data).groupBy(["id"]).select("#viz").shapeConfig({
+                                    fill: function (d) {
+                                        return d.color;
+                                    }
+                                    , labelConfig: {
+                                        fontFamily: '"Work Sans",sans-serif'
+                                        , fontMax: 20
+                                    }
+                                }).tooltipConfig({
+                                    body: function (d) {
+                                        var table = "<table class='tooltip-table'>";
+                                        // table += "<tr><td class='title'>Year:</td><td class='data'>" + d.year + "</td></tr>";
+                                        table += "<tr><td class='title'>&euro;</td><td class='data'>" + d.valueL + "</td></tr>";
+                                        table += "</table>";
+                                        return table;
+                                    }
+                                    , footer: function (d) {
+                                        return ""; // "<sub class='tooltip-footer'>Año 2018</sub>";
+                                    }
+                                    , title: function (d) {
+                                        var txt = d.id;
+                                        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();;
+                                    }
+                                }).sum("value").render();
+                            });
+
                         </script>
                     </div>
                     <p><small><strong>Source:</strong> PGE 2018 y elaboraci&oacute;n propia. &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons&nbsp;&nbsp;</a>&bull;&nbsp;<a href="https://docs.google.com/spreadsheets/d/1D-P9qlLNIH3J7QLkcfRt4xaibR6HIh52WDOCtuHE6Q4/edit#gid=303235758" target="_blank" rel="noopener"><strong>Download spreadsheet</strong></a></small><span id="docs-internal-guid-3e41b4d8-bedf-5dc8-fb13-2a97a6326eb9"></span></p>
@@ -275,7 +276,7 @@
                     <!-- END TREEMAP-->
                 </div>
                 
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>This is an alternative D3 tool that <strong>looks better and allows custom colors</strong>. It doesn't has sub-levels but it has categories.</p>
                     <p><small>Example: <a target="_blank" href="https://es.greenpeace.org/es/trabajamos-en/democracia-y-contrapoder/presupuestos-generales-2018/n6/">energy budgets</a>, <a href="https://es.greenpeace.org/es/quienes-somos/informes-anuales/informe-anual-2017/informe-de-cuentas-2017/" target="_blank">Greenpeace Spain spending (2017)</a>, <a href="https://es.greenpeace.org/es/trabajamos-en/democracia-y-contrapoder/presupuestos-generales-2018/n9/" target="_blank">Spain's budget 2018</a></small></p>
                     <p>
@@ -295,111 +296,113 @@
 
 
                <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-md-8">
                     <!-- FIGURE -->
-                    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js" defer></script>
 
                       <div id="heatmap" style="margin-bottom: 2em;"><!-- Plotly chart will be drawn inside this DIV --></div>
                       <script>
+                            document.addEventListener("DOMContentLoaded", function (event) {
+                                var xValues = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+                                var yValues = ['W', 'X', 'Y', 'Z', 'O','P','Q','R'];
 
-                        var xValues = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
-                        var yValues = ['W', 'X', 'Y', 'Z', 'O','P','Q','R'];
+                                var zValues = [
+                                  [0, 1, 25, 50, 0, 0, 1, 25, 50, 0],
+                                  [0, 0, 75, 75, 0, 0, 0, 75, 75, 0],
+                                  [75, 10, 90, 20, 75, 75, 10, 90, 20, 75],
+                                  [0, 0, 0, 40, 0, 75, 10, 90, 20, 75],
+                                  [0, 0, 75, 75, 0, 0, 0, 75, 75, 0],
+                                  [0, 1, 25, 50, 0, 0, 1, 25, 50, 0],
+                                  [75, 10, 90, 20, 75, 75, 10, 90, 20, 0],
+                                  [0, 0, 75, 75, 0, 0, 0, 75, 75, 0]
 
-                        var zValues = [
-                          [0, 1, 25, 50, 0, 0, 1, 25, 50, 0],
-                          [0, 0, 75, 75, 0, 0, 0, 75, 75, 0],
-                          [75, 10, 90, 20, 75, 75, 10, 90, 20, 75],
-                          [0, 0, 0, 40, 0, 75, 10, 90, 20, 75],
-                          [0, 0, 75, 75, 0, 0, 0, 75, 75, 0],
-                          [0, 1, 25, 50, 0, 0, 1, 25, 50, 0],
-                          [75, 10, 90, 20, 75, 75, 10, 90, 20, 0],
-                          [0, 0, 75, 75, 0, 0, 0, 75, 75, 0]
+                                ];
 
-                        ];
+                                var colorscaleValue = [
+                                  [0, '#C3E0A6'],
+                                  [1, '#FFC4A7']
+                                ];
 
-                        var colorscaleValue = [
-                          [0, '#C3E0A6'],
-                          [1, '#FFC4A7']
-                        ];
+                                var data = [{
+                                  x: xValues,
+                                  y: yValues,
+                                  z: zValues,
+                                  type: 'heatmap',
+                                  colorscale: colorscaleValue,
+                                  showscale: true
+                                }];
 
-                        var data = [{
-                          x: xValues,
-                          y: yValues,
-                          z: zValues,
-                          type: 'heatmap',
-                          colorscale: colorscaleValue,
-                          showscale: true
-                        }];
+                                var layout = {
+                                  title: 'Mapa de calor',
+                                    font: {
+                                        family: '"Work Sans",sans-serif',
+                                        size: 11,
+                                        color: '#212529'
+                                    },
+                                    titlefont: {
+                                        size: 16,
+                                        color: '#212529'
+                                        },
+                                  annotations: [],
+                                  xaxis: {
+                                    ticks: '',
+                                    side: 'bottom',
+                                    title: 'Variable A'
+                                  },
+                                  yaxis: {
+                                    ticks: '',
+                                    ticksuffix: ' ',
+                                    title: 'Variable B',
+                                    autosize: false
+                                  },
+                                    margin: {
+                                        r: 10,
+                                        t: 35,
+                                        b: 40,
+                                        l: 40
+                                    },
+                                    paper_bgcolor: '#f6f6f5',
+                                    plot_bgcolor: '#f6f6f5'
+                                };
 
-                        var layout = {
-                          title: 'Mapa de calor',
-                            font: {
-                                family: '"Work Sans",sans-serif',
-                                size: 11,
-                                color: '#212529'
-                            },
-                            titlefont: {
-                                size: 16,
-                                color: '#212529'
-                                },
-                          annotations: [],
-                          xaxis: {
-                            ticks: '',
-                            side: 'bottom',
-                            title: 'Variable A'
-                          },
-                          yaxis: {
-                            ticks: '',
-                            ticksuffix: ' ',
-                            title: 'Variable B',
-                            autosize: false
-                          },
-                            margin: {
-                                r: 10,
-                                t: 35,
-                                b: 40,
-                                l: 40
-                            },
-                            paper_bgcolor: '#f6f6f5',
-                            plot_bgcolor: '#f6f6f5'
-                        };
+                                for ( var i = 0; i < yValues.length; i++ ) {
+                                  for ( var j = 0; j < xValues.length; j++ ) {
+                                    var currentValue = zValues[i][j];
+                                    if (currentValue != 0.0) {
+                                      var textColor = 'white';
+                                    }else{
+                                      var textColor = 'black';
+                                    }
+                                    var result = {
+                                      xref: 'x1',
+                                      yref: 'y1',
+                                      x: xValues[j],
+                                      y: yValues[i],
+                                      text: zValues[i][j],
+                                      font: {
+                                        family: '"Work Sans",sans-serif',
+                                        size: 12,
+                                        color: 'rgb(50, 171, 96)'
+                                      },
+                                      showarrow: false,
+                                      font: {
+                                        color: textColor
+                                      }
+                                    };
+                                    // Comment the next line to remove the annotations
+                                    layout.annotations.push(result);
+                                  }
+                                }
 
-                        for ( var i = 0; i < yValues.length; i++ ) {
-                          for ( var j = 0; j < xValues.length; j++ ) {
-                            var currentValue = zValues[i][j];
-                            if (currentValue != 0.0) {
-                              var textColor = 'white';
-                            }else{
-                              var textColor = 'black';
-                            }
-                            var result = {
-                              xref: 'x1',
-                              yref: 'y1',
-                              x: xValues[j],
-                              y: yValues[i],
-                              text: zValues[i][j],
-                              font: {
-                                family: '"Work Sans",sans-serif',
-                                size: 12,
-                                color: 'rgb(50, 171, 96)'
-                              },
-                              showarrow: false,
-                              font: {
-                                color: textColor
-                              }
-                            };
-                            // Comment the next line to remove the annotations
-                            layout.annotations.push(result);
-                          }
-                        }
+                                Plotly.newPlot('heatmap', data, layout, { displayModeBar: false});
 
-                        Plotly.newPlot('heatmap', data, layout, { displayModeBar: false});
+                            });
                       </script>
 
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-md-4">
                     <p>Heat maps are useful to show changes in multiple variables and show patterns. They are also useful for detecting correlations between the variables.</p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/t8utop2k/embedded/result,html/">Copy this graph</a>

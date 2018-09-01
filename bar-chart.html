@@ -6,28 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <noscript id="deferred-styles">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700" />
-        <link rel="stylesheet" href="assets/css/all.css" />
-        <link rel="stylesheet" href="assets/css/print.css" media="print" />
-        <link rel="stylesheet" href="assets/css/screen.css" media="screen" />
-    </noscript>
+    <style>
+        *,::after,::before{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar}@-ms-viewport{width:device-width}article,header{display:block}body{margin:0;font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff}h1,h2,h3{margin-top:0;margin-bottom:.5rem}p{margin-top:0;margin-bottom:1rem}img{vertical-align:middle;border-style:none}h1,h2,h3{margin-bottom:.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit}h1{font-size:2.5rem}h2{font-size:2rem}h3{font-size:1.75rem}.lead{font-size:1.25rem;font-weight:300}.container{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:576px){.container{max-width:540px}}@media (min-width:768px){.container{max-width:720px}}@media (min-width:992px){.container{max-width:960px}}@media (min-width:1200px){.container{max-width:1140px}}.row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}.col-sm{position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px}@media (min-width:576px){.col-sm{-ms-flex-preferred-size:0;flex-basis:0;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;max-width:100%}}.text-center{text-align:center!important}body{font-family:"Work Sans",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:antialiased;font-weight:400;font-size:18px}h1,h2,h3{font-family:Rubik,sans-serif}h1{font-size:2.7rem;margin-top:1.5rem;margin-bottom:.9rem}h2{font-size:2rem;margin-top:1.5rem;margin-bottom:.66rem}h3{font-size:1.5rem;margin-top:.75rem;margin-bottom:.5rem}.topbar .logo{width:150px}body{background:#f6f6f6;line-height:24px;font-kerning:auto;font-stretch:normal}.only-print{display:none}div.topbar{background-color:#0c4413}header{padding:1rem}.topbar{display:block}header .logo{display:inline}
+    </style>
+
     <script>
-        var loadDeferredStyles = function() {
-            var addStylesNode = document.getElementById("deferred-styles");
-            var replacement = document.createElement("div");
-            replacement.innerHTML = addStylesNode.textContent;
-            document.body.appendChild(replacement);
-            addStylesNode.parentElement.removeChild(addStylesNode);
-        };
-        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-            webkitRequestAnimationFrame || msRequestAnimationFrame;
-        if (raf) raf(function() {
-            window.setTimeout(loadDeferredStyles, 0);
-        });
-        else window.addEventListener('DOMContentLoaded', loadDeferredStyles);
+        !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){function e(){t.media=a}var a=t.media||"all";t.addEventListener?t.addEventListener("load",e):t.attachEvent&&t.attachEvent("onload",e),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(e,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
     </script>
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="assets/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link rel="preload" href="assets/css/print.css" media="print" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="assets/css/screen.css" media="screen" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js" defer></script>
     <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js" defer></script>
@@ -54,13 +44,13 @@
             <p class="lead">Bar charts are very used and the easiest to understand.</p>
 
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-12">
                     <h2>Time-based data</h2>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
                     <div class="chart-container" style="position: relative; height:auto; width:100%">
                         <canvas id="bar_chart_1" width="350" height="250"></canvas>
@@ -136,7 +126,7 @@
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>Bar charts can be used for other comparisons that are not temporary, but often another graph type is  more appropriate.</p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/4jz2kysh/embedded/result,html/">Copy this graph</a>
@@ -145,13 +135,13 @@
             </div>
 
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-12">
                     <h2>Compare time-based data</h2>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
                     <div class="chart-container" style="position: relative; height:auto; width:100%">
                         <canvas id="bar_chart_2" width="350" height="250"></canvas>
@@ -248,7 +238,7 @@
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>Compares two metrics trough time, if the number of months / years is not too large. Line graphs can represent more information clearly.</p>
                     <p><small>Examples:
                         <a target="_blank" href="https://es.greenpeace.org/es/noticias/el-ano-pasado-comimos-menos-carne-y-esto-es-lo-que-paso-con-el-co2/">meat consumption per capita</a>
@@ -260,13 +250,13 @@
             </div>
 
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-12">
                     <h2>Positives and negatives</h2>
                 </div>
             </div>
 
            <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
                    <div class="chart-container" style="position: relative; height:auto; width:100%">
                         <canvas id="bar_chart_3" width="350" height="250"></canvas>
@@ -362,7 +352,7 @@
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>Bar charts can have positive and negative values in both axes. In the example below we compare two sets of data.</p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/tm47a35g/embedded/result,html/">Copy this graph</a>
@@ -371,13 +361,13 @@
             </div>
 
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-12">
                     <h2>Ranking</h2>
                 </div>
             </div>
 
            <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
                     <div class="chart-container" style="position: relative; height:auto; width:100%">
                         <canvas id="bar_chart_4" width="350" height="250"></canvas>
@@ -459,7 +449,7 @@
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>Horizontal bar charts are more appropriate for comparing data when there is no time factor or when the order of the dimension is important.</p>
                     <p><small>Example: <a href="https://es.greenpeace.org/es/noticias/ranking-de-la-destruccion-costera/" target="_blank">coastal destruction</a></small></p>
                     <p>
@@ -469,13 +459,13 @@
             </div>
 
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-12">
                     <h2>Acumulated data trough time</h2>
                 </div>
             </div>
 
            <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
                    <div class="chart-container" style="position: relative; height:auto; width:100%">
                         <canvas id="bar_chart_5" width="350" height="250"></canvas>
@@ -562,7 +552,7 @@
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>This charts show how the sum of of different metrics evolves trough time.</p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/jom8fgr8/embedded/result,html/">Copy this graph</a>
@@ -571,13 +561,13 @@
             </div>
 
              <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-12">
                     <h2>Percentajes trough time</h2>
                 </div>
             </div>
 
            <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
                     <div class="chart-container" style="position: relative; height:auto; width:100%">
                         <canvas id="bar_chart_6" width="350" height="250"></canvas>
@@ -665,7 +655,7 @@
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>When we want to show variation of one or more percentages over time.</p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/ou2c4hn8/embedded/result,html/">Copy this graph</a>

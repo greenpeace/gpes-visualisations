@@ -6,31 +6,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <noscript id="deferred-styles">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700" />
-        <link rel="stylesheet" href="assets/css/all.css" />
-        <link rel="stylesheet" href="assets/css/print.css" media="print" />
-        <link rel="stylesheet" href="assets/css/screen.css" media="screen" />
-    </noscript>
-    <script>
-        var loadDeferredStyles = function() {
-            var addStylesNode = document.getElementById("deferred-styles");
-            var replacement = document.createElement("div");
-            replacement.innerHTML = addStylesNode.textContent;
-            document.body.appendChild(replacement);
-            addStylesNode.parentElement.removeChild(addStylesNode);
-        };
-        var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-            webkitRequestAnimationFrame || msRequestAnimationFrame;
-        if (raf) raf(function() {
-            window.setTimeout(loadDeferredStyles, 0);
-        });
-        else window.addEventListener('DOMContentLoaded', loadDeferredStyles);
-    </script>
+    <style>
+        *,::after,::before{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar}@-ms-viewport{width:device-width}article,header{display:block}body{margin:0;font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff}h1,h2,h3{margin-top:0;margin-bottom:.5rem}p{margin-top:0;margin-bottom:1rem}img{vertical-align:middle;border-style:none}h1,h2,h3{margin-bottom:.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit}h1{font-size:2.5rem}h2{font-size:2rem}h3{font-size:1.75rem}.lead{font-size:1.25rem;font-weight:300}.container{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:576px){.container{max-width:540px}}@media (min-width:768px){.container{max-width:720px}}@media (min-width:992px){.container{max-width:960px}}@media (min-width:1200px){.container{max-width:1140px}}.row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}.col-sm{position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px}@media (min-width:576px){.col-sm{-ms-flex-preferred-size:0;flex-basis:0;-webkit-box-flex:1;-ms-flex-positive:1;flex-grow:1;max-width:100%}}.text-center{text-align:center!important}body{font-family:"Work Sans",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:antialiased;font-weight:400;font-size:18px}h1,h2,h3{font-family:Rubik,sans-serif}h1{font-size:2.7rem;margin-top:1.5rem;margin-bottom:.9rem}h2{font-size:2rem;margin-top:1.5rem;margin-bottom:.66rem}h3{font-size:1.5rem;margin-top:.75rem;margin-bottom:.5rem}.topbar .logo{width:150px}body{background:#f6f6f6;line-height:24px;font-kerning:auto;font-stretch:normal}.only-print{display:none}div.topbar{background-color:#0c4413}header{padding:1rem}.topbar{display:block}header .logo{display:inline}
+    </style>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js"></script>
+    <script>
+        !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){function e(){t.media=a}var a=t.media||"all";t.addEventListener?t.addEventListener("load",e):t.attachEvent&&t.attachEvent("onload",e),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(e,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);        
+    </script>
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="assets/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link rel="preload" href="assets/css/print.css" media="print" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="assets/css/screen.css" media="screen" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
     <title>Multimedia</title>
     <meta name="robots" content="noindex, nofollow" />
 
@@ -75,13 +63,13 @@
             <p class="lead">Add interactive video, interactive images and Google Street map views to a page.</p>
 
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-12">
                     <h2>Indexed and interactive video</h2>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
                     <div class="video-container" style="margin-bottom: 1em;">
                       <div id="player"></div>
@@ -135,7 +123,7 @@
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>Sometimes a video is the best way to tell a data-based story.</p>
                     <p>We can link to certain moments in the video, create interactions and customize the way Youtube shows videos in our website. Look at the sections about <span class="javascript_link" onclick="player.seekTo(90, true );player.playVideo();">global expansion</span>, <span class="javascript_link" onclick="player.seekTo(300, true );player.playVideo();">geo-spatial analysis</span> and <span class="javascript_link" onclick="player.seekTo(545, true );player.playVideo();">tools</span>.</p>
                     <p>
@@ -147,13 +135,13 @@
             </div>
 
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-12">
                     <h2>Show a place</h2>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
                     <div id="street-view" style="height: 400px; margin-bottom: 2em;"></div>
                     <script>
@@ -169,14 +157,14 @@
                             });
                       }
                     </script>
-                    <script async defer
+                    <script defer
                          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiy7JuMr1LFrecAu8SORp9Wt2vYM8A3D8&callback=initialize">
                     </script>
 
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>When it’s necessary we can insert a Google Street View window in our website. All you need is the initial coordinates and direction.</p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/t7xwter0/embedded/result,html/">Copy this Street View</a>
@@ -185,73 +173,72 @@
             </div>
 
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm-12">
                     <h2>Difference between two images</h2>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-sm col-md-8">
+                <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
-<style>
-                    .ba-slider {
-                      position: relative;
-                      overflow: hidden;
-                    margin-bottom: 2em;
-                    }
-                    .ba-slider img {
-                      width: 100%;
-                      display: block;
-                    }
-                    .resize {
-                      position: absolute;
-                      top: 0;
-                      left: 0;
-                      height: 100%;
-                      width: 50%;
-                      overflow: hidden;
-                    }
-                    .handle {
-                      /* Thin line seperator */
-                      position: absolute;
-                      left: 50%;
-                      top: 0;
-                      bottom: 0;
-                      width: 4px;
-                      margin-left: -2px;
-                      background: rgba(0, 0, 0, 0.5);
-                      cursor: ew-resize;
-                    }
-                    .handle:after {
-                      /* Big orange knob  */
-                      position: absolute;
-                      top: 50%;
-                      width: 64px;
-                      height: 64px;
-                      margin: -32px 0 0 -32px;
-                      content: '\21d4';
-                      color: white;
-                      font-weight: bold;
-                      font-size: 36px;
-                      text-align: center;
-                      line-height: 64px;
-                      background: #164706;
-                      /* @orange */
-                      border: 1px solid #164706;
-                      /* darken(@orange, 5%) */
-                      border-radius: 50%;
-                      transition: all 0.3s ease;
-                      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 60px 50px -30px #164706;
-                      /* lighten(@orange, 20%)*/
-                    }
-                    .draggable:after {
-                      width: 48px;
-                      height: 48px;
-                      margin: -24px 0 0 -24px;
-                      line-height: 48px;
-                      font-size: 30px;
-                    }
-
+                    <style>
+                        .ba-slider {
+                          position: relative;
+                          overflow: hidden;
+                        margin-bottom: 2em;
+                        }
+                        .ba-slider img {
+                          width: 100%;
+                          display: block;
+                        }
+                        .resize {
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          height: 100%;
+                          width: 50%;
+                          overflow: hidden;
+                        }
+                        .handle {
+                          /* Thin line seperator */
+                          position: absolute;
+                          left: 50%;
+                          top: 0;
+                          bottom: 0;
+                          width: 4px;
+                          margin-left: -2px;
+                          background: rgba(0, 0, 0, 0.5);
+                          cursor: ew-resize;
+                        }
+                        .handle:after {
+                          /* Big orange knob  */
+                          position: absolute;
+                          top: 50%;
+                          width: 64px;
+                          height: 64px;
+                          margin: -32px 0 0 -32px;
+                          content: '\21d4';
+                          color: white;
+                          font-weight: bold;
+                          font-size: 36px;
+                          text-align: center;
+                          line-height: 64px;
+                          background: #164706;
+                          /* @orange */
+                          border: 1px solid #164706;
+                          /* darken(@orange, 5%) */
+                          border-radius: 50%;
+                          transition: all 0.3s ease;
+                          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.5), inset 0 60px 50px -30px #164706;
+                          /* lighten(@orange, 20%)*/
+                        }
+                        .draggable:after {
+                          width: 48px;
+                          height: 48px;
+                          margin: -24px 0 0 -24px;
+                          line-height: 48px;
+                          font-size: 30px;
+                        }
                     </style>
 
                     <div class="ba-slider">
@@ -262,92 +249,88 @@
                       <span class="handle"></span>
                     </div>
 
-                    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
                     <script>
-                        // Call & init
-                        $(document).ready(function(){
-                          $('.ba-slider').each(function(){
-                            var cur = $(this);
-                            // Adjust the slider
-                            var width = cur.width()+'px';
-                            cur.find('.resize img').css('width', width);
-                            // Bind dragging events
-                            drags(cur.find('.handle'), cur.find('.resize'), cur);
-                          });
-                        });
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                              jQuery('.ba-slider').each(function(){
+                                var cur = jQuery(this);
+                                // Adjust the slider
+                                var width = cur.width()+'px';
+                                cur.find('.resize img').css('width', width);
+                                // Bind dragging events
+                                drags(cur.find('.handle'), cur.find('.resize'), cur);
+                              });
+                            jQuery(window).resize(function(){
+                              jQuery('.ba-slider').each(function(){
+                                var cur = $(this);
+                                var width = cur.width()+'px';
+                                cur.find('.resize img').css('width', width);
+                              });
+                            });
+                            
+                            function drags(dragElement, resizeElement, container) {
 
-                        // Update sliders on resize.
-                        // Because we all do this: i.imgur.com/YkbaV.gif
-                        $(window).resize(function(){
-                          $('.ba-slider').each(function(){
-                            var cur = $(this);
-                            var width = cur.width()+'px';
-                            cur.find('.resize img').css('width', width);
-                          });
-                        });
+                              // Initialize the dragging event on mousedown.
+                              dragElement.on('mousedown touchstart', function(e) {
 
-                        function drags(dragElement, resizeElement, container) {
+                                dragElement.addClass('draggable');
+                                resizeElement.addClass('resizable');
 
-                          // Initialize the dragging event on mousedown.
-                          dragElement.on('mousedown touchstart', function(e) {
+                                // Check if it's a mouse or touch event and pass along the correct value
+                                var startX = (e.pageX) ? e.pageX : e.originalEvent.touches[0].pageX;
 
-                            dragElement.addClass('draggable');
-                            resizeElement.addClass('resizable');
+                                // Get the initial position
+                                var dragWidth = dragElement.outerWidth(),
+                                    posX = dragElement.offset().left + dragWidth - startX,
+                                    containerOffset = container.offset().left,
+                                    containerWidth = container.outerWidth();
 
-                            // Check if it's a mouse or touch event and pass along the correct value
-                            var startX = (e.pageX) ? e.pageX : e.originalEvent.touches[0].pageX;
+                                // Set limits
+                                minLeft = containerOffset + 10;
+                                maxLeft = containerOffset + containerWidth - dragWidth - 10;
 
-                            // Get the initial position
-                            var dragWidth = dragElement.outerWidth(),
-                                posX = dragElement.offset().left + dragWidth - startX,
-                                containerOffset = container.offset().left,
-                                containerWidth = container.outerWidth();
+                                // Calculate the dragging distance on mousemove.
+                                dragElement.parents().on("mousemove touchmove", function(e) {
 
-                            // Set limits
-                            minLeft = containerOffset + 10;
-                            maxLeft = containerOffset + containerWidth - dragWidth - 10;
+                                  // Check if it's a mouse or touch event and pass along the correct value
+                                  var moveX = (e.pageX) ? e.pageX : e.originalEvent.touches[0].pageX;
 
-                            // Calculate the dragging distance on mousemove.
-                            dragElement.parents().on("mousemove touchmove", function(e) {
+                                  leftValue = moveX + posX - dragWidth;
 
-                              // Check if it's a mouse or touch event and pass along the correct value
-                              var moveX = (e.pageX) ? e.pageX : e.originalEvent.touches[0].pageX;
+                                  // Prevent going off limits
+                                  if ( leftValue < minLeft) {
+                                    leftValue = minLeft;
+                                  } else if (leftValue > maxLeft) {
+                                    leftValue = maxLeft;
+                                  }
 
-                              leftValue = moveX + posX - dragWidth;
+                                  // Translate the handle's left value to masked divs width.
+                                  widthValue = (leftValue + dragWidth/2 - containerOffset)*100/containerWidth+'%';
 
-                              // Prevent going off limits
-                              if ( leftValue < minLeft) {
-                                leftValue = minLeft;
-                              } else if (leftValue > maxLeft) {
-                                leftValue = maxLeft;
-                              }
-
-                              // Translate the handle's left value to masked divs width.
-                              widthValue = (leftValue + dragWidth/2 - containerOffset)*100/containerWidth+'%';
-
-                              // Set the new values for the slider and the handle.
-                              // Bind mouseup events to stop dragging.
-                              $('.draggable').css('left', widthValue).on('mouseup touchend touchcancel', function () {
-                                $(this).removeClass('draggable');
+                                  // Set the new values for the slider and the handle.
+                                  // Bind mouseup events to stop dragging.
+                                  $('.draggable').css('left', widthValue).on('mouseup touchend touchcancel', function () {
+                                    $(this).removeClass('draggable');
+                                    resizeElement.removeClass('resizable');
+                                  });
+                                  $('.resizable').css('width', widthValue);
+                                }).on('mouseup touchend touchcancel', function(){
+                                  dragElement.removeClass('draggable');
+                                  resizeElement.removeClass('resizable');
+                                });
+                                e.preventDefault();
+                              }).on('mouseup touchend touchcancel', function(e){
+                                dragElement.removeClass('draggable');
                                 resizeElement.removeClass('resizable');
                               });
-                              $('.resizable').css('width', widthValue);
-                            }).on('mouseup touchend touchcancel', function(){
-                              dragElement.removeClass('draggable');
-                              resizeElement.removeClass('resizable');
-                            });
-                            e.preventDefault();
-                          }).on('mouseup touchend touchcancel', function(e){
-                            dragElement.removeClass('draggable');
-                            resizeElement.removeClass('resizable');
-                          });
-                        }
+                            }
+                        });
                     </script>
 
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm-12 col-md-4">
                     <p>To show the difference between two images we can use a script.</p>
                     <p><small>Examples: <a href="https://es.greenpeace.org/es/trabajamos-en/oceanos/artico/consecuencias-del-deshielo-del-artico/" target="_blank">Arctic melting consequences</a></small></p>
                     <p>
