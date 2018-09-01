@@ -44,21 +44,44 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-8">
                     <!-- FIGURE -->
-<div style="width: 100%; margin: 1em 0 1em 0;">
-
-    <object class="d-block d-sm-none" style="width: 100%; height: auto" height="auto" type="image/svg+xml" data="https://storage.googleapis.com/gpes-static/pozos/pozos-545.svg"></object>
-
-    <object class="d-none d-sm-block d-md-none" width="510" height="auto" type="image/svg+xml" data="https://storage.googleapis.com/gpes-static/pozos/pozos-510.svg"></object>
-
-    <object class="d-none d-md-block d-lg-none" width="690" height="auto" type="image/svg+xml" data="https://storage.googleapis.com/gpes-static/pozos/pozos-690.svg"></object>
-
-    <object class="d-none d-lg-block d-xl-none" width="610" height="auto" type="image/svg+xml" data="https://storage.googleapis.com/gpes-static/pozos/pozos-610.svg"></object>
-
-    <object class="d-none d-xl-block" width="730" type="image/svg+xml" data="https://storage.googleapis.com/gpes-static/pozos/pozos-730.svg"></object>
-
-</div>
-
+                    
+                    <div id="infoContainer" style="width: 100%;"></div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            var urlList = {
+                                url545: "https://storage.googleapis.com/gpes-static/pozos/pozos-545.svg", // 290 to 510
+                                url510: "https://storage.googleapis.com/gpes-static/pozos/pozos-510.svg",
+                                url610: "https://storage.googleapis.com/gpes-static/pozos/pozos-610.svg",
+                                url690: "https://storage.googleapis.com/gpes-static/pozos/pozos-690.svg",
+                                url730: "https://storage.googleapis.com/gpes-static/pozos/pozos-730.svg"
+                            };
+                            var containerEl = document.getElementById("infoContainer");
+                            var elwidth = containerEl.offsetWidth;
+                            var infoSize = elwidth;
+                            var infoUrl;
+                            if (elwidth < 510) {
+                                infoUrl = urlList.url545;
+                            } else if (elwidth >= 510 && elwidth < 610) {
+                                infoUrl = urlList.url510;
+                            } else if (elwidth >= 610 && elwidth < 690) {
+                                infoUrl = urlList.url610;
+                            } else if (elwidth >= 690 && elwidth < 730) {
+                                infoUrl = urlList.url690;
+                            } else if (elwidth >= 730) {
+                                infoUrl = urlList.url730;
+                            }
+                            var objectHtmlElement = document.createElement('object');
+                            objectHtmlElement.setAttribute("type", "image/svg+xml");
+                            objectHtmlElement.setAttribute("width", infoSize);
+                            objectHtmlElement.setAttribute("height", "auto");
+                            objectHtmlElement.setAttribute("data", infoUrl);
+                            containerEl.appendChild(objectHtmlElement);
+                        });
+                    </script>
+                    
                     <!-- FIGURE -->
+                    
+                    
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
                 <div class="col-sm-12 col-lg-4">
