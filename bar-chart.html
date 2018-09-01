@@ -19,8 +19,8 @@
     <link rel="preload" href="assets/css/print.css" media="print" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="preload" href="assets/css/screen.css" media="screen" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js" defer></script>
-    <script src="https://apps.greenpeace.es/editor/js/chartjs-plugin-deferred.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.2/dist/Chart.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1.0.1" defer></script>
     <title>Bar charts</title>
     <meta name="robots" content="noindex, nofollow" />
 </head>
@@ -369,83 +369,113 @@
            <div class="row">
                 <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
-                    <div class="chart-container" style="position: relative; height:auto; width:100%">
-                        <canvas id="bar_chart_4" width="350" height="250"></canvas>
+                    <style>
+                      .chart-container p {
+                        font-family: "Work Sans", sans-serif;
+                        font-weight: 700;
+                        text-align: center;
+                        margin: 0;
+                      }
+
+                    </style>
+                     <div class="chart-container" style="position: relative; height:auto; width:100%">
+                      <p>
+                        Ránking mundial del aumento de consumo de carbón
+                      </p>
+                      <p>
+                        <small>2017 / 2016</small>
+                      </p>
+                      <canvas id="bar_chart_4" width="350" height="250"></canvas>
                     </div>
                     <script>
-                        document.addEventListener("DOMContentLoaded", function (event) {
-                            var ctx = document.getElementById("bar_chart_4");
-                            var bar_chart_4 = new Chart(ctx, {
-                                type: 'horizontalBar',
-                                data: {
-                                    labels: ["Dinamarca", "Suiza", "Belgica", "Portugal", "Holanda"],
-                                    datasets: [
-                                        {
-                                            label: 'Puntos',
-                                            data: [20,19,18,17,16],
-                                            backgroundColor: [
-                                            'rgba(195, 224, 166, 0.85)',
-                                            'rgba(122, 189, 148, 0.85)',
-                                            'rgba(253, 246, 178, 0.85)',
-                                            'rgba(255, 225, 159, 0.85)',
-                                            'rgba(255, 195, 49, 0.85)'
-                                            ]
-                                        }
-                                    ]
-                                },
-                                options: {
-                                    title: {
-                                        display: true,
-                                        text: 'Ranking',
-                                        fontSize: 16,
-                                        fontFamily: '"Work Sans",sans-serif',
-                                        fontColor: '#212529'
-                                    },
-                                    legend: {
-                                        display: false,
-                                        labels: {
-                                            fontName: '"Work Sans",sans-serif',
-                                            fontColor: '#212529',
-                                            fontSize: 13
-                                        }
-                                    },
-                                    layout: {
-                                            padding: {
-                                                bottom: 20
-                                            }
-                                    },
-                                    scales: {
-                                        xAxes: [{
-                                            ticks: {
-                                                beginAtZero: true,
-                                                fontFamily: '"Work Sans",sans-serif',
-                                                fontColor: '#212529'
-                                            },
-                                            scaleLabel: {
-                                                display: true,
-                                                labelString: 'Puntos',
-                                                fontFamily: '"Work Sans",sans-serif',
-                                                fontColor: '#212529'
-                                            }
-                                        }],
-                                        yAxes: [{
-                                            ticks: {
-                                                fontFamily: '"Work Sans",sans-serif',
-                                                fontColor: '#212529'
-                                            },
-                                            scaleLabel: {
-                                                display: true,
-                                                labelString: 'Países',
-                                                fontFamily: '"Work Sans",sans-serif',
-                                                fontColor: '#212529'
-                                            }
-                                        }]
-                                    }
+                      document.addEventListener("DOMContentLoaded", function(event) {
+                        var ctx = document.getElementById("bar_chart_4");
+                        var bar_chart_4 = new Chart(ctx, {
+                          type: 'horizontalBar',
+                          data: {
+                            labels: ["España", "Pakistán", "Uzbekistán", "Turquía", "Bielorrusia", "Filipinas", "Grecia", "Francia", "Portugal", "Indonesia", "Total Mundo"],
+                            datasets: [{
+                              label: '',
+                              data: [28.50, 26.20, 20.80, 16.30, 16.20, 12.00, 11.70, 11.40, 10.60, 7.40, 1.00],
+                              backgroundColor: [
+                                'rgba(134, 139, 134, 0.85)',
+                                'rgba(91, 74, 89, 0.85)',
+                                'rgba(122, 189, 148, 0.85)',
+                                'rgba(195, 224, 166, 0.85)',
+                                'rgba(215, 213, 161, 0.85)',
+                                'rgba(218,241,250, 0.85)',
+                                'rgba(255, 225, 159, 0.85)',
+                                'rgba(253, 246, 178, 0.85)',
+                                'rgba(255, 160, 0, 0.85)',
+                                'rgba(255, 196, 167, 0.85)',
+                                'rgba(255, 121, 84, 1)'
+
+                              ]
+                            }]
+                          },
+                          options: {
+                            title: {
+                              display: false,
+                              text: 'Ránking mundial del aumento de consumo de carbón 2017/2016',
+                              fontSize: 16,
+                              fontFamily: '"Work Sans",sans-serif',
+                              fontColor: '#212529'
+                            },
+                            legend: {
+                              display: false,
+                              labels: {
+                                fontName: '"Work Sans",sans-serif',
+                                fontColor: '#212529',
+                                fontSize: 13
+                              }
+                            },
+                            layout: {
+                              padding: {
+                                bottom: 20
+                              }
+                            },
+                            tooltips: {
+                              callbacks: {
+                                label: function(tooltipItem, data) {
+                                  var value = tooltipItem.xLabel;
+                                  return " " + value.toString().replace(/\./g, ",") + ' %';
+
                                 }
-                            });
+                              }
+                            },
+                            scales: {
+                              xAxes: [{
+                                ticks: {
+                                  beginAtZero: true,
+                                  fontFamily: '"Work Sans",sans-serif',
+                                  fontColor: '#212529'
+                                },
+                                scaleLabel: {
+                                  display: true,
+                                  labelString: 'Variación en %',
+                                  fontFamily: '"Work Sans",sans-serif',
+                                  fontColor: '#212529'
+                                }
+                              }],
+                              yAxes: [{
+                                ticks: {
+                                  fontFamily: '"Work Sans",sans-serif',
+                                  fontColor: '#212529'
+                                },
+                                scaleLabel: {
+                                  display: true,
+                                  labelString: 'Países',
+                                  fontFamily: '"Work Sans",sans-serif',
+                                  fontColor: '#212529'
+                                }
+                              }]
+                            }
+                          }
                         });
-                        
+                      });
+
                     </script>
+
                     <!-- FIGURE -->
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
