@@ -112,24 +112,9 @@
                     <h2>3. Iframes or packed javascript</h2>
 
                     <p>With this two techniques we are sharing, with other sites, <strong>fully interactive and responsive pieces</strong>, just like they appear in our website.</p>
-
-                    <h3>Technique A - Iframes to embedded in the site <span style="color: red;">(deprecated)</span></h3>
-
-                    <p>With this technique we insert the graphic in the page by using an iframe. Websites can add the piece to their site just like a Youtube video.</p>
-
-                    <p>Iframes are easier for the sites with less technical skills but some graphics will cause problems when used with this technique. Besides some content farms will limit the use of external contents, including iframed content.</p>
-
-                    <p>And sites with technical skills may want to edit the graphic using the next technique, so we’ll look into the iframe option case by case and always as another alternative rather than the only alternative.</p>
-
-                    <p>Example code share a chart:</p>
-
-                    <div style="margin-bottom: 2em;">
-                    <code style="display: block;">&lt;style&gt;.embed-container { position: relative; padding-bottom: 68%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;&lt;div class='embed-container'&gt;&lt;iframe src='https://apps.greenpeace.es/data-vis/iframe-chartsjs-in.html' frameborder='0' allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;</code>
-                    </div>
-
-                    <p>Although this code should work in all websites, it wont because of technical choices made by the content farms owners. For example Wordpress.com does not allow the use of iframes in biogs hosted in Wordpress. However this code will work in a Wordpress site that’s not hosted in a content farm like Wordpress.com. Also this graph will work in Blogger but will not work in Medium, as it has serious limitations on external content.</p>
-
-                    <h3>Technique B - Packed HTML + Javascript</h3>
+                    
+                    <a name="maintechnique"></a>
+                    <h3>Main technique - Packed HTML + Javascript</h3>
 
                     <p>Website editors can easily insert our charts and infographics in their websites and the piece will adjust automatically to the site's layout. To add an infographic you just need to add a code like:</p>
 
@@ -140,11 +125,36 @@
 
                     <p>Since <strong>version 2 of this guide</strong>, we've carefully coded the scripts to minimise interferences with the site’s functionality, but it’s very hard to predict that it work without problems everywhere.</p>
 
-                    <p>Just like the iframes technique (or even more), not all sites will support it. For the same reasons content farms like Wordpress.com and Medium prevent users from adding Javascript. At the moment we are testing it with <a href="infograph.html">infographics</a> and:</p>
+                    <p>Just like the <a href="#iframes">alternative iframes technique</a> (or even more), not all sites will support it. For the same reasons content farms like Wordpress.com and Medium prevent users from adding Javascript. At the moment we are testing it with <a href="infograph.html">infographics</a> and:</p>
                     <ul>
-                        <li><strong>It works in</strong> <a target="_blank" href="https://greenwire.greenpeace.org/spain/es-ES/home">Greenwire</a>, <a href="https://www.blogger.com" target="_blank">Blogger</a>, <a target="_blank" href="https://es.greenpeace.org/es/">Wordpress</a>...</li>
-                        <li><strong>It doesn't work in</strong> <a href="https://wordpress.com/" target="_blank">Wordpress.com</a>, <a href="https://medium.com/" target="_blank">Medium</a>...</li>
+                        <li><strong>It works in</strong> 
+                            <a target="_blank" href="https://es.greenpeace.org/es/">Our site (Wordpress Classic)</a>, 
+                            <a target="_blank" href="https://greenwire.greenpeace.org/spain/es-ES/home">Greenwire</a>, 
+                            <a target="_blank" href="https://revista.greenpeace.es/test/prueba-de-infografia/">our magazine</a>, 
+                            <a href="https://www.blogger.com" target="_blank">Blogger</a>, 
+                            <a href="https://prueba-wordpress.greenpeace.es/">Other WP (Wordpress Guttenberg)</a>...
+                        </li>
+                        <li><strong>It doesn't work in</strong> 
+                            <a href="https://wordpress.com/" target="_blank">Wordpress.com</a>, 
+                            <a href="https://medium.com/" target="_blank">Medium</a>...
+                        </li>
                     </ul>
+
+                    <a name="iframes"></a>
+                    <h3>Alternative technique <span style="color: red;">(deprecated)</span> - Iframes to embedded in the site</h3>
+
+                    <p>With this technique we insert the graphic in the page by using an iframe. Websites can add the piece to their site just like a Youtube video.</p>
+
+                    <p>Some graphics will cause problems when used with this technique. And just like with the <a href="#maintechnique">main technique</a> some content farms will limit the use of external contents, including iframed content.</p>
+
+                    <p>Example code share a chart:</p>
+
+                    <div style="margin-bottom: 2em;">
+                    <code style="display: block;">&lt;style&gt;.embed-container { position: relative; padding-bottom: 68%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }&lt;/style&gt;&lt;div class='embed-container'&gt;&lt;iframe src='https://apps.greenpeace.es/data-vis/iframe-chartsjs-in.html' frameborder='0' allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;</code>
+                    </div>
+
+                    <p>Although this code should work in all websites, it wont because of technical choices made by the content farms owners. For example Wordpress.com does not allow the use of iframes in biogs hosted in Wordpress. However this code will work in a Wordpress site that’s not hosted in a content farm like Wordpress.com. Also this graph will work in Blogger but will not work in Medium, as it has serious limitations on external content.</p>
+
                 </div>
             </div>
 
