@@ -129,9 +129,43 @@
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/m7z2gfyu/embedded/result,html/">Copy video</a>
                     </p>
-                    <p>We can also make <strong>responsive</strong> videos, with mobile and desktop versions.</p>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Responsive videos</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <!-- FIGURE-->
+
+                    <div id="videoContainer" style="width: 100%;"></div>
+                    <script>
+                    document.addEventListener("DOMContentLoaded", function (t) {
+                        var e, o = "https://storage.googleapis.com/gpes-static/rutas-armas/RUTA_BURGOS_cuadrado.mp4", // Mobile version, small screens
+                            a = "https://storage.googleapis.com/gpes-static/rutas-armas/RUTA_BURGOS_720.mp4", // Desktop, large screens
+                            s = document.getElementById("videoContainer"),
+                            r = s.offsetWidth;
+                        e = r < 640 ? o : a;
+                        var d = document.createElement("video");
+                        d.setAttribute("controls", "controls"), d.style.maxWidth = "100%";
+                        var n = document.createElement("source");
+                        n.setAttribute("src", e), n.setAttribute("type", "video/mp4"), d.appendChild(n), s.appendChild(d)
+                    });
+                    </script>
+
+                    <!-- FIGURE -->
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <p>Sometimes a video needs two versions to work well in large desktop screens and small mobile screens.  Having two video sizes also helps placing the video in different layouts: when the video is placed in a large column and the users are viewing it in a large screen, the page will show the large video; in other conditions the page will show the small video.</p>
+
+                    <p>With this technique the users will always see the video that works best in their viewing conditions.</p>
                     <p><small>Example: <a target="_blank" href="https://es.greenpeace.org/es/trabajamos-en/desarme/armas-espanolas/">weapons routes</a></small></p>
-                    <p><a class="btn btn-outline-dark" href="http://jsfiddle.net/osvik/o6vt42kq/embedded/result,html/" target="_blank">Html for responsive video</a></p>
+                    <p><a class="btn btn-outline-dark" href="http://jsfiddle.net/osvik/o6vt42kq/embedded/result,html/" target="_blank">Copy video</a></p>
                 </div>
             </div>
 
