@@ -37,14 +37,16 @@
             <!--
 ------------------------------------------------------------------------------------------------------------------------
 -->
-            <h1>Advanced maps</h1>
+            <h1>Maps</h1>
 
-            <p class="lead">Use <strong style="font-weight: 700;">standard formats</strong> and external software to build complex maps. Use <strong style="font-weight: 700;">custom designs</strong>.</p>
+            <p class="lead">For simple or complex maps you should use <strong style="font-weight: 700;">standard formats</strong> and external software, when possible.</p>
+
+            <p>We can also use a few <strong style="font-weight: 700;">custom designs</strong> (tiles), instead of the well know Google Maps.</p>
 
             <div class="row">
                 <div class="col-sm">
                     <a name="kml"></a>
-                    <h2>KML layers</h2>
+                    <h2>Google Earth, Google Maps and KML layers</h2>
                 </div>
             </div>
 
@@ -59,7 +61,7 @@
                         });
 
                         var ctaLayer = new google.maps.KmlLayer({
-                          url: 'https://apps.greenpeace.es/kml/d2.kml',
+                          url: 'https://storage.googleapis.com/gp-misc/images-maps/demo-1/lisbon-example.kml',
                           map: map
                         });
                       }
@@ -68,13 +70,13 @@
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
                 <div class="col-sm-12 col-md-4">
-                    <p>Use <a href="https://www.google.com/earth/download/ge/" target="_blank">Google Earth</a> to create maps with dots, routes, areas and photos. Export this maps in KML files that can be added to the site.</p>
+                    <p>One of the formats we can work is <strong><a target="_blank" href="https://en.wikipedia.org/wiki/Keyhole_Markup_Language">KML</a></strong>. Use <a href="https://www.google.com/earth/download/ge/" target="_blank">Google Earth</a> to create maps with dots, routes, areas and photos. Export this maps in KML files that can be added to the site.</p>
                     <p>You can also export a KML file from <a href="https://www.google.com/maps/" target="_blank" rel="noreferrer">Google Maps</a> and use it. Google Maps is very popular, so we can use this feature to import maps made by others.</p>
                     <p><small>Please note this is just a quick example, not a real map. The KML format allows us to create excellent maps.</small></p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/5ko3w4en/embedded/result,html/">Copy map</a>
                         <a class="btn btn-outline-dark" target="_blank" href="https://www.youtube.com/watch?v=ZmAwkzKQ9SM">Video tutorial</a>
-                        <a class="btn btn-outline-dark" target="_blank" href="https://apps.greenpeace.es/kml/d2.kml">Download KML</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://storage.googleapis.com/gp-misc/images-maps/demo-1/lisbon-example.kml">Download KML</a>
                     </p>
                 </div>
             </div>
@@ -82,7 +84,7 @@
             <div class="row">
                 <div class="col-sm">
                     <a name="geo-json"></a>
-                    <h2>Heatmaps and Geo Json</h2>
+                    <h2>Geo Json format and editors</h2>
                 </div>
             </div>
 
@@ -128,7 +130,7 @@
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
                 <div class="col-sm-12 col-md-4">
-                    <p>It’s possible to add heatmaps to your map using the <a href="http://geojson.org/" target="_blank">Geo Json</a> format.</p>
+                    <p><a target="_blank" href="https://en.wikipedia.org/wiki/GeoJSON">GeoJson</a> is our <strong>preferred format to work with maps</strong> as it has more tools and can work well both with Google Maps and Open Street Maps.</p>
                     <h3>GeoJson editors</h3>
                     <p>There’s a few free and paid GeoJson editors that will help you build your map. Maps made with en editor are easier to translate and adapt.</p>
                     <p>
@@ -136,6 +138,40 @@
                         <a class="btn btn-outline-dark" target="_blank" href="http://umap.openstreetmap.fr/en/">Another editor</a>
                         <a class="btn btn-outline-dark" target="_blank" href="https://www.qgis.org/en/site/about/features.html">Advanced Geo Json editor</a>
                     </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <a name="custom-designs"></a>
+                    <h2>Open Street Maps and custom designs</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <!-- CUSTOM TITLES MAP -->
+
+                    <div id="customTiles" style="width: 100%; height: 400px; margin-bottom: 2em;"></div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            var customTiles = L.map('customTiles', {
+                                scrollWheelZoom: false
+                            }).setView([40.1, 0.1], 5);
+
+                            L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+                                maxZoom: 17,
+                                attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+                            }).addTo(customTiles);
+                        });
+                    </script>
+
+                    <!-- /CUSTOM TITLES MAP -->
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <p>Open Street Map also allows custom tiles.  You can select one of <strong>many available designs</strong>, if you want to highlight a region’s topography for example.</p>
+                    <p><small>Examples: <a target="_blank" href="https://es.greenpeace.org/es/trabajamos-en/cambio-climatico/pagos-por-capacidad/">dirty energy subsidies</a></small></p>
+                    <p><a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/51y6n3h8/embedded/result,html/">Copy map</a></p>
                 </div>
             </div>
 
@@ -242,9 +278,8 @@
                     <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
                 </div>
                 <div class="col-sm-12 col-md-4">
-                    <p>It’s also possible to use the GeoJson format with Leaflet and Open Street Map. As Open Street Map does not require an API key, other sites won't need one to use a map in this format.</p>
-
-                    <p>Gist is a great tool to colaborate with other persons using the GeoJson format.</p>
+                    <p>Leaflet is a widely used open source JavaScript library created to build <strong>web mapping applications</strong>.</p>
+                    <p>And as Open Street Map does not require an API key, we are starting to use Leaflet and Open Street Maps to <strong>build complex responsive maps that can run in practically any web page</strong>.</p>
 
                     <p><small>Examples: <a href="https://es.greenpeace.org/es/trabajamos-en/desarme/armas-marca-espana/" target="_blank">weapons export map</a>, <a target="_blank" href="https://es.greenpeace.org/es/trabajamos-en/desarme/armas-espanolas/">weapons routes</a>.</small></p>
                     <p>
@@ -254,39 +289,6 @@
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/4ftjod54/embedded/result,html/">Map with countries</a>
                         <a class="btn btn-outline-dark" target="_blank" href="assets/data/world-map-geojson.json" download>Countries data</a>
                     </p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm">
-                    <h2>Custom design</h2>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12 col-md-8">
-                    <!-- CUSTOM TITLES MAP -->
-
-                    <div id="customTiles" style="width: 100%; height: 400px; margin-bottom: 2em;"></div>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function (event) {
-                            var customTiles = L.map('customTiles', {
-                                scrollWheelZoom: false
-                            }).setView([40.1, 0.1], 5);
-
-                            L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-                                maxZoom: 17,
-                                attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
-                            }).addTo(customTiles);
-                        });
-                    </script>
-
-                    <!-- /CUSTOM TITLES MAP -->
-                </div>
-                <div class="col-sm-12 col-md-4">
-                    <p>Open Street Map also allows custom tiles.  You can select one of many available designs, if you want to highlight a region’s topography for example.</p>
-                    <p><small>Examples: <a target="_blank" href="https://es.greenpeace.org/es/trabajamos-en/cambio-climatico/pagos-por-capacidad/">dirty energy subsidies</a></small></p>
-                    <p><a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/51y6n3h8/embedded/result,html/">Copy map</a></p>
                 </div>
             </div>
 
