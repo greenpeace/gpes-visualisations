@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
-                    <div id="kml_map" style="height: 400px; margin-bottom: 1em;"></div>
+                    <div id="kml_map" style="height: 400px; margin-bottom: 0.5em;"></div>
                     <script>
                       function initMapKML() {
                         var map = new google.maps.Map(document.getElementById('kml_map'), {
@@ -66,7 +66,24 @@
                       }
                     </script>
                     <!-- FIGURE -->
-                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                    <!-- FIGURE FOOTER -->
+                    <div class="clearfix mb-5">
+
+                      <span class="float-left">
+                          <small><strong>Source:</strong> <a target="_blank" href="https://es.greenpeace.org/">Greenpeace</a></small>
+                      </span>
+
+                      <span class="float-right">
+
+                      <!-- MAKE SURE THE DATA-TARGET MATCHES THE ID -->
+
+                                <small><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" title="Difundir este mapa" style="vertical-align: middle;" onclick="typeof(ga) == 'function' && ga('send', 'event', 'EventCat', 'click', 'Descargar')">
+                                    <img src="https://storage.googleapis.com/es-greenpeace-org/ico/download.svg" style="vertical-align: text-bottom; height: 15px;" />
+                                    Download
+                                </a></small>
+                            </span>
+                    </div>
+                    <!-- /FIGURE FOOTER -->
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <p>One of the formats we can work is <strong><a target="_blank" href="https://en.wikipedia.org/wiki/Keyhole_Markup_Language">KML</a></strong>. Use <a href="https://www.google.com/earth/download/ge/" target="_blank">Google Earth</a> to create maps with dots, routes, areas and photos. Export this maps in KML files that can be added to the site.</p>
@@ -90,7 +107,7 @@
            <div class="row">
                 <div class="col-sm-12 col-md-8">
                     <!-- FIGURE -->
-                    <div id="heat_map" style="height: 400px; margin-bottom: 2em;"></div>
+                    <div id="heat_map" style="height: 400px; margin-bottom: 0.5em;"></div>
                     <script>
                       var map;
                       function initHeatMap() {
@@ -126,7 +143,24 @@
                       }
                     </script>
                     <!-- FIGURE -->
-                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                    <!-- FIGURE FOOTER -->
+                    <div class="clearfix mb-5">
+
+                      <span class="float-left">
+                          <small><strong>Source:</strong> <a target="_blank" href="https://es.greenpeace.org/">Greenpeace</a></small>
+                      </span>
+
+                      <span class="float-right">
+
+                      <!-- MAKE SURE THE DATA-TARGET MATCHES THE ID -->
+
+                                <small><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" title="Difundir este mapa" style="vertical-align: middle;" onclick="typeof(ga) == 'function' && ga('send', 'event', 'EventCat', 'click', 'Descargar')">
+                                    <img src="https://storage.googleapis.com/es-greenpeace-org/ico/download.svg" style="vertical-align: text-bottom; height: 15px;" />
+                                    Download
+                                </a></small>
+                            </span>
+                    </div>
+                    <!-- /FIGURE FOOTER -->
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <p><a target="_blank" href="https://en.wikipedia.org/wiki/GeoJSON">GeoJson</a> is our <strong>preferred format to work with maps</strong> as it has more tools and can work well both with Google Maps and Open Street Maps.</p>
@@ -154,7 +188,7 @@
                 <div class="col-sm-12 col-md-8">
                     <!-- CUSTOM TITLES MAP -->
 
-                    <div id="customTiles" style="width: 100%; height: 400px; margin-bottom: 2em;"></div>
+                    <div id="customTiles" style="width: 100%; height: 400px; margin-bottom: 0.5em;"></div>
                     <script>
                         document.addEventListener("DOMContentLoaded", function (event) {
                             var customTiles = L.map('customTiles', {
@@ -169,6 +203,24 @@
                     </script>
 
                     <!-- /CUSTOM TITLES MAP -->
+                    <!-- FIGURE FOOTER -->
+                    <div class="clearfix mb-5">
+
+                      <span class="float-left">
+                          <small><strong>Source:</strong> <a target="_blank" href="https://es.greenpeace.org/">Greenpeace</a></small>
+                      </span>
+
+                      <span class="float-right">
+
+                      <!-- MAKE SURE THE DATA-TARGET MATCHES THE ID -->
+
+                                <small><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" title="Difundir este mapa" style="vertical-align: middle;" onclick="typeof(ga) == 'function' && ga('send', 'event', 'EventCat', 'click', 'Descargar')">
+                                    <img src="https://storage.googleapis.com/es-greenpeace-org/ico/download.svg" style="vertical-align: text-bottom; height: 15px;" />
+                                    Download
+                                </a></small>
+                            </span>
+                    </div>
+                    <!-- /FIGURE FOOTER -->
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <p>Open Street Map also allows custom tiles.  You can select one of <strong>many available designs</strong>, if you want to highlight a region’s topography for example.</p>
@@ -288,7 +340,24 @@
                     </script>
                     <!-- /MAP GEOJSON -->
                     
-                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                    <!-- FIGURE FOOTER -->
+                    <div class="clearfix mb-5">
+
+                      <span class="float-left">
+                          <small><strong>Source:</strong> <a target="_blank" href="https://es.greenpeace.org/">Greenpeace</a></small>
+                      </span>
+
+                      <span class="float-right">
+
+                      <!-- MAKE SURE THE DATA-TARGET MATCHES THE ID -->
+
+                                <small><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" title="Difundir este mapa" style="vertical-align: middle;" onclick="typeof(ga) == 'function' && ga('send', 'event', 'EventCat', 'click', 'Descargar')">
+                                    <img src="https://storage.googleapis.com/es-greenpeace-org/ico/download.svg" style="vertical-align: text-bottom; height: 15px;" />
+                                    Download
+                                </a></small>
+                            </span>
+                    </div>
+                    <!-- /FIGURE FOOTER -->
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <p>Leaflet is a widely used open source JavaScript library created to build <strong>web mapping applications</strong>.</p>
