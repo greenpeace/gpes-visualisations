@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        *,::after,::before{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-ms-overflow-style:scrollbar}@-ms-viewport{width:device-width}article,footer,header{display:block}body{margin:0;font-size:1rem;font-weight:400;line-height:1.5;color:#212529;text-align:left;background-color:#fff}h1,h2{margin-top:0;margin-bottom:.5rem}p{margin-top:0;margin-bottom:1rem}strong{font-weight:bolder}small{font-size:80%}a{color:#007bff;text-decoration:none;background-color:transparent;-webkit-text-decoration-skip:objects}img{vertical-align:middle;border-style:none}h1,h2{margin-bottom:.5rem;font-family:inherit;font-weight:500;line-height:1.2;color:inherit}h1{font-size:2.5rem}h2{font-size:2rem}.lead{font-size:1.25rem;font-weight:300}small{font-size:80%;font-weight:400}.img-fluid{max-width:100%;height:auto}.container{width:100%;padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:576px){.container{max-width:540px}}@media (min-width:768px){.container{max-width:720px}}@media (min-width:992px){.container{max-width:960px}}@media (min-width:1200px){.container{max-width:1140px}}.row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}.col-lg-4,.col-lg-8,.col-md-4,.col-md-8,.col-sm-12{position:relative;width:100%;min-height:1px;padding-right:15px;padding-left:15px}@media (min-width:576px){.col-sm-12{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%}}@media (min-width:768px){.col-md-4{-webkit-box-flex:0;-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%}.col-md-8{-webkit-box-flex:0;-ms-flex:0 0 66.666667%;flex:0 0 66.666667%;max-width:66.666667%}}@media (min-width:992px){.col-lg-4{-webkit-box-flex:0;-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%}.col-lg-8{-webkit-box-flex:0;-ms-flex:0 0 66.666667%;flex:0 0 66.666667%;max-width:66.666667%}}.btn{display:inline-block;font-weight:400;text-align:center;white-space:nowrap;vertical-align:middle;border:1px solid transparent;padding:.375rem .75rem;font-size:1rem;line-height:1.5;border-radius:.25rem}.btn-outline-dark{color:#343a40;background-color:transparent;background-image:none;border-color:#343a40}.text-left{text-align:left!important}.text-right{text-align:right!important}.text-center{text-align:center!important}body{font-family:"Work Sans",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:antialiased;font-weight:400;font-size:18px}h1,h2{font-family:Rubik,sans-serif}h1{font-size:2.7rem;margin-top:1.5rem;margin-bottom:.9rem}h2{font-size:2rem;margin-top:1.5rem;margin-bottom:.66rem}.topbar .logo{width:150px}.footerbar,.footerbar a{color:#fff}body{background:#f6f6f6;line-height:24px;font-kerning:auto;font-stretch:normal}.only-print{display:none}div.footerbar,div.topbar{background-color:#0c4413}.footerbar,.footerbar a,footer a{color:#fff;font-size:14px}footer p{margin-bottom:.5rem;margin-top:.5rem}header{padding:1rem}footer{padding:.5rem}.topbar{display:block}p a:after{content:none;font-size:80%}header .logo{display:inline}
+    </style>
+
+    <script>
+        !function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){function e(){t.media=a}var a=t.media||"all";t.addEventListener?t.addEventListener("load",e):t.attachEvent&&t.attachEvent("onload",e),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(e,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+    <link rel="preload" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900|Work+Sans:400,500,600,700" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="assets/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+    <link rel="preload" href="assets/css/print.css" media="print" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" href="assets/css/screen.css" media="screen" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+
+    <title>Experimental stuff</title>
+    <meta name="robots" content="noindex, nofollow" />
+</head>
+
+<body>
+    <div class="topbar mceNonEditable">
+        <div class="container">
+            <header>
+                <p class="only-print"><img src="assets/ico/greenpeace-black.svg" alt="Greenpeace" /></p>
+                <div><a href="index.html"><img class="logo" src="https://storage.googleapis.com/peticiones-greenpeace-jun-2017/ico/greenpeace.svg" alt="Greenpeace" /></a></div>
+            </header>
+        </div>
+    </div>
+    <div class="container mceNonEditable">
+        <article class="mceEditable">
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+            <h1>Experimental stuff</h1>
+
+            <p class="lead">Stuff being tested. It might not work as expected.</p>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2><a name="tag-cloud" href="#tag-cloud" title="Click to get this section's URL">&rtrif;</a> Tag cloud</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <!-- FIGURE -->
+
+                    <link rel="stylesheet" href="assets/css/jqcloud.css" />
+                    
+                    <div id="wordclould_container" style="height: 400px; border: 1px solid #ddd;"></div>
+                    
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function(){
+                            var words = [
+                              {
+                                  text: "Lorem", 
+                                    weight: 13,
+                                    html: {class: "foo"},
+                                    handlers: {click: function(){ console.log('Lorem clicked') } }
+                              },
+                              {
+                                  text: "Ipsum", 
+                                  weight: 10.5
+                              },
+                              {
+                                  text: "Dolor", 
+                                    weight: 9.4
+                              },
+                              {
+                                  text: "Sit", 
+                                  weight: 8
+                              },
+                              {
+                                  text: "Amet", 
+                                  weight: 6.2
+                              },
+                              {
+                                  text: "Consectetur", 
+                                    weight: 5
+                              },
+                              {text: "Adipiscing", weight: 5},
+                              /* ... */
+                            ];
+                            $("#wordclould_container").jQCloud(words);
+                        });
+                    </script>
+                    
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <p>A tag cloud (word cloud, or weighted list in visual design) is a novelty visual representation of text data, typically used to depict keyword metadata (tags) on websites, or to visualize free form text.</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2><a name="gapminder" href="#gapminder" title="Click to get this section's URL">&rtrif;</a> Gapminder</h2>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <!-- FIGURE -->
+
+                    <script src="https://cdn.plot.ly/plotly-latest.min.js" defer></script>
+
+                    <div id="gapminderBubble">
+                        <!-- Plotly chart will be drawn inside this DIV -->
+                    </div>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function (event) {
+                            Plotly.d3.csv('assets/data/gapminderDataFiveYear.csv', function(err, data) {
+                                // Create a lookup table to sort and regroup the columns of data,
+                                // first by year, then by continent:
+                                var lookup = {};
+
+                                function getData(year, continent) {
+                                    var byYear, trace;
+                                    if (!(byYear = lookup[year])) {;
+                                        byYear = lookup[year] = {};
+                                    }
+                                    // If a container for this year + continent doesn't exist yet,
+                                    // then create one:
+                                    if (!(trace = byYear[continent])) {
+                                        trace = byYear[continent] = {
+                                            x: [],
+                                            y: [],
+                                            id: [],
+                                            text: [],
+                                            marker: {
+                                                size: []
+                                            }
+                                        };
+                                    }
+                                    return trace;
+                                }
+
+                                // Go through each row, get the right trace, and append the data:
+                                for (var i = 0; i < data.length; i++) {
+                                    var datum = data[i];
+                                    var trace = getData(datum.year, datum.continent);
+                                    trace.text.push(datum.country);
+                                    trace.id.push(datum.country);
+                                    trace.x.push(datum.lifeExp);
+                                    trace.y.push(datum.gdpPercap);
+                                    trace.marker.size.push(datum.pop);
+                                }
+
+                                // Get the group names:
+                                var years = Object.keys(lookup);
+                                // In this case, every year includes every continent, so we
+                                // can just infer the continents from the *first* year:
+                                var firstYear = lookup[years[0]];
+                                var continents = Object.keys(firstYear);
+
+                                // Create the main traces, one for each continent:
+                                var traces = [];
+                                for (i = 0; i < continents.length; i++) {
+                                    var data = firstYear[continents[i]];
+                                    // One small note. We're creating a single trace here, to which
+                                    // the frames will pass data for the different years. It's
+                                    // subtle, but to avoid data reference problems, we'll slice
+                                    // the arrays to ensure we never write any new data into our
+                                    // lookup table:
+                                    traces.push({
+                                        name: continents[i],
+                                        x: data.x.slice(),
+                                        y: data.y.slice(),
+                                        id: data.id.slice(),
+                                        text: data.text.slice(),
+                                        mode: 'markers',
+                                        marker: {
+                                            size: data.marker.size.slice(),
+                                            sizemode: 'area',
+                                            sizeref: 200000
+                                        }
+                                    });
+                                }
+
+                                // Create a frame for each year. Frames are effectively just
+                                // traces, except they don't need to contain the *full* trace
+                                // definition (for example, appearance). The frames just need
+                                // the parts the traces that change (here, the data).
+                                var frames = [];
+                                for (i = 0; i < years.length; i++) {
+                                    frames.push({
+                                        name: years[i],
+                                        data: continents.map(function(continent) {
+                                            return getData(years[i], continent);
+                                        })
+                                    })
+                                }
+
+                                // Now create slider steps, one for each frame. The slider
+                                // executes a plotly.js API command (here, Plotly.animate).
+                                // In this example, we'll animate to one of the named frames
+                                // created in the above loop.
+                                var sliderSteps = [];
+                                for (i = 0; i < years.length; i++) {
+                                    sliderSteps.push({
+                                        method: 'animate',
+                                        label: years[i],
+                                        args: [
+                                            [years[i]], {
+                                                mode: 'immediate',
+                                                transition: {
+                                                    duration: 300
+                                                },
+                                                frame: {
+                                                    duration: 300,
+                                                    redraw: false
+                                                },
+                                            }
+                                        ]
+                                    });
+                                }
+
+                                var layout = {
+                                    font: {
+                                        family: '"Work Sans",sans-serif',
+                                        size: 11,
+                                        color: '#212529'
+                                    },
+                                    titlefont: {
+                                        size: 16,
+                                        color: '#212529'
+                                    },
+                                    paper_bgcolor: '#f6f6f5',
+                                    plot_bgcolor: '#f6f6f5',
+                                    margin: {
+                                        r: 10,
+                                        t: 35,
+                                        b: 40,
+                                        l: 40
+                                    },
+                                    xaxis: {
+                                        title: 'Esperanza de vida',
+                                        range: [30, 85]
+                                    },
+                                    yaxis: {
+                                        title: 'PIB per cápita',
+                                        type: 'log'
+                                    },
+                                    hovermode: 'closest',
+                                    // We'll use updatemenus (whose functionality includes menus as
+                                    // well as buttons) to create a play button and a pause button.
+                                    // The play button works by passing `null`, which indicates that
+                                    // Plotly should animate all frames. The pause button works by
+                                    // passing `[null]`, which indicates we'd like to interrupt any
+                                    // currently running animations with a new list of frames. Here
+                                    // The new list of frames is empty, so it halts the animation.
+                                    updatemenus: [{
+                                        x: 0,
+                                        y: 0,
+                                        yanchor: 'top',
+                                        xanchor: 'left',
+                                        showactive: false,
+                                        direction: 'left',
+                                        type: 'buttons',
+                                        pad: {
+                                            t: 87,
+                                            r: 10
+                                        },
+                                        buttons: [{
+                                            method: 'animate',
+                                            args: [null, {
+                                                mode: 'immediate',
+                                                fromcurrent: true,
+                                                transition: {
+                                                    duration: 300
+                                                },
+                                                frame: {
+                                                    duration: 500,
+                                                    redraw: false
+                                                }
+                                            }],
+                                            label: 'Play'
+                                        }, {
+                                            method: 'animate',
+                                            args: [
+                                                [null], {
+                                                    mode: 'immediate',
+                                                    transition: {
+                                                        duration: 0
+                                                    },
+                                                    frame: {
+                                                        duration: 0,
+                                                        redraw: false
+                                                    }
+                                                }
+                                            ],
+                                            label: 'Pausa'
+                                        }]
+                                    }],
+                                    // Finally, add the slider and use `pad` to position it
+                                    // nicely next to the buttons.
+                                    sliders: [{
+                                        pad: {
+                                            l: 130,
+                                            t: 55
+                                        },
+                                        currentvalue: {
+                                            visible: true,
+                                            prefix: 'Año:',
+                                            xanchor: 'right',
+                                            font: {
+                                                size: 20,
+                                                color: '#666'
+                                            }
+                                        },
+                                        steps: sliderSteps
+                                    }]
+                                };
+
+                                // Create the plot:
+                                Plotly.plot('gapminderBubble', {
+                                    displayModeBar: 'hover', // False is not working
+                                    data: traces,
+                                    layout: layout,
+                                    frames: frames,
+                                });
+                            });
+                        });
+
+                    </script>
+
+
+
+                    <!-- FIGURE -->
+                    <p><small><strong>Source:</strong> <a href="https://es.greenpeace.org" target="_blank" rel="noopener">Greenpeace</a> &bull; <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc/3.0/es/" target="_blank" rel="noopener">Creative Commons</a></small></p>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <p><a href="https://www.gapminder.org/tools/#$chart-type=bubbles" target="_blank">Gapminder-like bubble chart</a>. It needs more testing, can't remove toolbar, Data as a <a href="assets/data/gapminderDataFiveYear.csv" target="_blank">csv</a>. <strong>Doesn't work well with small screens, use with care!</strong></p>
+                    <!-- <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/t8utop2k/embedded/result,html/">Copy this graph</a>
+                    </p> -->
+                </div>
+            </div>
+
+
+            <p>&nbsp;</p>
+            <p class="text-center"><a class="btn btn-dark" href="treemap-heatmap-charts.html">Prev</a> <a class="btn btn-dark" href="details-charts.html">Next</a></p>
+            <p>&nbsp;</p>
+            <!--
+------------------------------------------------------------------------------------------------------------------------
+-->
+        </article>
+    </div>
+    <div class="footerbar mceNonEditable">
+        <div class="container">
+            <footer>
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <p><a href="https://es.greenpeace.org/es/politica-de-privacidad-y-cookies/">Privacy and cookies</a></p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <p><a href="index.html"> <img src="https://storage.googleapis.com/peticiones-greenpeace-2018/ico/greenpeace.svg" alt="Greenpeace" /> </a></p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <p><a href="https://es.greenpeace.org/es/copyright/">&copy; Greenpeace 2018</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="https://unpkg.com/popper.js@1.14.4/dist/umd/popper.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jqcloud2@2.0.3/dist/jqcloud.min.js" defer></script>
+    
+
+</body>
+
+</html>
