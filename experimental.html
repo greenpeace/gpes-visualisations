@@ -433,6 +433,83 @@
 
             </div>
 
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2><a name="intersections" href="#intersections" title="Click to get this section's URL">&rtrif;</a> Intersections</h2>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12 col-md-8">
+                    <!-- VENN DIAGRAM -->
+                    <script src="https://cdn.jsdelivr.net/npm/d3@4.13.0" defer></script>
+                    <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/build/venn.js" defer></script>
+                    <style>
+                        svg text {
+                            fill: #000099;
+                            font-family: "Work Sans", sans-serif;
+                        }
+
+                        [data-venn-sets="A"]   { fill: #FF4D16; }
+                        [data-venn-sets="C"]   { fill: #48B9E5; }
+                        [data-venn-sets="B"]   { fill: #8EE5BB; }
+                        [data-venn-sets="A_B"] { fill: #FFC4A7; }
+                        [data-venn-sets="A_C"] { fill: #D7D5A1; }
+
+                    </style>
+
+                    <div id="venn"></div>
+
+                    <script>
+
+                        document.addEventListener("DOMContentLoaded", function(){
+
+                            var elwidth = document.getElementById("venn").offsetWidth;
+                            var fontWidth = 12;
+                            if ( elwidth >= 400 && elwidth < 600 ) {
+                                fontWidth = 14;
+                            } else if ( elwidth >= 600) {
+                                fontWidth = 16;
+                            }
+
+                            var sets = [
+                                {sets: ['A'], size: 12, label: 'Alpha'},
+                                {sets: ['B'], size: 12, label: 'Beta'},
+                                {sets: ['C'], size: 8, label: 'Sigma'},
+                                {sets: ['A','B'], size: 4, label: "Alpha+Beta"},
+                                {sets: ['A','C'], size: 4, label: 'Alpha+Sigma'}
+                            ];
+
+                            var chart = venn.VennDiagram()
+                                .styled(false)
+                                .wrap(false)
+                                .fontSize( fontWidth + "px")
+                                .width(elwidth)
+                                .height(elwidth / 1.5);
+
+                            d3.select("#venn").datum(sets).call(chart);
+
+                        });
+
+                    </script>
+                    <!-- /VENN DIAGRAM -->
+                </div>
+
+                <div class="col-md-4">
+                    <p>
+                        <a href="https://en.wikipedia.org/wiki/Venn_diagram" target="_blank">Venn diagrams</a> are great to show intersections between elements.
+                    </p>
+
+                    <p>This library also allows interactive diagrams. And you can use plain CSS and Javascript with each element.</p>
+
+                    <p>
+                        <a class="btn btn-secondary" target="_blank" href="https://github.com/benfred/venn.js/">Docs</a>
+                    </p>
+                </div>
+
+            </div>
+
 
             <p>&nbsp;</p>
             <p class="text-center"><a class="btn btn-dark" href="treemap-heatmap-charts.html">Prev</a> <a class="btn btn-dark" href="details-charts.html">Next</a></p>
