@@ -59,6 +59,126 @@
 
             <div class="row">
                 <div class="col-sm-12">
+                    <h2><a name="progress-bar" href="#progress-bar" title="Click to get this section's URL">&rtrif;</a> Progress bar</h2>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12 col-md-8">
+
+                    <p>Progress bars are small and can be inserted between text...</p>
+
+                    <!-- PROGRESS BAR -->
+                    <div class="progress" style="height: 40px;">
+                        <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #FFA000; color: #FFFFFF; font-weight: 700;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                    </div>
+                    <!-- / PROGRESS BAR -->
+
+                    <p><small>Progress bar footer</small></p>
+
+                    <p>...and they can accumulate progress...</p>
+
+                    <!-- PROGRESS BAR -->
+                    <div class="progress" style="height: 40px;">
+                        <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #FFA000; color: #FFFFFF; font-weight: 700;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        <div class="progress-bar" role="progressbar" style="width: 40%; background-color: #FF4D16; color: #FFFFFF; font-weight: 700;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+                    </div>
+                    <!-- / PROGRESS BAR -->
+
+                </div>
+                <div class="col-md-4">
+                    <p>To illustrate progress, or if there’s more than one, to compare progress. Simple progress bars are very easy to do in our site. More advanced progress bars can be <strong>interactive</strong> and <strong>animated</strong>. They can interact for example with a map, links or select element.</p>
+                    <p>Progress bars <strong>can’t be shared</strong> (at the moment) with other sites with a classic “download” link. This will be developed if we use them in important projects.</p>
+                    <p><a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/goxy0smp/embedded/result,html/">Copy</a></p>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2><a name="intersections" href="#intersections" title="Click to get this section's URL">&rtrif;</a> Intersections</h2>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12 col-md-8">
+                    <!-- VENN DIAGRAM -->
+                    <script src="https://cdn.jsdelivr.net/npm/d3@4.13.0" defer></script>
+                    <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/build/venn.js" defer></script>
+                    <style>
+                        svg text {
+                            fill: #000099;
+                            font-family: "Work Sans", sans-serif;
+                        }
+
+                        [data-venn-sets="A"]   { fill: #FF4D16; }
+                        [data-venn-sets="C"]   { fill: #48B9E5; }
+                        [data-venn-sets="B"]   { fill: #8EE5BB; }
+                        [data-venn-sets="D"]   { fill: #FFA000; }
+                        [data-venn-sets="A_B"] { fill: #FFC4A7; }
+                        [data-venn-sets="A_C"] { fill: #D7D5A1; }
+                        [data-venn-sets="A_D"] { fill: #FDF6B2; }
+
+                    </style>
+
+                    <div id="venn"></div>
+
+                    <script>
+
+                        document.addEventListener("DOMContentLoaded", function(){
+
+                            var elwidth = document.getElementById("venn").offsetWidth;
+                            var fontWidth = 11;
+                            if ( elwidth >= 400 && elwidth < 600 ) {
+                                fontWidth = 14;
+                            } else if ( elwidth >= 600) {
+                                fontWidth = 16;
+                            }
+
+                            var sets = [
+                                {sets: ['A'], size: 12, label: 'Alpha'},
+                                {sets: ['B'], size: 12, label: 'Beta'},
+                                {sets: ['C'], size: 8, label: 'Sigma'},
+                                {sets: ['D'], size: 6, label: 'Delta'},
+                                {sets: ['A','B'], size: 4, label: "Alpha+Beta"},
+                                {sets: ['A','C'], size: 4, label: 'Alpha+Sigma'},
+                                {sets: ['A','D'], size: 1.5, label: 'Alpha+Delta'}
+                            ];
+
+                            var chart = venn.VennDiagram()
+                                .styled(false)
+                                .wrap(false)
+                                .fontSize( fontWidth + "px")
+                                .width(elwidth)
+                                .height(elwidth / 1.5);
+
+                            d3.select("#venn").datum(sets).call(chart);
+
+                        });
+
+                    </script>
+                    <!-- /VENN DIAGRAM -->
+                </div>
+
+                <div class="col-md-4">
+                    <p>
+                        <a href="https://en.wikipedia.org/wiki/Venn_diagram" target="_blank">Venn diagrams</a> are great to show intersections between elements.
+                    </p>
+
+                    <p>This library also allows interactive diagrams. And you can use plain CSS and Javascript with each element.</p>
+
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/L6qdxt9k/embedded/result,html/">Copy</a>
+                        <a class="btn btn-secondary" target="_blank" href="https://github.com/benfred/venn.js/">Docs</a>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
                     <h2><a name="tag-cloud" href="#tag-cloud" title="Click to get this section's URL">&rtrif;</a> Tag cloud</h2>
                 </div>
             </div>
@@ -395,127 +515,6 @@
                     </p> -->
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2><a name="progress-bar" href="#progress-bar" title="Click to get this section's URL">&rtrif;</a> Progress bar</h2>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-sm-12 col-md-8">
-
-                    <p>Progress bars are small and can be inserted between text...</p>
-
-                    <!-- PROGRESS BAR -->
-                    <div class="progress" style="height: 40px;">
-                        <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #FFA000; color: #FFFFFF; font-weight: 700;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                    </div>
-                    <!-- / PROGRESS BAR -->
-
-                    <p><small>Progress bar footer</small></p>
-
-                    <p>...and they can accumulate progress...</p>
-
-                    <!-- PROGRESS BAR -->
-                    <div class="progress" style="height: 40px;">
-                        <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #FFA000; color: #FFFFFF; font-weight: 700;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
-                        <div class="progress-bar" role="progressbar" style="width: 40%; background-color: #FF4D16; color: #FFFFFF; font-weight: 700;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
-                    </div>
-                    <!-- / PROGRESS BAR -->
-
-                </div>
-                <div class="col-md-4">
-                    <p>To illustrate progress, or if there’s more than one, to compare progress. Simple progress bars are very easy to do in our site. More advanced progress bars can be <strong>interactive</strong> and <strong>animated</strong>. They can interact for example with a map, links or select element.</p>
-                    <p>Progress bars <strong>can’t be shared</strong> (at the moment) with other sites with a classic “download” link. This will be developed if we use them in important projects.</p>
-                    <p><a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/goxy0smp/embedded/result,html/">Copy</a></p>
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <h2><a name="intersections" href="#intersections" title="Click to get this section's URL">&rtrif;</a> Intersections</h2>
-                </div>
-            </div>
-
-            <div class="row">
-
-                <div class="col-sm-12 col-md-8">
-                    <!-- VENN DIAGRAM -->
-                    <script src="https://cdn.jsdelivr.net/npm/d3@4.13.0" defer></script>
-                    <script src="https://cdn.jsdelivr.net/npm/venn.js@0.2.20/build/venn.js" defer></script>
-                    <style>
-                        svg text {
-                            fill: #000099;
-                            font-family: "Work Sans", sans-serif;
-                        }
-
-                        [data-venn-sets="A"]   { fill: #FF4D16; }
-                        [data-venn-sets="C"]   { fill: #48B9E5; }
-                        [data-venn-sets="B"]   { fill: #8EE5BB; }
-                        [data-venn-sets="D"]   { fill: #FFA000; }
-                        [data-venn-sets="A_B"] { fill: #FFC4A7; }
-                        [data-venn-sets="A_C"] { fill: #D7D5A1; }
-                        [data-venn-sets="A_D"] { fill: #FDF6B2; }
-
-                    </style>
-
-                    <div id="venn"></div>
-
-                    <script>
-
-                        document.addEventListener("DOMContentLoaded", function(){
-
-                            var elwidth = document.getElementById("venn").offsetWidth;
-                            var fontWidth = 11;
-                            if ( elwidth >= 400 && elwidth < 600 ) {
-                                fontWidth = 14;
-                            } else if ( elwidth >= 600) {
-                                fontWidth = 16;
-                            }
-
-                            var sets = [
-                                {sets: ['A'], size: 12, label: 'Alpha'},
-                                {sets: ['B'], size: 12, label: 'Beta'},
-                                {sets: ['C'], size: 8, label: 'Sigma'},
-                                {sets: ['D'], size: 6, label: 'Delta'},
-                                {sets: ['A','B'], size: 4, label: "Alpha+Beta"},
-                                {sets: ['A','C'], size: 4, label: 'Alpha+Sigma'},
-                                {sets: ['A','D'], size: 1.5, label: 'Alpha+Delta'}
-                            ];
-
-                            var chart = venn.VennDiagram()
-                                .styled(false)
-                                .wrap(false)
-                                .fontSize( fontWidth + "px")
-                                .width(elwidth)
-                                .height(elwidth / 1.5);
-
-                            d3.select("#venn").datum(sets).call(chart);
-
-                        });
-
-                    </script>
-                    <!-- /VENN DIAGRAM -->
-                </div>
-
-                <div class="col-md-4">
-                    <p>
-                        <a href="https://en.wikipedia.org/wiki/Venn_diagram" target="_blank">Venn diagrams</a> are great to show intersections between elements.
-                    </p>
-
-                    <p>This library also allows interactive diagrams. And you can use plain CSS and Javascript with each element.</p>
-
-                    <p>
-                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/L6qdxt9k/embedded/result,html/">Copy</a>
-                        <a class="btn btn-secondary" target="_blank" href="https://github.com/benfred/venn.js/">Docs</a>
-                    </p>
-                </div>
-
-            </div>
-
 
             <p>&nbsp;</p>
             <p class="text-center"><a class="btn btn-dark" href="treemap-heatmap-charts.html">Prev</a> <a class="btn btn-dark" href="details-charts.html">Next</a></p>
