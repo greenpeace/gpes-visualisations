@@ -455,8 +455,10 @@
                         [data-venn-sets="A"]   { fill: #FF4D16; }
                         [data-venn-sets="C"]   { fill: #48B9E5; }
                         [data-venn-sets="B"]   { fill: #8EE5BB; }
+                        [data-venn-sets="D"]   { fill: #FFA000; }
                         [data-venn-sets="A_B"] { fill: #FFC4A7; }
                         [data-venn-sets="A_C"] { fill: #D7D5A1; }
+                        [data-venn-sets="A_D"] { fill: #FDF6B2; }
 
                     </style>
 
@@ -467,7 +469,7 @@
                         document.addEventListener("DOMContentLoaded", function(){
 
                             var elwidth = document.getElementById("venn").offsetWidth;
-                            var fontWidth = 12;
+                            var fontWidth = 11;
                             if ( elwidth >= 400 && elwidth < 600 ) {
                                 fontWidth = 14;
                             } else if ( elwidth >= 600) {
@@ -478,8 +480,10 @@
                                 {sets: ['A'], size: 12, label: 'Alpha'},
                                 {sets: ['B'], size: 12, label: 'Beta'},
                                 {sets: ['C'], size: 8, label: 'Sigma'},
+                                {sets: ['D'], size: 6, label: 'Delta'},
                                 {sets: ['A','B'], size: 4, label: "Alpha+Beta"},
-                                {sets: ['A','C'], size: 4, label: 'Alpha+Sigma'}
+                                {sets: ['A','C'], size: 4, label: 'Alpha+Sigma'},
+                                {sets: ['A','D'], size: 1.5, label: 'Alpha+Delta'}
                             ];
 
                             var chart = venn.VennDiagram()
@@ -505,6 +509,7 @@
                     <p>This library also allows interactive diagrams. And you can use plain CSS and Javascript with each element.</p>
 
                     <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/L6qdxt9k/embedded/result,html/">Copy</a>
                         <a class="btn btn-secondary" target="_blank" href="https://github.com/benfred/venn.js/">Docs</a>
                     </p>
                 </div>
