@@ -62,27 +62,27 @@
             </nav>
             <h1>Add an infographic to your website</h1>
 
-            <p class="lead">SVG infographics that comply with the recommendations in this guide should work and be responsive in all Greenpeace sites and many other sites. This page explains how to insert the responsive infographic in your site.</p>
+            <p class="lead">SVG infographics that follow the recommendations in this guide should work and be responsive in all Greenpeace sites and many other sites. This page explains how to insert a responsive infographic in your site.</p>
 
             <div class="row">
                 <div class="col-sm-12 col-lg-8">
                     <!-- LEFT -->
 
-                    <h2>Hosting</h2>
+                    <h2><a name="hosting" href="#hosting" title="Click to get this section's URL">&rtrif;</a> Hosting the infographic</h2>
 
-                    <p>Most infographics should be hosted by Google’s CDN but they can also be uploaded to Wordpress media library.</p>
+                    <p>Most infographics should be hosted using Google’s CDN but can be uploaded to the Wordpress media library instead.</p>
 
-                    <h3>Upload to Google's CDN</h3>
+                    <h3>A - Upload to Google's CDN</h3>
 
-                    <p>The Google’s CDN should be used to host infographics meant to be shared or with the potential to reach huge amounts of traffic.</p>
+                    <p>The Google’s CDN should be used to host infographics meant to be shared or when we expect more traffic than usual.</p>
 
-                    <p>Anyone with access to the <strong><a href="https://console.cloud.google.com/storage/browser/gpes-static?project=arcoiris-1348" target="_blank">gpes-static</a></strong> CDN can upload the files or an entire folder. Just create a folder for your project and upload the files once they are debugged.</p>
+                    <p>Colleagues with access to the <strong><a href="https://console.cloud.google.com/storage/browser/gpes-static?project=arcoiris-1348" target="_blank">gpes-static bucket</a></strong> can upload the infographic's svg files.</p>
 
-                    <p>Please note Google's CDN has a cache and if you re-upload an existing file it can take up to one hour to update.</p>
+                    <p>Please note that Google Cloud Storage (Google's CDN) has a slow cache. If you re-upload a previous uploaded file in the same URL it can take up to one hour to update.</p>
 
                     <p><img src="assets/img/google-cloud-storage.png" alt="Google Cloud Storage screenshot" class="img-fluid" style="margin-bottom: 1em;" /></p>
 
-                    <h3>Upload to Wordpress media library</h3>
+                    <h3>B - Upload to Wordpress media library</h3>
 
                     <p>Upload to Wordpress is generally faster and easier but should be used with caution.</p>
 
@@ -92,7 +92,7 @@
 
                     <h2><a name="wordpress-plugin" href="#wordpress-plugin" title="Click to get this section's URL">&rtrif;</a> Wordpress plugin</h2>
 
-                    <p>In the Spanish office we developed a shortcode Wordpress plugin and a <a href="https://es.wordpress.org/plugins/shortcode-ui/" target="_blank">shortcake</a> block to easily publish responsive infographics in our website. The plugin is open source, so it can be used by Planet 4 and other Wordpress sites. <strong><a href="https://github.com/greenpeace/gpes-infographics-wp-shortcode" target="_blank">More information</a></strong></p>
+                    <p>In the Spanish office we developed a Wordpress plugin and a <a href="https://es.wordpress.org/plugins/shortcode-ui/" target="_blank">shortcake</a> block to easily publish responsive infographics in our website. The plugin is open source and can be used by Planet 4 and many other Wordpress sites.<strong> <a href="https://github.com/greenpeace/gpes-infographics-wp-shortcode" target="_blank">More information</a></strong></p>
 
                     <h3>How to use</h3>
 
@@ -104,6 +104,8 @@
                         <li>Fill the form adding a unique ID and the 4 urls. Then click <strong>Insert element</strong>.</li>
                         <li>You should be able to see the infograph inside Wordpress backend</li>
                     </ol>
+
+                    <p><img src="assets/img/insert-infographic.png" alt="Insert infographic" class="img-fluid" /></p>
 
                     <p><img src="assets/img/infographic-wordpress-backend.png" alt="Infographic Wordpress backend screenshot" class="img-fluid" /></p>
 
