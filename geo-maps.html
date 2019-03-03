@@ -311,6 +311,7 @@
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <p>City map with two scales. One scale works with the bubble size and the second scale with the bubble color.</p>
+                    <p>Please note that this map does not zoom, so it's not the best option if you have many points.</p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/q8g6rr87/embedded/result,html/">Copy map</a>
                         <a class="btn btn-secondary" target="_blank" href="https://developers.google.com/chart/interactive/docs/gallery/geochart">Docs</a>
@@ -318,9 +319,195 @@
                 </div>
             </div>
             
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2><a name="cities-spain" href="#bubbles-map" title="Click to get this section's URL">&rtrif;</a> Bubbles on a map</h2>
+                </div>
+            </div>
+
+           <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <!-- FIGURE -->
+
+                    <script src="assets/js/guadalquivir.js" defer></script>
+
+                    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" defer></script>
+                    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+                    <link rel="stylesheet" href="assets/css/bubble-map.css" />
+
+                    <h3 id="tituloGraficoAndalucia">Número de sanciones</h3>
+                    <div id="mapaAndalucia" style="width: 100%; height: 400px;"></div>
+                    <div id="notaSobreEscala"><small>Nota: Haz click en los circulos para más información. Para que todos los puntos sean visibles se les ha añadido un valor base.</small></div>
+                    <p>
+                    <button id="numSancionesAndalucia" type="button">Número de sanciones</button>
+                    <button id="valorDanosAndalucia" type="button">Valor de los daños</button>
+                    </p>
+
+                    <script>
+
+                        document.addEventListener("DOMContentLoaded", function (t) {
+
+                            /* BEGIN SCRIPTS */
+
+                            var osmap;
+
+                            var containerEl = document.getElementById("mapaAndalucia");
+                            var elwidth = containerEl.offsetWidth;
+                            var defaultZoomLevel = elwidth >= 550 ? 6.5 : 6.3;
+                            var maxZoomLevel = 9;
+                            var minZoomLevel = 6;
+
+                            var minCircle = 2500;
+
+                            var mapheight = elwidth >= 550 ? 400 : 300;
+
+                            document.getElementById("mapaAndalucia").style.height = mapheight + "px";
+
+                            var bounds = new L.LatLngBounds(new L.LatLng(34.9919663, -10), new L.LatLng(40.5532684, 1));
+
+                            /**
+                             * Obtain the radius from the area
+                             * @param   {number} area Area of the circle
+                             * @returns {number} Radius of the circle
+                             */
+                            var getRadius = function (area) {
+                                return Math.sqrt(area / Math.PI);
+                            }
+
+                            /**
+                             * Make the numbers easy to read and add euro
+                             * @param   {number} value Number of Euro
+                             * @returns {string} String to display
+                             */
+                            var easyNumbersEuro = function (value) {
+                                return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' €';
+                            }
+
+                            /**
+                             * Draws the number of sancions map
+                             */
+                            var drawSancionesGuadalquivir = function () {
+                                osmap = L.map('mapaAndalucia', {
+                                    scrollWheelZoom: false,
+                                    maxBounds: bounds
+                                }).setView([37.2141193, -4.3873866], defaultZoomLevel);
+
+                                L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+                                    maxZoom: maxZoomLevel,
+                                    minZoom: minZoomLevel,
+                                    attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+                                    id: 'mapbox.light'
+                                }).addTo(osmap);
+
+
+                                guadalquivir_sanciones.forEach(function (node) {
+                                    L.circle([node.lat, node.long], (getRadius(node.NumSanciones) * 2000) + minCircle, {
+                                        // color: '#f00',
+                                        stroke: false,
+                                        fillColor: '#e80505',
+                                        fillOpacity: 0.6
+                                    }).addTo(osmap).bindPopup("<h4>" + node.Municipio + "</h4><p>Número de sanciones: " + node.NumSanciones + "</p>");
+                                });
+                            }
+
+                            drawSancionesGuadalquivir();
+
+                            /**
+                             * Draws the amount map
+                             */
+                            var drawValorGuadalquivir = function () {
+                                osmap = L.map('mapaAndalucia', {
+                                    scrollWheelZoom: false,
+                                    maxBounds: bounds
+                                }).setView([37.2141193, -4.3873866], defaultZoomLevel);
+
+                                L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+                                    maxZoom: maxZoomLevel,
+                                    minZoom: minZoomLevel,
+                                    attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+                                    id: 'mapbox.light'
+                                }).addTo(osmap);
+
+
+                                guadalquivir_danos.forEach(function (node) {
+                                    L.circle([node.lat, node.long], (getRadius(node.Danos) * 30) + minCircle, {
+                                        // color: '#f00',
+                                        stroke: false,
+                                        fillColor: '#df05e8',
+                                        fillOpacity: 0.6
+                                    }).addTo(osmap).bindPopup("<h4>" + node.Municipio + "</h4><p>Valor de los daños: " + easyNumbersEuro(node.Danos) + "</p>");
+                                });
+                            }
+
+                            /**
+                             * Manages the click in the buttons
+                             */
+                            var numSanciones = document.getElementById("numSancionesAndalucia");
+                            var valorDanos = document.getElementById("valorDanosAndalucia");
+                            var TituloGraficoAndalucia = document.getElementById("tituloGraficoAndalucia");
+                            numSanciones.addEventListener("click", function () {
+                                TituloGraficoAndalucia.textContent = "Número de sanciones";
+                                osmap.off();
+                                osmap.remove();
+                                drawSancionesGuadalquivir();
+                            });
+                            valorDanos.addEventListener("click", function () {
+                                TituloGraficoAndalucia.textContent = "Valor de los daños";
+                                osmap.off();
+                                osmap.remove();
+                                drawValorGuadalquivir();
+                            });
+
+                            /* END SCRIPTS */
+
+                        });
+
+                    </script>
+
+                    <!-- FIGURE -->
+                    <!-- FIGURE FOOTER -->
+                    <div class="clearfix mb-5">
+
+                      <span class="float-left">
+                          <small><strong>Source:</strong> <a target="_blank" href="https://es.greenpeace.org/">Greenpeace</a></small>
+                      </span>
+
+                      <span class="float-right">
+
+                      <!-- MAKE SURE THE DATA-TARGET MATCHES THE ID -->
+
+                                <small><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" title="Difundir este mapa" style="vertical-align: middle;" onclick="typeof(ga) == 'function' && ga('send', 'event', 'EventCat', 'click', 'Descargar')">
+                                    <img src="https://storage.googleapis.com/es-greenpeace-org/ico/download.svg" style="vertical-align: text-bottom; height: 15px;" />
+                                    Download
+                                </a></small>
+                            </span>
+                    </div>
+                    <!-- /FIGURE FOOTER -->
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <p>Sometimes you need full flexibility and the best way to achieve it is to draw the bubbles over a real detailed map. This will allow you to focus on a specific region, control the content on the bubbles and mix circles with other elements on the same map.</p>
+                    <p>For more information check the <a href="advanced-maps.html">section about maps</a> in this guide.</p>
+                    <p>
+                        <!-- <a class="btn btn-outline-dark" target="_blank" href="#">Copy map</a> -->
+                        <a class="btn btn-secondary" target="_blank" href="https://leafletjs.com/reference-1.4.0.html">Docs</a>
+                    </p>
+                    <!-- EXAMPLES
+                    <ul class="nav nav-pills examples">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Examples</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" target="_blank" href="#">Wells</a>
+                            </div>
+                        </li>
+                    </ul>
+                    EXAMPLES -->
+
+                </div>
+            </div>
+
             <hr />
             
-            <p><strong>Please note:</strong> the 3 maps on this page require a <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">Google Maps JavaScript API key</a>. The key used in this page can be used in <code>*.greenpeace.org/*</code> pages and a few development/Greenpeace domains, but it won’t work elsewhere.</p>
+            <p><strong>Please note:</strong> the first 3 maps on this page require a <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">Google Maps JavaScript API key</a>. The key used in this page can be used in <code>*.greenpeace.org/*</code> pages and a few development/Greenpeace domains, but it won’t work elsewhere.</p>
 
             <p>&nbsp;</p>
             <p class="text-center"><a class="btn btn-dark" href="tables.html">Prev</a> <a class="btn btn-dark" href="advanced-maps.html">Next</a></p>

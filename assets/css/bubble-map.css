@@ -1,0 +1,38 @@
+/* BEGIN STYLES */
+
+#mapaAndalucia h4 {
+    font-size: 15px !important;
+    padding-left: 0;
+}
+
+#mapaAndalucia p {
+    padding-left: 0;
+}
+
+#notaSobreEscala {
+    margin-bottom: 1em;
+    line-height: 13px;
+    margin-top: 0.2em;
+}
+
+#notaSobreEscala small {
+    font-size: 11px;
+}
+
+#tituloGraficoAndalucia {
+    font-size: 23px !important;
+}
+
+#numSancionesAndalucia, #valorDanosAndalucia {
+    background-color: #2ab20b;
+    font: 700 14px Rubik,sans-serif;
+    color: #fff !important;
+    padding: 6px 8px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    margin-bottom: 5px;
+}
+
+/* END STYLES */
