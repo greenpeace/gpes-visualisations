@@ -792,18 +792,11 @@
 
                             var incrementPerSecond = 20;
 
-                            window.odometerOptions = {
-                              auto: false,
-                              selector: '.odometer2',
-                              format: '(,ddd).dd',
-                              duration: 2000
-                            };
-
                             var el = document.querySelector('.odometer2');
 
                             odometer = new Odometer({
                                 el: el,
-                                value: 2600000000,
+                                value: initial,
                                 format: '(.ddd),dd',
                                 duration: 2000
                             });
