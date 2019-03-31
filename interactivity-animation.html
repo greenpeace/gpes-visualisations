@@ -66,7 +66,7 @@
 
             <div class="row">
                 <div class="col-sm-12">
-                    <h2><a name="page-interactivity" href="#page-interactivity" title="Click to get this section's URL">&rtrif;</a> Page Interactivity</h2>
+                    <h2><a name="page-interactivity" href="#page-interactivity" title="Click to get this section's URL">&rtrif;</a> Page interactivity</h2>
 
                     <h3>Trigger actions on scroll</h3>
 
@@ -89,9 +89,38 @@
 
                     <p>Charts and maps are interactive by default, and generally it’s fine to leave it as it is. Most of this interactions are discreet and useful.</p>
 
-                    <p>We can add interactivity to our infographics, but we must plan it ahead and spend time developing and testing. We can do anything, but it doesn’t mean we can do everything.</p>
+                    
 
                     <p>Finally our web pages can have links or buttons that control a video on the same page. We can also add Google Street Maps or compare two photos. <a href="multimedia.html">More information &rarr;</a></p>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                    
+                            <h2><a name="interactivity-infographics" href="#interactivity-infographics" title="Click to get this section's URL">&rtrif;</a>Interactivity in infographics</h2>
+
+                            <p>We can add interactivity to our <a href="sizes-formats-files.html#file-types">svg</a> infographics, but we must plan it ahead and spend time developing and testing.</p>
+
+                            <h3>1. Organise your infographic to add interactivity afterwards</h3>
+
+                            <p>If you use Adobe Ilustrator to design your infographics, make it easier to program interactions and animations by:</p>
+
+                            <ol>
+                                <li>Organizing elements in <a href="https://helpx.adobe.com/illustrator/using/layers.html" target="_blank">layers</a> and naming this layers with meaningful names, according to their function. For example: background, main, buttons, boxes.</li>
+                                <li>Using sublayers to to create units and name them with meaningful names: help-button, return-button, help-box, hint-box. A sublayer should contain a unit/structure that the user interacts with.</li>
+                                <li>Describing interactions in a separate text document. Use the previous layer and sublayer names in this descriptions.</li>
+                            </ol>
+
+                            <p>Important: The <a href="sizes-formats-files.html#sizes">four sizes</a> should have the same layers and sublayers and use the same names. We'll try to keep the javascript as compatible as possible to save time and prevent mistakes.</p>
+
+                            <h3>2. Program interactions in your infographics</h3>
+
+                            <p>SVG infographics can have interactivity and this interactivity is programed in javascript. We use the <a href="https://svgjs.com/" target="_blank">svgjs</a> javascript library to program this interactions.</p>
+                            
+                            <p>We start programing from properly organised Adobe Ilustrator svgs with named layers and sublayers, as described previously in this page.</p>
+                            
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
 
