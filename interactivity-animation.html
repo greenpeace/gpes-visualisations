@@ -62,180 +62,105 @@
             </nav>
             <h1>Interactivity and animation</h1>
 
-            <p class="lead"> Visualsation interactivity happens inside the visualisation.</p>
+            <p class="lead">We can consider spending (lots of) time adding interactivity or animation to an infographic when we are sure that it will <strong>add value</strong> and that it will be <strong>seen by thousands</strong> of persons. If your animation/interaction is cheesy or it makes it harder for the user to understand the message, it’s better not to use it at all.</p>
 
             <div class="row">
                 <div class="col-sm-12">
 
-                    <h2><a name="interactivity" href="#interactivity" title="Click to get this section's URL">&rtrif;</a> Visualisation interactivity</h2>
+                    <p>Interactivity can improve data visualisation and message understanding. It can help when comparing data, understanding processes or displaying extra information. Interactivity can be in:</p>
+                    
+                    <ul>
+                        <li>Pages</li>
+                        <li>Animated infographics</li>
+                        <li>Videos</li>
+                        <li>Charts and maps</li>
+                    </ul>
 
-                    <p>We can consider spending (lots of) time adding interactivity or animation to an infographic when we are sure that it will <strong>add value</strong> and that it will be <strong>seen by thousands</strong> of persons. If your animation/interaction is cheesy or it makes it harder for the user to understand the message, it’s better not to use it at all.</p>
+                    <h2><a name="page-interactivity" href="#page-interactivity" title="Click to get this section's URL">&rtrif;</a> Interactive pages</h2>
 
-                    <p>Interactivity can improve data visualisation and message understanding. This doesn’t mean it suits all infographics and charts, as it can become a distraction. Often interactivity helps when comparing data, understand processes or displaying extra information. If your interactivity is decorative only, it’s probably better to take it off.</p>
+                    <p>Page interactivity happens in the page where we put the visualisations but outside of them. Normally we use two types of interactivity:</p>
+
+                    <h3>1. Trigger actions/animations on scroll</h3>
+
+                    <p>Our pages include a framework that allows us to trigger actions with the users scrolls one of our pages. This can be used to start animations or videos when the users begins to see it and to stop them if the user stops seeing them.</p>
+
+                    <p>Ask your developer to program this! It's not easy for someone who doesn't know how to program in Javascript. We can't make this easier for now, sorry!</p>
+
+                    <h3>2. Non-linear ways of presenting information</h3>
+
+                    <p>We can add hidden text to go in-depth certain issues without adding too much information. To accomplish this we have two tools: <strong>modals</strong> and <strong>hidden boxes</strong>. Hidden boxes will show the information on the page flow and modals open a "popup" that can be closed when the users want.</p>
+
+                    <h4>Hidden boxes</h4>
+
+                    <p>Creating hidden boxes is very easy as we have a shortcode and Wordpress plugin to do it. Click the "Add post element" button and select "caja escondida". Fill the form and it creates a link and hidden box.</p>
+
+                    <p><a href="https://es.greenpeace.org/es/noticias/dia-mundial-sin-carne-5-formas-de-reducir-su-consumo/" target="_blank">This blog post</a> has a hidden box. Click the link "Descubre lo que dice esta guía respecto a la carne" to see how it works.</p>
+
+                    <h4>Modals</h4>
+
+                    <p>Creating modals requires adding raw html code to the page. It's not required to know Javascript or CSS, just plain html.</p>
+
+                    <ol>
+                        <li>Copy/paste the <strong>html example</strong> to an empty html file in your code editor (in your computer). <a href="https://jsfiddle.net/osvik/vn26ubgf/embedded/result,html/" target="_blank">Example code.</a></li>
+                        <li><strong>Edit</strong> the example html and add your content.</li>
+                        <li><strong>Upload the html file</strong> with your code/content in the Wordpress Media Library.</li>
+                        <li><strong>Add the html modal</strong> to the page by clicking the "Add post element" button and select "Import Text File". Fill the URL field as explained bellow the place where you must fill it.</li>
+                        <li>Preview or post your page and click the link to <strong>confirm that the modal works</strong> as it should.</li>
+                    </ol>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    
+                    <h2><a name="interactivity-infographics" href="#interactivity-infographics" title="Click to get this section's URL">&rtrif;</a>Interactive animated infographics</h2>
+
+                    <p>We can add interactivity and animations to our <a href="sizes-formats-files.html#file-types">svg</a> infographics, but we must plan it ahead and spend time developing and testing.</p>
+
+                    <h3>1. Organise your infographic to add interactivity afterwards</h3>
+
+                    <p>If you use Adobe Ilustrator to design your infographics, make it easier to program interactions and animations by:</p>
+
+                    <ol>
+                        <li>Organizing elements in <a href="https://helpx.adobe.com/illustrator/using/layers.html" target="_blank">layers</a> and naming this layers with meaningful names, according to their function. For example: background, main, buttons, boxes.</li>
+                        <li>Using sublayers to to create units and name them with meaningful names: help-button, return-button, help-box, hint-box. A sublayer should contain a unit/structure that the user interacts with.</li>
+                        <li>Describing interactions in a separate text document. Use the previous layer and sublayer names in this descriptions.</li>
+                    </ol>
+
+                    <p>Important: The <a href="sizes-formats-files.html#sizes">four sizes</a> should have the same layers and sublayers and use the same names. We'll try to keep the javascript as compatible as possible to save time and prevent mistakes.</p>
+
+                    <h3>2. Program interactions in your infographics</h3>
+
+                    <p>SVG infographics can have interactivity and this interactivity is programed in javascript. We use the <a href="https://svgjs.com/" target="_blank">svgjs</a> javascript library to program this interactions.</p>
+
+                    <ol>
+                        <li>Start programing from properly organised Adobe Ilustrator svgs with named layers and sublayers, as described previously in this page.</li>
+                        <li>Add the links to the font files and svgjs as in <a href="https://jsfiddle.net/osvik/xrk5wLju/" target="_blank">this example</a>.</li>
+                        <li>Develop all in the interactions and animations for one of the <a href="sizes-formats-files.html#sizes">four sizes</a> and repeat and adjust for the other three.</li>
+                    </ol>
+
+                    <h3>3. Add animations</h3>
+
+                    <p>Generally, to create simple animations we just need to define the initial and end positions for each object, the timing and the event that triggers the animation.</p>
+
+                    <p>Use <a href="https://svgjs.com/" target="_blank">svgjs</a> and css to add <strong>simple animation</strong> to your infographics. We are looking into using <a href="https://greensock.com/" target="_blank">Greensock</a> for <strong>complex</strong> animations but so far it's not necessary and adds a lot of complexity.</p>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+
+
+                    <h2><a name="interactive-videos" href="#interactive-videos" title="Click to get this section's URL">&rtrif;</a> Interactive videos</h2>
+
+                    <p>Complex animations should be presented inside a video or interactive video. For more information see the video in the <a href="multimedia.html">multimedia page</a> of this guide.</p>
+
+                    <h2><a name="interactive-charts-maps" href="#interactive-charts-maps" title="Click to get this section's URL">&rtrif;</a> Interactive charts and maps</h2>
 
                     <p>Charts and maps are interactive by default, and generally it’s fine to leave it as it is. Most of this interactions are discreet and useful.</p>
 
-                    
-
-                    <p>Finally our web pages can have links or buttons that control a video on the same page. We can also add Google Street Maps or compare two photos. <a href="multimedia.html">More information &rarr;</a></p>
-                    
-                    <div class="card">
-                        <div class="card-body">
-                            <h2><a name="page-interactivity" href="#page-interactivity" title="Click to get this section's URL">&rtrif;</a> Interactive pages</h2>
-
-                            <p>Page interactivity happens in the page where we put the visualisations but outside of them. Normally we use two types of interactivity:</p>
-
-                            <h3>1. Trigger actions/animations on scroll</h3>
-
-                            <p>Our pages include a framework that allows us to trigger actions with the users scrolls one of our pages. This can be used to start animations or videos when the users begins to see it and to stop them if the user stops seeing them.</p>
-
-                            <p>Ask your developer to program this</p>
-
-                            <h3>2. Non-linear ways of adding the information</h3>
-
-                            <p>We can add hidden text to go in-depth certain issues without adding too much information. To accomplish this we have two tools: <strong>modals</strong> and <strong>hidden boxes</strong>. Hidden boxes will show the information on the page flow and modals open a "popup" that can be closed when the users want.</p>
-
-                            <h4>Hidden boxes</h4>
-
-                            <p>Creating hidden boxes is very easy as we have a shortcode and Wordpress plugin to do it. Click the "Add post element" button and select "caja escondida". Fill the form and it creates a link and hidden box.</p>
-
-                            <p><a href="https://es.greenpeace.org/es/noticias/dia-mundial-sin-carne-5-formas-de-reducir-su-consumo/" target="_blank">This blog post</a> has a hidden box. Click the link "Descubre lo que dice esta guía respecto a la carne" to see how it works.</p>
-
-                            <h4>Modals</h4>
-
-                            <p>Creating modals requires adding raw html code to the page. It's not required to know Javascript or CSS, just plain html.</p>
-
-                            <ol>
-                                <li>Copy/paste the html example to an empty html file in your code editor (in your computer) <span style="color: red">Add example code here.</span></li>
-                                <li>Edit the example html and add your content.</li>
-                                <li>Upload the html with your code/content in the Wordpress Media Library.</li>
-                                <li>Click the "Add post element" button and select "Import Text File". Fill the URL field as explained bellow the form.</li>
-                                <li>Add a link to open the modal <span style="color: red">Add code.</span></li>
-                                <li>Preview or post your page to see the modal.</li>
-                            </ol>
-
-
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-
-
-                    <div class="card">
-                        <div class="card-body">
-                    
-                            <h2><a name="interactivity-infographics" href="#interactivity-infographics" title="Click to get this section's URL">&rtrif;</a>Interactive animated infographics</h2>
-
-                            <p>We can add interactivity and animations to our <a href="sizes-formats-files.html#file-types">svg</a> infographics, but we must plan it ahead and spend time developing and testing.</p>
-
-                            <h3>1. Organise your infographic to add interactivity afterwards</h3>
-
-                            <p>If you use Adobe Ilustrator to design your infographics, make it easier to program interactions and animations by:</p>
-
-                            <ol>
-                                <li>Organizing elements in <a href="https://helpx.adobe.com/illustrator/using/layers.html" target="_blank">layers</a> and naming this layers with meaningful names, according to their function. For example: background, main, buttons, boxes.</li>
-                                <li>Using sublayers to to create units and name them with meaningful names: help-button, return-button, help-box, hint-box. A sublayer should contain a unit/structure that the user interacts with.</li>
-                                <li>Describing interactions in a separate text document. Use the previous layer and sublayer names in this descriptions.</li>
-                            </ol>
-
-                            <p>Important: The <a href="sizes-formats-files.html#sizes">four sizes</a> should have the same layers and sublayers and use the same names. We'll try to keep the javascript as compatible as possible to save time and prevent mistakes.</p>
-
-                            <h3>2. Program interactions in your infographics</h3>
-
-                            <p>SVG infographics can have interactivity and this interactivity is programed in javascript. We use the <a href="https://svgjs.com/" target="_blank">svgjs</a> javascript library to program this interactions.</p>
-                            
-                            <ol>
-                                <li>Start programing from properly organised Adobe Ilustrator svgs with named layers and sublayers, as described previously in this page.</li>
-                                <li>Add the links to the font files and svgjs as in <a href="https://jsfiddle.net/osvik/xrk5wLju/" target="_blank">this example</a>.</li>
-                                <li>Develop all in the interactions and animations for one of the <a href="sizes-formats-files.html#sizes">four sizes</a> and repeat and adjust for the other three.</li>
-                            </ol>
-                            
-                            <h3>3. Add animations</h3>
-
-                            <p>Use <a href="https://svgjs.com/" target="_blank">svgjs</a> to add simple animation to your infographics. We are looking into using <a href="https://greensock.com/">Greensock</a> for complex animations but so far it's not necessary and adds complexity.</p>
-
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12 col-md-4">
-                    <!-- https://cdn.jsdelivr.net/npm/snapsvg@0.5.1 https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js -->
-                    <!-- FIGURE -->
-                    <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1" defer></script>
-                    <style>
-                        #svg {
-                          display: block;
-                          margin: 20px auto;
-                          width: 125px;
-                          height: 125px;
-                          padding: 20px;
-                          fill: #66cc00;
-                          cursor: pointer;
-                        }
-                    </style>
-                    <svg id="svg"></svg>
-                    <script>
-                        window.onload = function() {
-
-                            var paper = Snap('svg');
-                            var tri = paper.path("M1.112 41.587C.402 40.213 0 38.653 0 37c0-3.465 1.76-6.518 4.44-8.312L28.73 3.532c3.834-3.97 10.163-4.08 14.136-.244 3.973 3.837 4.084 10.167.25 14.137L33.872 27h33.12C72.52 27 77 31.476 77 37c0 5.523-4.473 10-10.007 10H33.8l9.04 9.037c3.902 3.904 3.902 10.233-.005 14.14-3.905 3.904-10.236 3.905-14.14.002L3.236 44.716c-.93-.928-1.636-1.993-2.123-3.13z");
-                            tri.attr({
-                                id:"Arrow",
-                            });
-
-                            TransformFunction = function(){
-                                tri.animate({d:"M30.448 17.54l13.99-14.485c3.836-3.974 10.166-4.086 14.14-.248 3.973 3.836 4.09 10.16.246 14.14L44.592 31.686 57.38 44.473c3.906 3.907 3.908 10.24.002 14.145-3.905 3.905-10.237 3.905-14.144-.002l-12.54-12.542-13.5 13.98c-3.838 3.973-10.17 4.085-14.142.248-3.973-3.837-4.09-10.16-.246-14.14L16.552 31.93 3.384 18.762C-.522 14.856-.524 8.524 3.382 4.618 7.287.713 13.62.713 17.527 4.62l12.92 12.92z" },1500,mina.elastic);
-                            }
-
-                            RetransformFunction = function(){
-                                tri.animate({d:"M1.112 41.587C.402 40.213 0 38.653 0 37c0-3.465 1.76-6.518 4.44-8.312L28.73 3.532c3.834-3.97 10.163-4.08 14.136-.244 3.973 3.837 4.084 10.167.25 14.137L33.872 27h33.12C72.52 27 77 31.476 77 37c0 5.523-4.473 10-10.007 10H33.8l9.04 9.037c3.902 3.904 3.902 10.233-.005 14.14-3.905 3.904-10.236 3.905-14.14.002L3.236 44.716c-.93-.928-1.636-1.993-2.123-3.13z"},1500,mina.elastic);
-                            }
-                            // setTimeout(TransformFunction, 200);
-                            // setTimeout(RetransformFunction, 1700);
-
-                            paper.click(function() {
-                            setTimeout(TransformFunction, 200);
-                            setTimeout(RetransformFunction, 1700);
-
-                            });
-
-                        }
-                    </script>
-
-
-                    <!-- FIGURE -->
-                    <p><small>Click the icon above to start a simple animation.</small></p>
-                </div>
-                <div class="col-sm-12 col-md-8">
-                    <h2><a name="animation" href="#animation" title="Click to get this section's URL">&rtrif;</a> Animation</h2>
-
-                    <h3>Charts</h3>
-
-                    <p>Most of the charts in this style guide already have animations to help understanding data or to draw the user’s attention to a specific detail.</p>
-
-                    <h3>Infographics</h3>
-
-                    <p>We can animate infographics in SVG format. To see a very simple example click the previous green arrow.</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <p>Generally in simple animation we just need to define initial and end positions for each object, timing and event that triggers the animation.</p>
-
-                    <p>With Inkscape you can create two layers. In the first layer you put the objects in it’s initial position and in the second layer put a copy of the objects in it’s final position. There’s a few more recommendations, but should be discussed between developer and designer.</p>
-
-                    <h3>Videos</h3>
-
-                    <p>Complex animations should be presented inside a video or interactive video. For more information see the video in the <a href="multimedia.html">multimedia page</a> of this guide.</p>
                 </div>
             </div>
 
