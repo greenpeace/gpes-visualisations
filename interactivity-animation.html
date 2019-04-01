@@ -62,25 +62,11 @@
             </nav>
             <h1>Interactivity and animation</h1>
 
-            <p class="lead">Page interactivity happens in the page where we put the visualisations but outside of them. Visualsation interactivity happens inside the visualisation.</p>
+            <p class="lead"> Visualsation interactivity happens inside the visualisation.</p>
 
             <div class="row">
                 <div class="col-sm-12">
-                    <h2><a name="page-interactivity" href="#page-interactivity" title="Click to get this section's URL">&rtrif;</a> Page interactivity</h2>
 
-                    <h3>Trigger actions on scroll</h3>
-
-                    <p>Our pages include a framework that allows us to trigger actions with the users scrolls one of our pages. This can be used to start animations or videos when the users begins to see it and to stop them if the user stops seeing them.</p>
-
-                    <h3>Non-linear ways of adding the information</h3>
-
-                    <p>We can add hidden text to go in-depth certain issues without adding too much information. To accomplish this we have two tools: modals and hidden boxes. Hidden boxes will show the information on the page flow and modals open a "popup" that can be closed when the users want.</p>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
                     <h2><a name="interactivity" href="#interactivity" title="Click to get this section's URL">&rtrif;</a> Visualisation interactivity</h2>
 
                     <p>We can consider spending (lots of) time adding interactivity or animation to an infographic when we are sure that it will <strong>add value</strong> and that it will be <strong>seen by thousands</strong> of persons. If your animation/interaction is cheesy or it makes it harder for the user to understand the message, it’s better not to use it at all.</p>
@@ -95,10 +81,57 @@
                     
                     <div class="card">
                         <div class="card-body">
-                    
-                            <h2><a name="interactivity-infographics" href="#interactivity-infographics" title="Click to get this section's URL">&rtrif;</a>Interactivity in infographics</h2>
+                            <h2><a name="page-interactivity" href="#page-interactivity" title="Click to get this section's URL">&rtrif;</a> Interactive pages</h2>
 
-                            <p>We can add interactivity to our <a href="sizes-formats-files.html#file-types">svg</a> infographics, but we must plan it ahead and spend time developing and testing.</p>
+                            <p>Page interactivity happens in the page where we put the visualisations but outside of them. Normally we use two types of interactivity:</p>
+
+                            <h3>1. Trigger actions/animations on scroll</h3>
+
+                            <p>Our pages include a framework that allows us to trigger actions with the users scrolls one of our pages. This can be used to start animations or videos when the users begins to see it and to stop them if the user stops seeing them.</p>
+
+                            <p>Ask your developer to program this</p>
+
+                            <h3>2. Non-linear ways of adding the information</h3>
+
+                            <p>We can add hidden text to go in-depth certain issues without adding too much information. To accomplish this we have two tools: <strong>modals</strong> and <strong>hidden boxes</strong>. Hidden boxes will show the information on the page flow and modals open a "popup" that can be closed when the users want.</p>
+
+                            <h4>Hidden boxes</h4>
+
+                            <p>Creating hidden boxes is very easy as we have a shortcode and Wordpress plugin to do it. Click the "Add post element" button and select "caja escondida". Fill the form and it creates a link and hidden box.</p>
+
+                            <p><a href="https://es.greenpeace.org/es/noticias/dia-mundial-sin-carne-5-formas-de-reducir-su-consumo/" target="_blank">This blog post</a> has a hidden box. Click the link "Descubre lo que dice esta guía respecto a la carne" to see how it works.</p>
+
+                            <h4>Modals</h4>
+
+                            <p>Creating modals requires adding raw html code to the page. It's not required to know Javascript or CSS, just plain html.</p>
+
+                            <ol>
+                                <li>Copy/paste the html example to an empty html file in your code editor (in your computer) <span style="color: red">Add example code here.</span></li>
+                                <li>Edit the example html and add your content.</li>
+                                <li>Upload the html with your code/content in the Wordpress Media Library.</li>
+                                <li>Click the "Add post element" button and select "Import Text File". Fill the URL field as explained bellow the form.</li>
+                                <li>Add a link to open the modal <span style="color: red">Add code.</span></li>
+                                <li>Preview or post your page to see the modal.</li>
+                            </ol>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+
+
+                    <div class="card">
+                        <div class="card-body">
+                    
+                            <h2><a name="interactivity-infographics" href="#interactivity-infographics" title="Click to get this section's URL">&rtrif;</a>Interactive animated infographics</h2>
+
+                            <p>We can add interactivity and animations to our <a href="sizes-formats-files.html#file-types">svg</a> infographics, but we must plan it ahead and spend time developing and testing.</p>
 
                             <h3>1. Organise your infographic to add interactivity afterwards</h3>
 
@@ -122,6 +155,10 @@
                                 <li>Develop all in the interactions and animations for one of the <a href="sizes-formats-files.html#sizes">four sizes</a> and repeat and adjust for the other three.</li>
                             </ol>
                             
+                            <h3>3. Add animations</h3>
+
+                            <p>Use <a href="https://svgjs.com/" target="_blank">svgjs</a> to add simple animation to your infographics. We are looking into using <a href="https://greensock.com/">Greensock</a> for complex animations but so far it's not necessary and adds complexity.</p>
+
                         </div>
                     </div>
                     
