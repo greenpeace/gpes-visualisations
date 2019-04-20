@@ -19,7 +19,7 @@
     <link rel="preload" href="assets/css/print.css" media="print" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="preload" href="assets/css/screen.css" media="screen" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 
-    <title>Add an infographic to your website</title>
+    <title>Advanced maps</title>
     <meta name="robots" content="noindex, nofollow" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -57,73 +57,76 @@
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item">Multimedia and infographics</li>
-                <li class="breadcrumb-item" aria-current="page">Add an infographic to your website</li>
+                <li class="breadcrumb-item" aria-current="page">Iframes</li>
               </ol>
             </nav>
-            <h1>Add an infographic to your website</h1>
+            <h1>Iframes</h1>
 
-            <p class="lead">SVG infographics that follow the recommendations in this guide should work and be responsive in all Greenpeace sites and many other sites. This page explains how to insert a responsive infographic in your site.</p>
+            <p class="lead">Normally you should avoid using iframes to insert your visualisations because they can cause all sort of problems when used with responsive design and content with variable height. </p>
+
+            <p>However sometimes iframes are impossible to avoid, either because you can’t control de development environment or because you need to produce an interactive piece in html, css and JavaScript that’s going to be used in other sites. The examples bellow are meant to give you an example on how to overcome certain problems with Iframes.</p>
 
             <div class="row">
-                <div class="col-sm-12 col-lg-8">
-                    <!-- LEFT -->
-
-                    <h2><a name="hosting" href="#hosting" title="Click to get this section's URL">&rtrif;</a> Hosting the infographic</h2>
-
-                    <p>Most infographics should be hosted using Google’s CDN but can be uploaded to the Wordpress media library instead.</p>
-
-                    <h3>A - Upload to Google's CDN</h3>
-
-                    <p>The Google’s CDN should be used to host infographics meant to be shared or when we expect more traffic than usual.</p>
-
-                    <p>Colleagues with access to the <strong><a href="https://console.cloud.google.com/storage/browser/gpes-static?project=arcoiris-1348" target="_blank">gpes-static bucket</a></strong> can upload the infographic's svg files.</p>
-
-                    <p>Please note that Google Cloud Storage (Google's CDN) has a slow cache. If you re-upload a previous uploaded file in the same URL it can take up to one hour to update.</p>
-
-                    <p><img src="assets/img/google-cloud-storage.png" alt="Google Cloud Storage screenshot" class="img-fluid" style="margin-bottom: 1em;" /></p>
-
-                    <h3>B - Upload to Wordpress media library</h3>
-
-                    <p>Upload to Wordpress is generally faster and easier but should be used with caution.</p>
-
-                    <p>Because of our Wordpress cache, re-uploading files will always create a new file with a new URL. If you have shared the files externally the pages will always show the old version. Do not use media library URLs to share infographics externally! Use Google's CDN.</p>
-
-                    <p>Please note that by default Wordpress does not allow uploading html, svg, css or javascript to the media library. Our <a href="https://github.com/greenpeace/gpes-infographics-wp-shortcode" target="_blank">plugin</a> solves that and allows uploading this file types to the media library.</p>
-
-                    <h2><a name="wordpress-plugin" href="#wordpress-plugin" title="Click to get this section's URL">&rtrif;</a> Wordpress plugin</h2>
-
-                    <p>In the Spanish office we developed a Wordpress plugin and a <a href="https://es.wordpress.org/plugins/shortcode-ui/" target="_blank">shortcake</a> block to easily publish responsive infographics in our website. The plugin is open source and can be used by Planet 4 and many other Wordpress sites.<strong> <a href="https://github.com/greenpeace/gpes-infographics-wp-shortcode" target="_blank">More information</a></strong></p>
-
-                    <h3>How to use</h3>
-
-                    <p>If your site already has the plugin installed you can simply:</p>
-
-                    <ol>
-                        <li>Upload the 4 debugged and optimised SVG files as described above and take note on the URLS</li>
-                        <li>Click <strong>Add post element</strong> and choose the <strong>Responsive SVG infographic</strong> block</li>
-                        <li>Fill the form adding a unique ID and the 4 urls. Then click <strong>Insert element</strong>.</li>
-                        <li>You should be able to see the infograph inside Wordpress backend</li>
-                    </ol>
-
-                    <p><img src="assets/img/insert-infographic.png" alt="Insert infographic" class="img-fluid" /></p>
-
-                    <p><img src="assets/img/infographic-wordpress-backend.png" alt="Infographic Wordpress backend screenshot" class="img-fluid" /></p>
-
-                    <!-- /LEFT -->
-
+                <div class="col-sm">
+                    <h2><a name="dinamic-height" href="#dinamic-height" title="Click to get this section's URL">&rtrif;</a> Dynamic height and background</h2>
                 </div>
-                <div class="col-sm-12 col-lg-4">
+            </div>
 
-                    <!-- RIGHT -->
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <!-- FIGURE -->
 
+                            <div id="wsap"></div>
+                            <script>
+                                document.addEventListener("DOMContentLoaded",function(){var e=360,t=document.getElementById("wsap"),s=t.offsetWidth;s<480&&(e=s);var n=1.77*e,o=document.createElement("iframe");if(o.setAttribute("width",e),o.setAttribute("height",n),o.setAttribute("src","https://apps.greenpeace.es/gpes-whatsapp-parody/"),o.style.border="none",e<s){var a=(s-e)/2;o.style.position="absolute",o.style.left=a+"px",o.style.top="10px",n+=20,t.style.height=n+"px",t.style.backgroundColor="#444"}document.getElementById("wsap").appendChild(o)});
+                            </script>
+
+                    <!-- FIGURE -->
+                    <!-- FIGURE FOOTER -->
+                    <div class="clearfix mb-5">
+
+                      <span class="float-left">
+                          <small><strong>Source:</strong> <a target="_blank" href="https://es.greenpeace.org/">Greenpeace</a></small>
+                      </span>
+
+                      <span class="float-right">
+
+                      <!-- MAKE SURE THE DATA-TARGET MATCHES THE ID -->
+
+                                <small><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" title="Difundir este mapa" style="vertical-align: middle;" onclick="typeof(ga) == 'function' && ga('send', 'event', 'EventCat', 'click', 'Descargar')">
+                                    <img src="https://storage.googleapis.com/es-greenpeace-org/ico/download.svg" style="vertical-align: text-bottom; height: 15px;" />
+                                    Download
+                                </a></small>
+                            </span>
+                    </div>
+                    <!-- /FIGURE FOOTER -->
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <p>In this example the width and the height of the iframe is dynamically calculated to fit the place where it’s going to be inserted in. When the width is equal or larger than 480 pixels it inserts a black frame around the iframe. For smaller placement spaces it just occupies the entire available space.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/sav2697p/embedded/result,html/">Copy embed script</a>
+
+                    </p>
+
+                    <!-- EXAMPLES
+                    <ul class="nav nav-pills examples">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Examples</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" target="_blank" href="">Example 1</a>
+                            </div>
+                        </li>
+                    </ul>
+                    EXAMPLES -->
 
                 </div>
             </div>
 
 
             <p>&nbsp;</p>
-            <p class="text-center"><a class="btn btn-dark" href="interactivity-animation.html">Prev</a> <a class="btn btn-dark" href="iframes.html">Next</a></p>
+            <p class="text-center"><a class="btn btn-dark" href="add-infographic-to-website.html">Prev</a> <a class="btn btn-dark" href="sharing.html">Next</a></p>
             <p>&nbsp;</p>
+
             <!--
 ------------------------------------------------------------------------------------------------------------------------
 -->
