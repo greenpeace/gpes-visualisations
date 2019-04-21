@@ -19,7 +19,7 @@
     <link rel="preload" href="assets/css/print.css" media="print" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <link rel="preload" href="assets/css/screen.css" media="screen" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 
-    <title>Advanced maps</title>
+    <title>Inserting an iframe in a page</title>
     <meta name="robots" content="noindex, nofollow" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -60,15 +60,15 @@
                 <li class="breadcrumb-item" aria-current="page">Iframes</li>
               </ol>
             </nav>
-            <h1>Iframes</h1>
+            <h1>Inserting an iframe in a page</h1>
 
             <p class="lead">Normally you should avoid using iframes to insert your visualisations because they can cause all sort of problems when used with responsive design and content with variable height. </p>
 
-            <p>However sometimes iframes are impossible to avoid, either because you can’t control de development environment or because you need to produce an interactive piece in html, css and JavaScript that’s going to be used in other sites. The examples bellow are meant to give you an example on how to overcome certain problems with Iframes.</p>
+            <p>However sometimes iframes are impossible to avoid, either because you can’t control de development environment or because you need to produce an interactive piece in html, css and JavaScript that’s going to be used in other sites. The examples bellow are meant to give you an <strong>idea on how to overcome certain problems with Iframes.</strong></p>
 
             <div class="row">
                 <div class="col-sm">
-                    <h2><a name="dinamic-height" href="#dinamic-height" title="Click to get this section's URL">&rtrif;</a> Dynamic height and background</h2>
+                    <h2><a name="calculated-height" href="#calculated-height" title="Click to get this section's URL">&rtrif;</a> Calculated height and frame background</h2>
                 </div>
             </div>
 
@@ -102,7 +102,12 @@
                     <!-- /FIGURE FOOTER -->
                 </div>
                 <div class="col-sm-12 col-md-4">
-                    <p>In this example the width and the height of the iframe is dynamically calculated to fit the place where it’s going to be inserted in. When the width is equal or larger than 480 pixels it inserts a black frame around the iframe. For smaller placement spaces it just occupies the entire available space.</p>
+                    <p>In this example the width and the height of the iframe is dynamically calculated to fit the place where it’s going to be inserted in.</p>
+                    <ul>
+                        <li>When the width of the place it's going to be inserted in is equal or larger than 480 pixels, it inserts a black frame around the iframe and sets the iframe size to 360x637.</li>
+                        <li>When the width of the place it's going to be inserted is smaller than 480px, it just scales the iframe in the page.</li>
+                    </ul>
+                    <p></p>
                     <p>
                         <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/sav2697p/embedded/result,html/">Copy embed script</a>
 
