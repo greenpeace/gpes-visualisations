@@ -21,8 +21,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.2/dist/Chart.bundle.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@1.0.1" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@0.5.7/chartjs-plugin-annotation.min.js" defer></script>
 
-    <title>Line charts</title>
+    
+    <title>Line charts and mixed charts</title>
     <meta name="robots" content="noindex, nofollow" />
     
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -60,10 +62,10 @@
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item">Charts and tables</li>
-                <li class="breadcrumb-item" aria-current="page">Line charts</li>
+                <li class="breadcrumb-item" aria-current="page">Line charts and mixed charts</li>
               </ol>
             </nav>
-            <h1>Line charts</h1>
+            <h1>Line charts and mixed charts</h1>
 
             <p class="lead">Capable of representing more data than bar charts, without becoming confusing.</p>
 
@@ -199,6 +201,7 @@
                                 <a class="dropdown-item" target="_blank" href="https://es.greenpeace.org/es/trabajamos-en/democracia-y-contrapoder/analisis-medioambiental-de-los-presupuestos-generales-2019/mas-fondos-para-la-oficina-de-cambio-climatico-y-parques-nacionales/">National budget</a>
                                 <a class="dropdown-item" target="_blank" href="https://es.greenpeace.org/es/trabajamos-en/democracia-y-contrapoder/analisis-medioambiental-de-los-presupuestos-generales-2019/cierta-mejora-en-la-gestion-del-agua/">Improvements in watter management</a>
                                 <a class="dropdown-item" target="_blank" href="https://es.greenpeace.org/es/trabajamos-en/democracia-y-contrapoder/analisis-medioambiental-de-los-presupuestos-generales-2019/defensa-no-se-aprieta-el-cinturon/">Defense budgets</a>
+                                <a class="dropdown-item" target="_blank" href="https://es.greenpeace.org/es/noticias/cinco-anos-enviando-sufrimiento-a-yemen/">Five years sending suffering to Yemen</a>
                             </div>
                         </li>
                     </ul>
@@ -610,6 +613,225 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Examples</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" target="_blank" href="https://es.greenpeace.org/es/en-profundidad/ayudas-opacas-a-las-energias-sucias-en-tu-factura/">Dirty energy in your invoice</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- EXAMPLES -->
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2><a name="mixed-charts" href="#mixed-charts" title="Click to get this section's URL">&rtrif;</a> Mixed charts</h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <!-- FIGURE -->
+                    <div class="chart-container" lang="es-ES" style="position: relative; height:auto; width:100%">
+                      <canvas id="covid_chart_1" width="350" height="250"></canvas>
+                    </div>
+                    <script>
+                      document.addEventListener("DOMContentLoaded", function(event) {
+
+                            var chartData = {
+                                labels: ['marzo 2019', 'feb 2020', '10 mar', '11 mar', '12 mar', '13 mar', '14 mar', '15 mar', '16 mar', '17 mar', '18 mar', '19 mar' , '20 mar', '21 mar', '22 mar', '23 mar', '24 mar', '25 mar', '26 mar'],
+                                datasets: [
+
+                                {
+                                    type: 'line',
+                                    label: 'max',
+                                    borderColor: 'rgba(255, 77, 22, 1)',
+                                    borderWidth: 2,
+                                    fill: false,
+                                    data: [
+                                        ,
+                                        ,
+                                        87,
+                                        81,
+                                        72,
+                                        56,
+                                        35,
+                                        27,
+                                        24,
+                                        28,
+                                        42,
+                                        35,
+                                        26,
+                                        17,
+                                        15,
+                                        28,
+                                        22,
+                                        22,
+                                        36,
+
+                                    ]
+                                }, {
+                                    type: 'line',
+                                    label: 'min',
+                                    borderColor: 'rgba(255, 160, 0, 1)',
+                                    borderWidth: 2,
+                                    fill: false,
+                                    data: [
+                                        ,
+                                        ,
+                                        25,
+                                        26,
+                                        22,
+                                        15,
+                                        8,
+                                        6,
+                                        8,
+                                        4,
+                                        14,
+                                        11,
+                                        7,
+                                        4,
+                                        4,
+                                        5,
+                                        2,
+                                        6,
+                                        9,
+                                    ]
+                                }, {
+                                    type: 'bar',
+                                    label: 'media',
+                                    backgroundColor: 'rgba(134, 139, 134, 1)',
+                                    data: [
+                                        36,
+                                        45,
+                                        66,
+                                        65,
+                                        54,
+                                        40,
+                                        21,
+                                        15,
+                                        16,
+                                        17,
+                                        30,
+                                        18,
+                                        13,
+                                        12,
+                                        9,
+                                        16,
+                                        11,
+                                        16,
+                                        21,
+
+                                    ]
+                                }
+
+                                ]
+
+                            };
+
+                            var ctx = document.getElementById('covid_chart_1').getContext('2d');
+                            var myMixedChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: chartData,
+                                options: {
+                                    responsive: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Media diaria de NO2 en Madrid',
+                                        fontSize: 16,
+                                        fontFamily: '"Work Sans",sans-serif',
+                                        fontColor: '#212529'
+                                    },
+                                    tooltips: {
+                                        mode: 'index',
+                                        intersect: true
+                                    },
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                              // beginAtZero: true,
+                                              fontFamily: '"Work Sans",sans-serif',
+                                              fontColor: '#212529'
+                                            },
+                                            scaleLabel: {
+                                              display: true,
+                                              labelString: 'mcg/m3',
+                                              fontFamily: '"Work Sans",sans-serif',
+                                              fontColor: '#212529'
+                                            }
+                                          }],
+                                        xAxes: [{
+                                            ticks: {
+                                                fontFamily: '"Work Sans",sans-serif',
+                                                fontColor: '#212529',
+                                                autoSkip: false,
+                                                maxRotation: 90,
+                                                minRotation: 90
+                                            }
+                                        }]
+                                    },
+                                    layout: {
+                                      padding: {
+                                        bottom: 5
+                                      }
+                                    },
+
+
+                                    annotation: {
+                                        annotations: [{
+                                        id: 'hline',
+                                        type: 'line',
+                                        mode: 'horizontal',
+                                        scaleID: 'y-axis-0',
+                                        value: 40,
+                                        borderColor: 'rgba(122, 189, 148, 1)',
+                                        borderWidth: 1,
+                                        label: {
+                                            backgroundColor: "rgba(122, 189, 148, 1)",
+                                            content: "Límite OMS",
+                                            fontFamily: '"Work Sans",sans-serif',
+                                            fontColor: '#555555',
+                                            enabled: true
+                                        },
+                                        }]
+                                    }
+
+                                }
+                            });
+
+
+                      });
+
+                    </script>
+                    <!-- FIGURE -->
+                    <!-- FIGURE FOOTER -->
+                    <div class="clearfix mb-3">
+
+                      <span class="float-left">
+                          <small><strong>Source:</strong> <a target="_blank" href="https://es.greenpeace.org/">Greenpeace</a></small>
+                      </span>
+
+                      <span class="float-right">
+
+                      <!-- MAKE SURE THE DATA-TARGET MATCHES THE ID -->
+
+                                <small><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" title="Difundir este mapa" style="vertical-align: middle;" onclick="typeof(ga) == 'function' && ga('send', 'event', 'EventCat', 'click', 'Descargar')">
+                                    <img src="https://storage.googleapis.com/es-greenpeace-org/ico/download.svg" style="vertical-align: text-bottom; height: 15px;" />
+                                    Download
+                                </a></small>
+                            </span>
+                    </div>
+                    <!-- /FIGURE FOOTER -->
+                </div>
+                    <div class="col-sm-12 col-md-4">
+                    <p>Mixing line charts with bar charts.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/osvik/5k971ajh/embedded/result,html/">Copy chart</a>
+                        <a class="btn btn-secondary" target="_blank" href="https://www.chartjs.org/docs/latest/charts/mixed.html">Docs</a>
+                    </p>
+                    <!-- EXAMPLES -->                  
+                    <ul class="nav nav-pills examples">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Examples</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" target="_blank" href="#FIXME">Covid 19 pollution</a>
                             </div>
                         </li>
                     </ul>
