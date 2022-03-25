@@ -224,6 +224,68 @@
 
                 </div>
             </div>
+            
+            <div class="row">
+                <div class="col-sm">
+                    <h2><a name="openstreetmap-geojson" href="#openstreetmap-geojson" title="Click to get this section's URL">&rtrif;</a> OpenStreetMap GeoJson maps</h2>
+                </div>
+            </div>
+            
+            
+            <div class="row">
+                <div class="col-sm-12 col-md-8">
+                    <!-- CUSTOM TITLES MAP -->
+
+                    <!-- MAPA DE UCRANIA NUCLEAR -->
+                    <link rel="preload" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" as="style" onload="this.rel='stylesheet'" />
+                    <link rel="preload" href="https://storage.googleapis.com/gpes-static/ucrania-nuclear-map/styles.css?3" as="style" onload="this.rel='stylesheet'" />
+                    <div id="ukraine_nuclear_map" style="width: 100%; height: 550px;"></div>
+                    <p><img src="https://storage.googleapis.com/gpes-static/ucrania-nuclear-map/ucrania-ocupada.png" style="vertical-align:middle; height: 11px; border: 2.5px solid rgb(169,102,100)" /> Ucrania ocupada</p>
+                    <p class="mapfooter"><small>© 2022 - Greenpeace</small></p>
+                    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" defer></script>
+                    <script src="https://storage.googleapis.com/gpes-static/ucrania-nuclear-map/scripts.js?5" defer></script>
+                    <!-- MAPA DE UCRANIA NUCLEAR -->
+
+
+                    <!-- /CUSTOM TITLES MAP -->
+                    <!-- FIGURE FOOTER -->
+                    <div class="clearfix mb-5">
+
+                      <span class="float-left">
+                          <small><strong>Source:</strong> <a target="_blank" href="https://es.greenpeace.org/">Greenpeace</a></small>
+                      </span>
+
+                      <span class="float-right">
+
+                      <!-- MAKE SURE THE DATA-TARGET MATCHES THE ID -->
+
+                                <small><a href="javascript:void(0);" data-toggle="modal" data-target="#exampleModal" title="Difundir este mapa" style="vertical-align: middle;" onclick="typeof(ga) == 'function' && ga('send', 'event', 'EventCat', 'click', 'Descargar')">
+                                    <img src="https://storage.googleapis.com/es-greenpeace-org/ico/download.svg" style="vertical-align: text-bottom; height: 15px;" />
+                                    Download
+                                </a></small>
+                            </span>
+                    </div>
+                    <!-- /FIGURE FOOTER -->
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <p>You can insert multiple GeoJson files in one map, making it easier to edit latter. This map’s information was exported from CartoDB and the user experience was optimized and simplified.</p>
+                    <p>
+                        <a class="btn btn-outline-dark" target="_blank" href="http://geojson.io/">Geo Json editor</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://jsfiddle.net/greenpeace/s0p8ewrc/embedded/result,html/">Code to insert</a>
+                        <a class="btn btn-outline-dark" target="_blank" href="https://github.com/greenpeace/gpes-ukraine-NPP-map">Github repository</a>
+                    </p>
+                    <!-- EXAMPLES -->                  
+                    <ul class="nav nav-pills examples">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Examples</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" target="_blank" href="https://es.greenpeace.org/es/en-profundidad/guerra-en-ucrania/peligro-nuclear-por-la-guerra-en-ucrania/">War and nuclear plants in Ukraine</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- EXAMPLES -->
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-sm">
